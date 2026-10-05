@@ -1,0 +1,2653 @@
+crisno,crisis_name,cracid,actor,intervener_category_id,intervener_category
+1,Russian Civil War I,20,Canada,5,military intervener
+1,Russian Civil War I,220,France,5,military intervener
+1,Russian Civil War I,740,Japan,5,military intervener
+1,Russian Civil War I,365,Russia (Soviet Union),1,crisis actor
+1,Russian Civil War I,200,U.K.,5,military intervener
+1,Russian Civil War I,2,U.S.,5,military intervener
+2,COSTA RICAN COUP,94,Costa Rica,1,crisis actor
+2,COSTA RICAN COUP,90,Guatemala,2,assurance intervener
+2,COSTA RICAN COUP,91,Honduras,2,assurance intervener
+2,COSTA RICAN COUP,93,Nicaragua,1,crisis actor
+2,COSTA RICAN COUP,2,United States,5,military intervener
+3,RUSSIAN CIVIL WAR II,20,Canada,5,military intervener
+3,RUSSIAN CIVIL WAR II,220,France,5,military intervener
+3,RUSSIAN CIVIL WAR II,365,Russia (Soviet Union),1,crisis actor
+3,RUSSIAN CIVIL WAR II,200,U.K.,5,military intervener
+3,RUSSIAN CIVIL WAR II,2,U.S.,6,none of the above
+4,BALTIC INDEPENDENCE,366,Estonia,1,crisis actor
+4,BALTIC INDEPENDENCE,255,Germany,6,none of the above
+4,BALTIC INDEPENDENCE,367,Latvia,1,crisis actor
+4,BALTIC INDEPENDENCE,368,Lithuania,1,crisis actor
+4,BALTIC INDEPENDENCE,290,Poland,6,none of the above
+4,BALTIC INDEPENDENCE,365,Russia (Soviet Union),1,crisis actor
+4,BALTIC INDEPENDENCE,200,United Kingdom,5,military intervener
+5,TESCHEN,315,Czechoslovakia,1,crisis actor
+5,TESCHEN,220,France,3,diplomatic intervener
+5,TESCHEN,290,Poland,1,crisis actor
+5,TESCHEN,200,United Kingdom,3,diplomatic intervener
+6,HUNGARIAN WAR,315,Czechoslovakia,1,crisis actor
+6,HUNGARIAN WAR,220,France,5,military intervener
+6,HUNGARIAN WAR,310,Hungary,1,crisis actor
+6,HUNGARIAN WAR,290,Poland,5,military intervener
+6,HUNGARIAN WAR,360,Romania,1,crisis actor
+6,HUNGARIAN WAR,365,Russia,3,diplomatic intervener
+6,HUNGARIAN WAR,200,United Kingdom,6,none of the above
+6,HUNGARIAN WAR,2,United States,6,none of the above
+7,SMYRNA,220,France,3,diplomatic intervener
+7,SMYRNA,350,Greece,1,crisis actor
+7,SMYRNA,325,Italy,1,crisis actor
+7,SMYRNA,640,Turkey,6,none of the above
+7,SMYRNA,200,U.K.,3,diplomatic intervener
+7,SMYRNA,2,U.S.,3,diplomatic intervener
+8,THIRD AFGHAN WAR,700,Afghanistan,1,crisis actor
+8,THIRD AFGHAN WAR,200,United Kingdom (Great Britain),1,crisis actor
+9,FINNISH-RUSSIAN BORDER,375,Finland,1,a crisis actor
+9,FINNISH-RUSSIAN BORDER,220,France,6,none of the above
+9,FINNISH-RUSSIAN BORDER,255,Germany,3,diplomatic intervener
+9,FINNISH-RUSSIAN BORDER,365,Russia (Soviet Union),1,a crisis actor
+9,FINNISH-RUSSIAN BORDER,200,U.K.,5,military intervener
+9,FINNISH-RUSSIAN BORDER,2,U.S.,6,none of the above
+10,BESSARABIA,220,France,6,none of the above
+10,BESSARABIA,255,Germany,6,none of the above
+10,BESSARABIA,325,Italy,6,none of the above
+10,BESSARABIA,740,Japan,6,none of the above
+10,BESSARABIA,360,Romania,1,a crisis actor
+10,BESSARABIA,365,Russia (Soviet Union),1,a crisis actor
+10,BESSARABIA,200,U.K.,6,none of the above
+11,CILICIAN WAR,200,Britain,5,military intervener
+11,CILICIAN WAR,220,France,1,crisis actor
+11,CILICIAN WAR,350,Greece,5,military intervener
+11,CILICIAN WAR,365,Soviet Russia,6,none of the above
+11,CILICIAN WAR,640,Turkey,1,crisis actor
+12,RHENISH REBELLIONS,211,Belgium,6,none of the above
+12,RHENISH REBELLIONS,220,France,1,crisis actor
+12,RHENISH REBELLIONS,255,Germany (Prussia),1,crisis actor
+12,RHENISH REBELLIONS,325,Italy,6,none of the above
+12,RHENISH REBELLIONS,740,Japan,6,none of the above
+12,RHENISH REBELLIONS,200,United Kingdom,4,intimidation intervener
+12,RHENISH REBELLIONS,2,United States,6,none of the above
+13,POLISH-RUSSIAN WAR,220,France,5,military intervener
+13,POLISH-RUSSIAN WAR,368,Lithuania,2,assurance intervener
+13,POLISH-RUSSIAN WAR,290,Poland,1,crisis actor
+13,POLISH-RUSSIAN WAR,365,Russia (Soviet Union),1,crisis actor
+13,POLISH-RUSSIAN WAR,200,United Kingdom,3,intimidation intervener
+14,PERSIAN BORDER,220,France,5,military intervener
+14,PERSIAN BORDER,255,Germany,6,none of the above
+14,PERSIAN BORDER,630,Iran,1,crisis actor
+14,PERSIAN BORDER,365,Russia (Soviet Union),1,crisis actor
+14,PERSIAN BORDER,200,United Kingdom,5,military intervener
+14,PERSIAN BORDER,2,United States,6,none of the above
+15,AALAND ISLANDS,390,Denmark,6,none of the above
+15,AALAND ISLANDS,366,Estonia,6,none of the above
+15,AALAND ISLANDS,375,Finland,1,crisis actor
+15,AALAND ISLANDS,220,France,6,none of the above
+15,AALAND ISLANDS,255,Germany,6,none of the above
+15,AALAND ISLANDS,325,Italy,6,none of the above
+15,AALAND ISLANDS,367,Latvia,6,none of the above
+15,AALAND ISLANDS,290,Poland,6,none of the above
+15,AALAND ISLANDS,380,Sweden,1,crisis actor
+15,AALAND ISLANDS,200,U.K.,3,diplomatic intervener
+16,GREECE-TURKEY WAR I,220,France,4,intimidation intervener
+16,GREECE-TURKEY WAR I,350,Greece,5,military intervener
+16,GREECE-TURKEY WAR I,365,Russia,6,none of the above
+16,GREECE-TURKEY WAR I,640,Turkey,1,crisis actor
+16,GREECE-TURKEY WAR I,200,U.K.,5,military intervener
+17,VILNA I,368,Lithuania,1,crisis actor
+17,VILNA I,290,Poland,1,crisis actor
+17,VILNA I,365,Russia,5,military intervener
+18,GREECE-TURKEY WAR II,350,Greece,6,none of the above
+18,GREECE-TURKEY WAR II,325,Italy,4,intimidation intervener
+18,GREECE-TURKEY WAR II,365,Russia,5,military intervener
+18,GREECE-TURKEY WAR II,640,Turkey,1,crisis actor
+18,GREECE-TURKEY WAR II,200,U.K.,4,intimidation intervener
+19,COSTA RICA-PANAMA BORDER,94,Costa Rica,1,crisis actor
+19,COSTA RICA-PANAMA BORDER,95,Panama,1,crisis actor
+19,COSTA RICA-PANAMA BORDER,2,United States,5,military intervener
+20,GERMAN REPARATIONS,211,Belgium,1,crisis actor
+20,GERMAN REPARATIONS,220,France,5,military intervener
+20,GERMAN REPARATIONS,255,Germany (Prussia),1,crisis actor
+20,GERMAN REPARATIONS,210,Netherlands,1,crisis actor
+20,GERMAN REPARATIONS,200,United Kingdom,4,intimidation intervener
+20,GERMAN REPARATIONS,2,United States,3,diplomatic intervener
+21,KARL'S RETURN TO HUNGARY,305,Austria,6,none of the above
+21,KARL'S RETURN TO HUNGARY,315,Czechoslovakia,1,crisis actor
+21,KARL'S RETURN TO HUNGARY,220,France,4,intimidation intervener
+21,KARL'S RETURN TO HUNGARY,310,Hungary,1,crisis actor
+21,KARL'S RETURN TO HUNGARY,325,Italy,4,intimidation intervener
+21,KARL'S RETURN TO HUNGARY,740,Japan,4,intimidation intervener
+21,KARL'S RETURN TO HUNGARY,290,Poland,3,diplomatic intervener
+21,KARL'S RETURN TO HUNGARY,235,Portugal,2,assurance intervener
+21,KARL'S RETURN TO HUNGARY,360,Romania,5,military intervener
+21,KARL'S RETURN TO HUNGARY,230,Spain,6,none of the above
+21,KARL'S RETURN TO HUNGARY,225,Switzerland,6,none of the above
+21,KARL'S RETURN TO HUNGARY,200,United Kingdom,4,intimidation intervener
+21,KARL'S RETURN TO HUNGARY,345,Yugoslavia (Serbia),1,crisis actor
+22,AUSTRIAN SEPARATISTS,305,Austria,1,crisis actor
+22,AUSTRIAN SEPARATISTS,315,Czechoslovakia,4,intimidation intervener
+22,AUSTRIAN SEPARATISTS,220,France,4,intimidation intervener
+22,AUSTRIAN SEPARATISTS,255,Germany,6,none of the above
+22,AUSTRIAN SEPARATISTS,325,Italy,4,intimidation intervener
+22,AUSTRIAN SEPARATISTS,290,Poland,4,intimidation intervener
+22,AUSTRIAN SEPARATISTS,360,Romania,4,intimidation intervener
+22,AUSTRIAN SEPARATISTS,200,United Kingdom,6,none of the above
+22,AUSTRIAN SEPARATISTS,345,Yugoslavia (Serbia),1,crisis actor
+23,ALBANIAN FRONTIER,339,Albania,1,crisis actor
+23,ALBANIAN FRONTIER,211,Belgium,6,none of the above
+23,ALBANIAN FRONTIER,220,France,6,none of the above
+23,ALBANIAN FRONTIER,350,Greece,6,none of the above
+23,ALBANIAN FRONTIER,325,Italy,6,none of the above
+23,ALBANIAN FRONTIER,740,Japan,6,none of the above
+23,ALBANIAN FRONTIER,360,Romania,6,none of the above
+23,ALBANIAN FRONTIER,345,Serbia,1,crisis actor
+23,ALBANIAN FRONTIER,200,United Kingdom,6,none of the above
+24,BURGENLAND DISPUTE,305,Austria,1,crisis actor
+24,BURGENLAND DISPUTE,315,Czechoslovakia,3,diplomatic intervener
+24,BURGENLAND DISPUTE,220,France,4,intimidation intervener
+24,BURGENLAND DISPUTE,310,Hungary,1,crisis actor
+24,BURGENLAND DISPUTE,325,Italy,3,diplomatic intervener
+24,BURGENLAND DISPUTE,200,United Kingdom,4,intimidation intervener
+25,GREECE-TURKEY WAR III,350,Greece,1,a crisis actor
+25,GREECE-TURKEY WAR III,640,Turkey,6,none of the above
+26,CHANAK,220,France,3,diplomatic intervener
+26,CHANAK,350,Greece,6,none of the above
+26,CHANAK,640,Turkey,1,crisis actor
+26,CHANAK,200,United Kingdom (Great Britain),1,crisis actor
+27,RUHR I,211,Belgium,6,none of the above
+27,RUHR I,220,France,6,none of the above
+27,RUHR I,255,Germany (Prussia),1,a crisis actor
+27,RUHR I,325,Italy,6,none of the above
+27,RUHR I,740,Japan,6,none of the above
+27,RUHR I,210,Netherlands,1,a crisis actor
+27,RUHR I,290,Poland,1,a crisis actor
+27,RUHR I,365,Russia,6,none of the above
+27,RUHR I,200,UK,2,assurance intervener
+27,RUHR I,2,US,6,none of the above
+27,RUHR I,365,USSR,6,none of the above
+27,RUHR I,999,Vatican,6,none of the above
+28,CORFU INCIDENT,339,Albania,6,none of the above
+28,CORFU INCIDENT,211,Belgium,6,none of the above
+28,CORFU INCIDENT,220,France,6,none of the above
+28,CORFU INCIDENT,350,Greece,1,crisis actor
+28,CORFU INCIDENT,325,Italy,5,military intervener
+28,CORFU INCIDENT,740,Japan,6,none of the above
+28,CORFU INCIDENT,200,U.K.,6,none of the above
+28,CORFU INCIDENT,345,Yugoslavia,6,none of the above
+29,HIJAZ-NAJD WAR,671,Hijaz (Hejaz),1,crisis actor
+29,HIJAZ-NAJD WAR,672,Najd (Nejd),1,crisis actor
+30,RUHR II,220,France,1,crisis actor
+30,RUHR II,255,Germany (Prussia),1,crisis actor
+30,RUHR II,325,Italy,3,diplomatic intervener
+30,RUHR II,740,Japan,3,diplomatic intervener
+30,RUHR II,235,Portugal,3,diplomatic intervener
+30,RUHR II,360,Romania,3,diplomatic intervener
+30,RUHR II,200,United Kingdom,3,diplomatic intervener
+30,RUHR II,345,Yugoslavia,3,diplomatic intervener
+30,RUHR II,350,Greece,6,none of the above
+31,MOSUL LAND DISPUTE,645,Iraq,6,none of the above
+31,MOSUL LAND DISPUTE,640,Turkey,1,crisis actor
+31,MOSUL LAND DISPUTE,200,United Kingdom (Great Britain),1,crisis actor
+32,BULGARIA-GREEK FRONTIER,355,Bulgaria,1,crisis actor
+32,BULGARIA-GREEK FRONTIER,220,France,4,intimidation intervener
+32,BULGARIA-GREEK FRONTIER,255,Germany,6,none of the above
+32,BULGARIA-GREEK FRONTIER,350,Greece,1,crisis actor
+32,BULGARIA-GREEK FRONTIER,325,Italy,4,intimidation intervener
+32,BULGARIA-GREEK FRONTIER,360,Romania,6,none of the above
+32,BULGARIA-GREEK FRONTIER,640,Turkey,6,none of the above
+32,BULGARIA-GREEK FRONTIER,200,U.K.,4,intimidation intervener
+32,BULGARIA-GREEK FRONTIER,345,Yugoslavia,6,none of the above
+33,NICARAGUA CIVIL WAR I,70,Mexico,4,intimidation intervener
+33,NICARAGUA CIVIL WAR I,93,Nicaragua,1,crisis actor
+33,NICARAGUA CIVIL WAR I,200,United Kingdom,5,military intervener
+33,NICARAGUA CIVIL WAR I,2,United States,5,military intervener
+34,HEGEMONY OVER ALBANIA,339,Albania,1,crisis actor
+34,HEGEMONY OVER ALBANIA,315,Czechoslovakia,3,diplomatic intervener
+34,HEGEMONY OVER ALBANIA,220,France,6,none of the above
+34,HEGEMONY OVER ALBANIA,255,Germany,3,diplomatic intervener
+34,HEGEMONY OVER ALBANIA,325,Italy,1,crisis actor
+34,HEGEMONY OVER ALBANIA,740,Japan,6,none of the above
+34,HEGEMONY OVER ALBANIA,200,United Kingdom,3,diplomatic intervener
+34,HEGEMONY OVER ALBANIA,345,Yugoslavia (Serbia),1,crisis actor
+35,SHANTUNG,710,China,1,crisis actor
+35,SHANTUNG,740,Japan,1,crisis actor
+35,SHANTUNG,2,U.S.,3,diplomatic intervener
+36,VILNA II,220,France,3,intimidation intervener
+36,VILNA II,368,Lithuania,1,crisis actor
+36,VILNA II,290,Poland,1,crisis actor
+36,VILNA II,365,Soviet Union,3,intimidation intervener
+36,VILNA II,200,United Kingdom,3,intimidation intervener
+37,CHACO I,145,Bolivia,1,crisis actor
+37,CHACO I,100,Colombia,6,none of the above
+37,CHACO I,40,Cuba,6,none of the above
+37,CHACO I,70,Mexico,6,none of the above
+37,CHACO I,150,Paraguay,1,crisis actor
+37,CHACO I,2,United States,3,diplomatic intervener
+37,CHACO I,165,Uruguay,6,none of the above
+38,CHINESE EASTERN RAILWAY,200,Britain,6,none of the above
+38,CHINESE EASTERN RAILWAY,710,China,1,crisis actor
+38,CHINESE EASTERN RAILWAY,220,France,6,none of the above
+38,CHINESE EASTERN RAILWAY,255,Germany,3,diplomatic intervener
+38,CHINESE EASTERN RAILWAY,740,Japan,3,diplomatic intervener
+38,CHINESE EASTERN RAILWAY,365,Russia (Soviet Union),1,crisis actor
+38,CHINESE EASTERN RAILWAY,2,United States,6,none of the above
+39,MUKDEN INCIDENT,710,China,1,crisis actor
+39,MUKDEN INCIDENT,740,Japan,1,crisis actor
+39,MUKDEN INCIDENT,365,Soviet Union,3,diplomatic intervener
+39,MUKDEN INCIDENT,200,United Kingdom,6,none of the above
+39,MUKDEN INCIDENT,2,United States,4,intimidation intervener
+40,SHANGHAI,710,China,1,crisis actor
+40,SHANGHAI,740,Japan,1,crisis actor
+40,SHANGHAI,200,U.K.,3,diplomatic intervener
+40,SHANGHAI,2,U.S.,4,intimidation intervener
+41,CHACO II,160,Argentina,3,diplomatic intervener
+41,CHACO II,145,Bolivia,1,crisis actor
+41,CHACO II,140,Brazil,3,diplomatic intervener
+41,CHACO II,155,Chile,3,diplomatic intervener
+41,CHACO II,100,Colombia,3,diplomatic intervener
+41,CHACO II,40,Cuba,3,diplomatic intervener
+41,CHACO II,220,France,4,intimidation intervener
+41,CHACO II,255,Germany,4,intimidation intervener
+41,CHACO II,325,Italy,4,intimidation intervener
+41,CHACO II,70,Mexico,3,diplomatic intervener
+41,CHACO II,150,Paraguay,1,crisis actor
+41,CHACO II,135,Peru,3,diplomatic intervener
+41,CHACO II,365,Soviet Union,4,intimidation intervener
+41,CHACO II,200,United Kingdom,4,intimidation intervener
+41,CHACO II,2,United States,3,diplomatic intervener
+41,CHACO II,165,Uruguay,3,diplomatic intervener
+42,LETICIA,140,Brazil,6,none of the above
+42,LETICIA,100,Colombia,1,crisis actor
+42,LETICIA,130,Ecuador,3,diplomatic intervener
+42,LETICIA,135,Peru,1,crisis actor
+42,LETICIA,230,Spain,6,none of the above
+42,LETICIA,200,U.K.,4,intimidation intervener
+42,LETICIA,2,U.S.,3,diplomatic intervener
+43,JEHOL CAMPAIGN,710,China,1,crisis actor
+43,JEHOL CAMPAIGN,220,France,6,none of the above
+43,JEHOL CAMPAIGN,325,Italy,4,intimidation intervener
+43,JEHOL CAMPAIGN,740,Japan,5,military intervener
+43,JEHOL CAMPAIGN,999,Manchukuo,5,military intervener
+43,JEHOL CAMPAIGN,200,U.K.,6,none of the above
+43,JEHOL CAMPAIGN,2,U.S.,6,none of the above
+44,SAUDI-YEMEN WAR,200,British,5,military intervener
+44,SAUDI-YEMEN WAR,220,France,5,military intervener
+44,SAUDI-YEMEN WAR,325,Italy,5,military intervener
+44,SAUDI-YEMEN WAR,670,Saudi Arabia,1,crisis actor
+44,SAUDI-YEMEN WAR,678,Yemen (Arab Republic of Yemen) (North Yemen),1,crisis actor
+45,AUSTRIA PUTSCH,305,Austria,1,crisis actor
+45,AUSTRIA PUTSCH,315,Czechoslovakia,1,crisis actor
+45,AUSTRIA PUTSCH,220,France,6,none of the above
+45,AUSTRIA PUTSCH,255,Germany,6,none of the above
+45,AUSTRIA PUTSCH,325,Italy,1,crisis actor
+45,AUSTRIA PUTSCH,200,United Kingdom,6,none of the above
+45,AUSTRIA PUTSCH,345,Yugoslavia (Serbia),1,crisis actor
+46,Assassination of King Alexander,220,France,4,intimidation intervener
+46,Assassination of King Alexander,310,Hungary,1,crisis actor
+46,Assassination of King Alexander,325,Italy,3,diplomatic intervener
+46,Assassination of King Alexander,345,Yugoslavia (Serbia),1,crisis actor
+47,ETHIOPIAN WAR,530,Ethiopia,1,crisis actor
+47,ETHIOPIAN WAR,220,France,1,crisis actor
+47,ETHIOPIAN WAR,325,Italy,1,crisis actor
+47,ETHIOPIAN WAR,640,Turkey,6,none of the above
+47,ETHIOPIAN WAR,200,United Kingdom (Great Britain),1,crisis actor
+47,ETHIOPIAN WAR,2,United States,6,none of the above
+47,ETHIOPIAN WAR,345,Yugoslavia,6,none of the above
+48,BULGARIA-TURKEY,355,Bulgaria,1,crisis actor
+48,BULGARIA-TURKEY,350,Greece,6,none of the above
+48,BULGARIA-TURKEY,325,Italy,6,none of the above
+48,BULGARIA-TURKEY,640,Turkey,1,crisis actor
+49,KAUNAS TRIALS,220,France,3,diplomatic intervener
+49,KAUNAS TRIALS,255,Germany,5,military intervener
+49,KAUNAS TRIALS,325,Italy,3,diplomatic intervener
+49,KAUNAS TRIALS,368,Lithuania,1,crisis actor
+49,KAUNAS TRIALS,200,United Kingdom,3,diplomatic intervener
+50,ECUADOR-PERU BORDER I,130,Ecuador,1,crisis actor
+50,ECUADOR-PERU BORDER I,135,Peru,1,crisis actor
+51,REMILITARIZATION OF THE RHINELAND,211,Belgium,1,a crisis actor
+51,REMILITARIZATION OF THE RHINELAND,315,Czechoslovakia,1,a crisis actor
+51,REMILITARIZATION OF THE RHINELAND,220,France,1,a crisis actor
+51,REMILITARIZATION OF THE RHINELAND,255,Germany,6,none of the above
+51,REMILITARIZATION OF THE RHINELAND,325,Italy,6,none of the above
+51,REMILITARIZATION OF THE RHINELAND,290,Poland,1,a crisis actor
+51,REMILITARIZATION OF THE RHINELAND,360,Romania,1,a crisis actor
+51,REMILITARIZATION OF THE RHINELAND,365,Soviet Union,6,none of the above
+51,REMILITARIZATION OF THE RHINELAND,200,United Kingdom (Great Britain),1,a crisis actor
+51,REMILITARIZATION OF THE RHINELAND,2,United States,6,none of the above
+51,REMILITARIZATION OF THE RHINELAND,345,Yugoslavia (Serbia),1,a crisis actor
+52,SPANISH CIVIL WAR I,220,France,4,intimidation intervener
+52,SPANISH CIVIL WAR I,255,Germany,5,military intervener
+52,SPANISH CIVIL WAR I,325,Italy,5,military intervener
+52,SPANISH CIVIL WAR I,235,Portugal,5,military intervener
+52,SPANISH CIVIL WAR I,365,Soviet Union,5,military intervener
+52,SPANISH CIVIL WAR I,230,Spain,1,crisis actor
+52,SPANISH CIVIL WAR I,200,United Kingdom,3,diplomatic intervener
+52,SPANISH CIVIL WAR I,2,United States,6,none of the above
+53,ALEXANDRETTA,220,France,1,crisis actor
+53,ALEXANDRETTA,645,Iraq,4,intimidation intervener
+53,ALEXANDRETTA,325,Italy,4,intimidation intervener
+53,ALEXANDRETTA,640,Turkey,1,crisis actor
+53,ALEXANDRETTA,200,U.K.,4,intimidation intervener
+53,ALEXANDRETTA,345,Yugoslavia,4,intimidation intervener
+54,SPANISH CIVIL WAR II,220,France,6,none of the above
+54,SPANISH CIVIL WAR II,255,Germany (Prussia),1,crisis actor
+54,SPANISH CIVIL WAR II,325,Italy,1,crisis actor
+54,SPANISH CIVIL WAR II,230,Spain,1,crisis actor
+54,SPANISH CIVIL WAR II,200,United Kingdom,6,none of the above
+55,AMUR RIVER INCIDENT,740,Japan,1,a crisis actor
+55,AMUR RIVER INCIDENT,365,Russia (Soviet Union),1,a crisis actor
+56,MARCO POLO BRIDGE,710,China,1,crisis actor
+56,MARCO POLO BRIDGE,220,France,3,diplomatic intervener
+56,MARCO POLO BRIDGE,255,Germany,3,diplomatic intervener
+56,MARCO POLO BRIDGE,325,Italy,3,diplomatic intervener
+56,MARCO POLO BRIDGE,740,Japan,1,crisis actor
+56,MARCO POLO BRIDGE,365,Soviet Union,5,military intervener
+56,MARCO POLO BRIDGE,200,UK,3,diplomatic intervener
+56,MARCO POLO BRIDGE,2,US,4,intimidation intervener
+57,POSTAGE STAMP CRISIS,94,Costa Rica,3,diplomatic intervener
+57,POSTAGE STAMP CRISIS,91,Honduras,1,crisis actor
+57,POSTAGE STAMP CRISIS,93,Nicaragua,1,crisis actor
+57,POSTAGE STAMP CRISIS,2,United States,3,diplomatic intervener
+57,POSTAGE STAMP CRISIS,101,Venezuela,3,diplomatic intervener
+58,DOMINICAN REPUBLIC-HAITI I,40,Cuba,3,diplomatic intervener
+58,DOMINICAN REPUBLIC-HAITI I,42,Dominican Republic,6,none of the above
+58,DOMINICAN REPUBLIC-HAITI I,41,Haiti,1,crisis actor
+58,DOMINICAN REPUBLIC-HAITI I,70,Mexico,3,diplomatic intervener
+58,DOMINICAN REPUBLIC-HAITI I,2,United States,3,diplomatic intervener
+59,PANAY INCIDENT,740,Japan,6,none of the above
+59,PANAY INCIDENT,200,United Kingdom,6,none of the above
+59,PANAY INCIDENT,2,USA,1,crisis actor
+60,ANSCHLUSS,305,Austria,1,crisis actor
+60,ANSCHLUSS,255,Germany (Prussia),1,crisis actor
+60,ANSCHLUSS,325,Italy,6,none of the above
+60,ANSCHLUSS,200,United Kingdom,6,none of the above
+60,ANSCHLUSS,220,France,6,none of the above
+61,POLISH ULTIMATUM,220,France,4,intimidation intervener
+61,POLISH ULTIMATUM,255,Germany,4,intimidation intervener
+61,POLISH ULTIMATUM,368,Lithuania,1,crisis actor
+61,POLISH ULTIMATUM,290,Poland,6,none of the above
+61,POLISH ULTIMATUM,365,Soviet Union,3,diplomatic intervener
+61,POLISH ULTIMATUM,200,U.K.,4,intimidation intervener
+62,CZECHOSLOVAKIA MAY CRISIS,315,Czechoslovakia,1,crisis actor
+62,CZECHOSLOVAKIA MAY CRISIS,220,France,1,crisis actor
+62,CZECHOSLOVAKIA MAY CRISIS,255,Germany (Prussia),1,crisis actor
+62,CZECHOSLOVAKIA MAY CRISIS,365,Soviet Union,6,none of the above
+62,CZECHOSLOVAKIA MAY CRISIS,200,United Kingdom (Great Britain),1,crisis actor
+63,CHANGKUFENG,740,Japan,1,crisis actor
+63,CHANGKUFENG,365,Russia (Soviet Union),1,crisis actor
+64,MUNICH,315,Czechoslovakia,1,crisis actor
+64,MUNICH,220,France,1,crisis actor
+64,MUNICH,255,Germany,6,none of the above
+64,MUNICH,325,Italy,3,diplomatic intervener
+64,MUNICH,290,Poland,6,none of the above
+64,MUNICH,365,Russia (Soviet Union),1,crisis actor
+64,MUNICH,200,United Kingdom (Great Britain),1,crisis actor
+64,MUNICH,2,United States,3,diplomatic intervener
+65,SPANISH CIVIL WAR III,325,Italy,5,military intervener
+65,SPANISH CIVIL WAR III,230,Spain,1,crisis actor
+66,ITALY THREAT-FRANCE,220,France,1,crisis actor
+66,ITALY THREAT-FRANCE,255,Germany,6,none of the above
+66,ITALY THREAT-FRANCE,325,Italy,6,none of the above
+66,ITALY THREAT-FRANCE,2,United States,6,none of the above
+66,ITALY THREAT-FRANCE,200,Great Britain,3,diplomatic intervener
+67,SPANISH CIVIL WAR IV,220,France,6,none of the above
+67,SPANISH CIVIL WAR IV,325,Italy,5,military intervener
+67,SPANISH CIVIL WAR IV,230,Spain,1,crisis actor
+67,SPANISH CIVIL WAR IV,200,United Kingdom,6,none of the above
+67,SPANISH CIVIL WAR IV,2,United States,6,none of the above
+67,SPANISH CIVIL WAR IV,365,USSR,6,none of the above
+68,CZECHOSLOVAKIA'S ANNEXATION,315,Czechoslovakia,1,crisis actor
+68,CZECHOSLOVAKIA'S ANNEXATION,220,France,3,diplomatic intervener
+68,CZECHOSLOVAKIA'S ANNEXATION,255,Germany,6,none of the above
+68,CZECHOSLOVAKIA'S ANNEXATION,200,United Kingdom,6,none of the above
+68,CZECHOSLOVAKIA'S ANNEXATION,365,USSR,6,none of the above
+69,MEMEL,220,France,6,none of the above
+69,MEMEL,255,Germany,6,none of the above
+69,MEMEL,368,Lithuania,1,crisis actor
+69,MEMEL,290,Poland,6,none of the above
+69,MEMEL,200,United Kingdom,6,none of the above
+70,DANZIG,220,France,2,assurance intervener
+70,DANZIG,255,Germany,6,none of the above
+70,DANZIG,290,Poland,1,crisis actor
+70,DANZIG,360,Romania,6,none of the above
+70,DANZIG,365,Soviet Union,6,none of the above
+70,DANZIG,200,United Kingdom,2,assurance intervener
+70,DANZIG,345,Yugoslavia,6,none of the above
+71,INVASION OF ALBANIA,339,Albania,1,crisis actor
+71,INVASION OF ALBANIA,220,France,5,military intervener
+71,INVASION OF ALBANIA,350,Greece,1,crisis actor
+71,INVASION OF ALBANIA,325,Italy,6,none of the above
+71,INVASION OF ALBANIA,360,Romania,2,assurance intervener
+71,INVASION OF ALBANIA,200,United Kingdom (Great Britain),1,crisis actor
+72,NOMONHAN,740,Japan,1,crisis actor
+72,NOMONHAN,365,Russia (Soviet Union),1,crisis actor
+73,TIENTSIN,255,Germany,6,none of the above
+73,TIENTSIN,740,Japan,6,none of the above
+73,TIENTSIN,365,Soviet Union,6,none of the above
+73,TIENTSIN,200,United Kingdom (Great Britain),1,a crisis actor
+73,TIENTSIN,2,United States,6,none of the above
+74,ENTRY INTO WWII,900,Australia,1,crisis actor
+74,ENTRY INTO WWII,211,Belgium,1,crisis actor
+74,ENTRY INTO WWII,20,Canada,1,crisis actor
+74,ENTRY INTO WWII,710,China,6,none of the above
+74,ENTRY INTO WWII,390,Denmark,1,crisis actor
+74,ENTRY INTO WWII,366,Estonia,1,crisis actor
+74,ENTRY INTO WWII,375,Finland,1,crisis actor
+74,ENTRY INTO WWII,220,France,1,crisis actor
+74,ENTRY INTO WWII,255,Germany,6,none of the above
+74,ENTRY INTO WWII,325,Italy,6,none of the above
+74,ENTRY INTO WWII,740,Japan,1,crisis actor
+74,ENTRY INTO WWII,367,Latvia,1,crisis actor
+74,ENTRY INTO WWII,368,Lithuania,1,crisis actor
+74,ENTRY INTO WWII,212,Luxembourg,1,crisis actor
+74,ENTRY INTO WWII,210,Netherlands,1,crisis actor
+74,ENTRY INTO WWII,920,New Zealand,1,crisis actor
+74,ENTRY INTO WWII,385,Norway,1,crisis actor
+74,ENTRY INTO WWII,290,Poland,1,crisis actor
+74,ENTRY INTO WWII,360,Romania,1,crisis actor
+74,ENTRY INTO WWII,365,Russia (Soviet Union),1,crisis actor
+74,ENTRY INTO WWII,560,South Africa,1,crisis actor
+74,ENTRY INTO WWII,380,Sweden,1,crisis actor
+74,ENTRY INTO WWII,225,Switzerland,1,crisis actor
+74,ENTRY INTO WWII,200,United Kingdom (Great Britain),1,crisis actor
+75,SOVIET OCCUPATION OF THE BALTIC,366,Estonia,1,crisis actor
+75,SOVIET OCCUPATION OF THE BALTIC,367,Latvia,1,crisis actor
+75,SOVIET OCCUPATION OF THE BALTIC,368,Lithuania,1,crisis actor
+75,SOVIET OCCUPATION OF THE BALTIC,365,Soviet Union,5,military intervener
+76,FINNISH WAR,375,Finland,1,crisis actor
+76,FINNISH WAR,220,France,1,crisis actor
+76,FINNISH WAR,255,Germany,3,intimidation intervener
+76,FINNISH WAR,325,Italy,3,intimidation intervener
+76,FINNISH WAR,385,Norway,3,intimidation intervener
+76,FINNISH WAR,380,Sweden,1,crisis actor
+76,FINNISH WAR,200,United Kingdom (Great Britain),1,crisis actor
+76,FINNISH WAR,2,United States,3,intimidation intervener
+76,FINNISH WAR,365,Soviet Union,6,none of the above
+77,INVASION OF SCANDINAVIA,390,Denmark,1,crisis actor
+77,INVASION OF SCANDINAVIA,220,France,1,crisis actor
+77,INVASION OF SCANDINAVIA,255,Germany,5,military intervener
+77,INVASION OF SCANDINAVIA,210,Netherlands,1,crisis actor
+77,INVASION OF SCANDINAVIA,385,Norway,1,crisis actor
+77,INVASION OF SCANDINAVIA,200,United Kingdom (Great Britain),1,crisis actor
+78,FALL OF WESTERN EUROPE,211,Belgium,1,crisis actor
+78,FALL OF WESTERN EUROPE,220,France,1,crisis actor
+78,FALL OF WESTERN EUROPE,255,Germany,6,none of the above
+78,FALL OF WESTERN EUROPE,325,Italy,6,none of the above
+78,FALL OF WESTERN EUROPE,212,Luxembourg,1,crisis actor
+78,FALL OF WESTERN EUROPE,210,Netherlands,1,crisis actor
+78,FALL OF WESTERN EUROPE,200,United Kingdom (Great Britain),1,crisis actor
+79,CLOSURE OF BURMA ROAD,740,Japan,6,none of the above
+79,CLOSURE OF BURMA ROAD,200,United Kingdom (Great Britain),1,crisis actor
+79,CLOSURE OF BURMA ROAD,2,United States,4,intimidation intervener
+80,ROMANIAN TERRITORY,355,Bulgaria,2,assurance intervener
+80,ROMANIAN TERRITORY,255,Germany,4,intimidation intervener
+80,ROMANIAN TERRITORY,310,Hungary,6,none of the above
+80,ROMANIAN TERRITORY,325,Italy,3,diplomatic intervener
+80,ROMANIAN TERRITORY,360,Romania,1,crisis actor
+80,ROMANIAN TERRITORY,365,Soviet Union,5,military intervener
+81,BATTLE OF BRITAIN,255,Germany,6,none of the above
+81,BATTLE OF BRITAIN,325,Italy,6,none of the above
+81,BATTLE OF BRITAIN,200,United Kingdom (Great Britain),1,crisis actor
+81,BATTLE OF BRITAIN,2,United States,3,diplomatic intervener
+82,EAST AFRICA CAMPAIGN,325,Italy,1,crisis actor
+82,EAST AFRICA CAMPAIGN,200,United Kingdom (Great Britain),1,crisis actor
+82,EAST AFRICA CAMPAIGN,2,United States,4,intimidation intervener
+83,BALKAN INVASION,900,Australia,5,military intervener
+83,BALKAN INVASION,355,Bulgaria,6,none of the above
+83,BALKAN INVASION,255,Germany (Prussia),1,crisis actor
+83,BALKAN INVASION,350,Greece,1,crisis actor
+83,BALKAN INVASION,310,Hungary,6,none of the above
+83,BALKAN INVASION,325,Italy,1,crisis actor
+83,BALKAN INVASION,920,New Zealand,5,military intervener
+83,BALKAN INVASION,640,Turkey,1,crisis actor
+83,BALKAN INVASION,200,United Kingdom (Great Britain),1,crisis actor
+83,BALKAN INVASION,2,United States of America,3,intimidation intervener
+83,BALKAN INVASION,345,Yugoslavia (Serbia),1,crisis actor
+84,MID-EAST CAMPAIGN,255,Germany (Prussia),1,crisis actor
+84,MID-EAST CAMPAIGN,645,Iraq,1,crisis actor
+84,MID-EAST CAMPAIGN,640,Turkey,6,none of the above
+84,MID-EAST CAMPAIGN,200,United Kingdom (Great Britain),1,crisis actor
+84,MID-EAST CAMPAIGN,219,Vichy France,1,crisis actor
+85,BARBAROSSA,355,Bulgaria,6,none of the above
+85,BARBAROSSA,375,Finland,5,military intervener
+85,BARBAROSSA,255,Germany,5,military intervener
+85,BARBAROSSA,310,Hungary,6,none of the above
+85,BARBAROSSA,740,Japan,6,none of the above
+85,BARBAROSSA,360,Romania,5,military intervener
+85,BARBAROSSA,365,Russia (Soviet Union),1,a crisis actor
+85,BARBAROSSA,200,United Kingdom,2,assurance intervener
+85,BARBAROSSA,2,United States,2,assurance intervener
+86,ECUADOR-PERU BORDER II,160,Argentina,4,intimidation intervener
+86,ECUADOR-PERU BORDER II,140,Brazil,4,intimidation intervener
+86,ECUADOR-PERU BORDER II,155,Chile,4,intimidation intervener
+86,ECUADOR-PERU BORDER II,130,Ecuador,1,crisis actor
+86,ECUADOR-PERU BORDER II,135,Peru,1,crisis actor
+86,ECUADOR-PERU BORDER II,2,United States,4,intimidation intervener
+87,OCCUPATION OF IRAN,630,Iran,1,crisis actor
+87,OCCUPATION OF IRAN,365,Soviet Union,5,military intervener
+87,OCCUPATION OF IRAN,200,United Kingdom,5,military intervener
+87,OCCUPATION OF IRAN,2,United States,5,military intervener
+88,PEARL HARBOR,900,Australia,1,crisis actor
+88,PEARL HARBOR,20,Canada,1,crisis actor
+88,PEARL HARBOR,255,Germany,1,crisis actor
+88,PEARL HARBOR,325,Italy,1,crisis actor
+88,PEARL HARBOR,740,Japan,1,crisis actor
+88,PEARL HARBOR,210,Netherlands,1,crisis actor
+88,PEARL HARBOR,920,New Zealand,1,crisis actor
+88,PEARL HARBOR,800,Thailand,1,crisis actor
+88,PEARL HARBOR,200,United Kingdom,1,crisis actor
+88,PEARL HARBOR,2,United States,1,crisis actor
+89,STALINGRAD,255,Germany (Prussia),1,crisis actor
+89,STALINGRAD,365,Russia (Soviet Union),1,crisis actor
+90,EL ALAMEIN,220,France,5,military intervener
+90,EL ALAMEIN,255,Germany (Prussia),1,crisis actor
+90,EL ALAMEIN,325,Italy,1,crisis actor
+90,EL ALAMEIN,200,United Kingdom,5,military intervener
+90,EL ALAMEIN,2,United States,5,military intervener
+91,FALL OF ITALY,20,Canada,5,military intervener
+91,FALL OF ITALY,255,Germany (Prussia),1,crisis actor
+91,FALL OF ITALY,325,Italy,1,crisis actor
+91,FALL OF ITALY,2,United States,5,military intervener
+91,FALL OF ITALY,200,United Kingdom,5,military intervener
+92,GERMAN OCCUPATION OF HUNGARY,255,Germany,5,military intervener
+92,GERMAN OCCUPATION OF HUNGARY,310,Hungary,1,crisis actor
+92,GERMAN OCCUPATION OF HUNGARY,2,United States,3,diplomatic intervener
+93,SOVIET OCCUPATION OF EAST EUROPE,355,Bulgaria,6,none of the above
+93,SOVIET OCCUPATION OF EAST EUROPE,255,Germany (Prussia),1,crisis actor
+93,SOVIET OCCUPATION OF EAST EUROPE,310,Hungary,1,crisis actor
+93,SOVIET OCCUPATION OF EAST EUROPE,360,Rumania,1,crisis actor
+93,SOVIET OCCUPATION OF EAST EUROPE,365,Soviet Union,5,military intervener
+94,D-DAY,20,Canada,5,military intervener
+94,D-DAY,255,Germany (Prussia),1,crisis actor
+94,D-DAY,365,Soviet Union,5,military intervener
+94,D-DAY,200,United Kingdom,5,military intervener
+94,D-DAY,2,United States,5,military intervener
+95,FALL OF SAIPAN,740,Japan,1,crisis actor
+96,IRAN-OIL CONCESSIONS,630,Iran,1,crisis actor
+96,IRAN-OIL CONCESSIONS,365,Soviet Union,5,military intervener
+96,IRAN-OIL CONCESSIONS,2,United States,6,none of the above
+96,IRAN-OIL CONCESSIONS,200,United Kingdom,6,none of the above
+97,LEYTE CAMPAIGN,740,Japan,1,crisis actor
+97,LEYTE CAMPAIGN,2,United States,5,military intervener
+98,GREEK CIVIL WAR I,365,Soviet Union,6,none of the above
+98,GREEK CIVIL WAR I,200,United Kingdom (Great Britain),1,crisis actor
+98,GREEK CIVIL WAR I,2,United States,6,none of the above
+99,LUZON,740,Japan,1,crisis actor
+99,LUZON,2,United States,5,military intervener
+100,FINAL SOVIET OFFENSIVE,255,Germany,1,crisis actor
+100,FINAL SOVIET OFFENSIVE,365,Soviet,5,military intervener
+101,IWO JIMA,740,Japan,1,crisis actor
+101,IWO JIMA,2,U.S.,5,military intervener
+102,COMMUNISM IN ROMANIA,360,Rumania,1,crisis actor
+102,COMMUNISM IN ROMANIA,365,Russia (Soviet Union),1,crisis actor
+103,OKINAWA,740,Japan,1,crisis actor
+103,OKINAWA,365,Soviet Union,4,intimidation intervener
+103,OKINAWA,2,United States,5,military intervener
+104,TRIESTE I,325,Italy,6,none of the above
+104,TRIESTE I,200,United Kingdom (Great Britain),1,crisis actor
+104,TRIESTE I,2,USA,1,crisis actor
+104,TRIESTE I,345,Yugoslavia (Serbia),1,crisis actor
+105,FRENCH FORCES-SYRIA,220,France,1,crisis actor
+105,FRENCH FORCES-SYRIA,652,Syria,1,crisis actor
+105,FRENCH FORCES-SYRIA,200,U.K.,4,intimidation intervener
+105,FRENCH FORCES-SYRIA,2,U.S.,6,none of the above
+105,FRENCH FORCES-SYRIA,365,USSR,3,diplomatic intervener
+106,KARS-ARDAHAN,640,Turkey,1,crisis actor
+106,KARS-ARDAHAN,365,USSR,4,intimidation intervener
+106,KARS-ARDAHAN,200,U.K.,3,diplomatic intervener
+106,KARS-ARDAHAN,2,U.S.,5,military intervener
+107,HIROSHIMA-NAGASAKI,710,China,6,none of the above
+107,HIROSHIMA-NAGASAKI,740,Japan,1,crisis actor
+107,HIROSHIMA-NAGASAKI,365,Soviet Union,5,military intervener
+107,HIROSHIMA-NAGASAKI,2,United States,5,military intervener
+107,HIROSHIMA-NAGASAKI,200,United Kingdom,6,none of the above
+108,AZERBAIJAN,630,Iran,1,crisis actor
+108,AZERBAIJAN,365,Russia (Soviet Union),1,crisis actor
+108,AZERBAIJAN,200,United Kingdom (Great Britain),1,crisis actor
+108,AZERBAIJAN,2,USA,1,crisis actor
+109,INDONESIA INDEPENDENCE I,850,Indonesia,1,crisis actor
+109,INDONESIA INDEPENDENCE I,210,Netherlands,1,crisis actor
+109,INDONESIA INDEPENDENCE I,200,United Kingdom,3,diplomatic intervener
+110,COMMUNISM IN POLAND,290,Poland,6,none of above
+110,COMMUNISM IN POLAND,365,Russia (Soviet Union),1,crisis actor
+110,COMMUNISM IN POLAND,200,U.K.,6,none of above
+110,COMMUNISM IN POLAND,2,U.S.,6,none of above
+111,TURKISH STRAITS,365,Soviet Union,6,none of the above
+111,TURKISH STRAITS,640,Turkey,1,crisis actor
+111,TURKISH STRAITS,200,United Kingdom,4,intimidation intervener
+111,TURKISH STRAITS,2,United States,1,crisis actor
+112,GREEK CIVIL WAR II,350,Greece,1,crisis actor
+112,GREEK CIVIL WAR II,2,United States,4,intimidation intervener
+112,GREEK CIVIL WAR II,345,Yugoslavia,6,none of the above
+113,COMMUNISM IN HUNGARY,310,Hungary,1,crisis actor
+113,COMMUNISM IN HUNGARY,365,Russia (Soviet Union),1,crisis actor
+113,COMMUNISM IN HUNGARY,200,United Kingdom,3,diplomatic intervener
+113,COMMUNISM IN HUNGARY,2,United States,3,diplomatic intervener
+114,TRUMAN DOCTRINE,350,Greece,1,crisis actor
+114,TRUMAN DOCTRINE,640,Turkey,1,crisis actor
+114,TRUMAN DOCTRINE,2,USA,1,crisis actor
+114,TRUMAN DOCTRINE,365,USSR,6,none of the above
+114,TRUMAN DOCTRINE,200,United Kingdom,6,none of the above
+115,MARSHALL PLAN,315,Czechoslovakia,1,crisis actor
+115,MARSHALL PLAN,365,Russia (Soviet Union),1,crisis actor
+115,MARSHALL PLAN,2,United States,6,none of the above
+115,MARSHALL PLAN,220,France,6,none of the above
+115,MARSHALL PLAN,200,United Kingdom,6,none of the above
+115,MARSHALL PLAN,290,Poland,6,none of the above
+116,INDONESIA INDEPENDENCE II,900,Australia,3,diplomatic intervener
+116,INDONESIA INDEPENDENCE II,750,India,3,diplomatic intervener
+116,INDONESIA INDEPENDENCE II,850,Indonesia,1,crisis actor
+116,INDONESIA INDEPENDENCE II,210,Netherlands,1,crisis actor
+116,INDONESIA INDEPENDENCE II,2,United States,3,diplomatic intervener
+117,CUBA-DOMINICAN REPUBLIC,40,Cuba,6,none of the above
+117,CUBA-DOMINICAN REPUBLIC,42,Dominican Republic,1,a crisis actor
+117,CUBA-DOMINICAN REPUBLIC,2,United States,4,intimidation intervener
+118,JUNAGADH,750,India,1,crisis actor
+118,JUNAGADH,770,Pakistan,1,crisis actor
+118,JUNAGADH,200,UK,3,diplomatic intervener
+119,KASHMIR I,160,Argentina,3,diplomatic intervener
+119,KASHMIR I,211,Belgium,3,diplomatic intervener
+119,KASHMIR I,315,Czechoslovakia,3,diplomatic intervener
+119,KASHMIR I,750,India,1,crisis actor
+119,KASHMIR I,770,Pakistan,1,crisis actor
+119,KASHMIR I,2,United States,6,none of the above
+119,KASHMIR I,365,USSR,6,none of the above
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,651,Egypt (UAR),1,crisis actor
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,645,Iraq,1,crisis actor
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,666,Israel,1,crisis actor
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,663,Jordan,1,crisis actor
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,660,Lebanon,1,crisis actor
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,652,Syria,1,crisis actor
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,315,Czechoslovakia,4,intimidation intervener
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,200,United Kingdom,3,diplomatic intervener
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,2,United States,3,diplomatic intervener
+120,PALESTINE PARTITION/ISRAEL INDEPENDENCE,365,USSR,4,intimidation intervener
+121,COMMUNISM IN CZECHOSLOVAKIA,315,Czechoslovakia,1,crisis actor
+121,COMMUNISM IN CZECHOSLOVAKIA,365,Russia (Soviet Union),1,crisis actor
+121,COMMUNISM IN CZECHOSLOVAKIA,2,United States,4,intimidation intervener
+122,SOVIET NOTE TO FINLAND I,375,Finland,1,crisis actor
+122,SOVIET NOTE TO FINLAND I,365,Soviet Union,4,intimidation intervener
+123,BERLIN BLOCKADE,220,France,1,crisis actor
+123,BERLIN BLOCKADE,365,Russia (Soviet Union),1,crisis actor
+123,BERLIN BLOCKADE,200,United Kingdom (Great Britain),1,crisis actor
+123,BERLIN BLOCKADE,2,USA,1,crisis actor
+124,HYDERABAD,750,India,1,crisis actor
+124,HYDERABAD,770,Pakistan,6,none of the above
+125,CHINA CIVIL WAR,710,People's Republic of China,6,none of the above
+125,CHINA CIVIL WAR,713,Taiwan (China-Taiwan-Formosa),1,crisis actor
+125,CHINA CIVIL WAR,2,USA,1,crisis actor
+126,COSTA RICA-NICARAGUA I,140,Brazil,3,diplomatic intervener
+126,COSTA RICA-NICARAGUA I,100,Colombia,3,diplomatic intervener
+126,COSTA RICA-NICARAGUA I,94,Costa Rica,1,crisis actor
+126,COSTA RICA-NICARAGUA I,70,Mexico,3,diplomatic intervener
+126,COSTA RICA-NICARAGUA I,93,Nicaragua,6,none of the above
+126,COSTA RICA-NICARAGUA I,2,United States,3,diplomatic intervener
+127,INDONESIA INDEPENDENCE III,900,Australia,3,diplomatic intervener
+127,INDONESIA INDEPENDENCE III,211,Belgium,3,diplomatic intervener
+127,INDONESIA INDEPENDENCE III,750,India,4,intimidation intervener
+127,INDONESIA INDEPENDENCE III,850,Indonesia,1,crisis actor
+127,INDONESIA INDEPENDENCE III,210,Netherlands,1,crisis actor
+127,INDONESIA INDEPENDENCE III,365,Soviet Union,6,none of the above
+127,INDONESIA INDEPENDENCE III,2,United States,4,intimidation intervener
+128,SINAI INCURSION,651,Egypt (UAR),1,crisis actor
+128,SINAI INCURSION,666,Israel,1,crisis actor
+128,SINAI INCURSION,200,United Kingdom (Great Britain),1,crisis actor
+128,SINAI INCURSION,2,US,4,intimidation intervener
+128,SINAI INCURSION,365,USSR,6,none of the above
+129,PUSHTUNISTAN I,700,Afghanistan,1,crisis actor
+129,PUSHTUNISTAN I,770,Pakistan,1,crisis actor
+129,PUSHTUNISTAN I,365,USSR,6,none of the above
+129,PUSHTUNISTAN I,2,United States,6,none of the above
+130,LUPERON,40,Cuba,3,diplomatic intervener
+130,LUPERON,42,Dominican Republic,1,crisis actor
+130,LUPERON,90,Guatemala,4,intimidation intervener
+131,SOVIET BLOC-YUGOSLAVIA,365,Soviet Union,4,intimidation intervener
+131,SOVIET BLOC-YUGOSLAVIA,2,United States,6,none of the above
+131,SOVIET BLOC-YUGOSLAVIA,345,Yugoslavia (Serbia),1,crisis actor
+132,KOREAN WAR I,710,China,1,crisis actor
+132,KOREAN WAR I,651,Egypt,6,none of the above
+132,KOREAN WAR I,750,India,6,none of the above
+132,KOREAN WAR I,731,North Korea (Democratic People's Republic of Korea),6,none of the above
+132,KOREAN WAR I,732,South Korea (Republic of Korea),1,crisis actor
+132,KOREAN WAR I,365,Soviet Union,5,military intervener
+132,KOREAN WAR I,713,Taiwan (China-Taiwan-Formosa),1,crisis actor
+132,KOREAN WAR I,2,USA,1,crisis actor
+132,KOREAN WAR I,345,Yugoslavia,6,none of the above
+133,KOREAN WAR II,710,China,1,crisis actor
+133,KOREAN WAR II,731,North Korea (People's Republic of Korea),1,crisis actor
+133,KOREAN WAR II,365,Russia (Soviet Union),1,crisis actor
+133,KOREAN WAR II,732,South Korea (Republic of Korea),1,crisis actor
+133,KOREAN WAR II,2,USA,1,crisis actor
+134,HULA DRAINAGE,666,Israel,1,crisis actor
+134,HULA DRAINAGE,652,Syria,1,crisis actor
+134,HULA DRAINAGE,365,USSR,3,diplomatic intervener
+134,HULA DRAINAGE,2,U.S.,3,diplomatic intervener
+135,PUNJAB WAR SCARE I,750,India,1,crisis actor
+135,PUNJAB WAR SCARE I,770,Pakistan,1,crisis actor
+135,PUNJAB WAR SCARE I,2,United States,6,none of the above
+135,PUNJAB WAR SCARE I,365,Soviet Union,6,none of the above
+136,SUEZ CANAL,651,Egypt (UAR),1,crisis actor
+136,SUEZ CANAL,200,United Kingdom (Great Britain),1,crisis actor
+136,SUEZ CANAL,2,United States,4,intimidation intervener
+137,CATALINA AFFAIR,380,Sweden,1,crisis actor
+137,CATALINA AFFAIR,2,United States,4,intimidation intervener
+137,CATALINA AFFAIR,365,USSR,6,none of the above
+138,BURMA INFILTRATION,775,Burma (Myanmar),1,crisis actor
+138,BURMA INFILTRATION,999,China (Taiwan),6,none of the above
+138,BURMA INFILTRATION,800,Thailand,6,none of the above
+138,BURMA INFILTRATION,2,United States,3,diplomatic intervener
+138,BURMA INFILTRATION,365,USSR,6,none of the above
+139,INVASION OF LAOS I,220,France,1,crisis actor
+139,INVASION OF LAOS I,812,Laos,1,crisis actor
+139,INVASION OF LAOS I,816,Vietnam,6,none of the above
+140,KOREAN WAR III,710,China,1,crisis actor
+140,KOREAN WAR III,731,North Korea (People's Republic of Korea),1,crisis actor
+140,KOREAN WAR III,732,South Korea (Republic of Korea),1,crisis actor
+140,KOREAN WAR III,2,USA,1,crisis actor
+140,KOREAN WAR III,365,USSR,6,none of the above
+141,EAST GERMAN UPRISING,265,East Germany,6,none of the above
+141,EAST GERMAN UPRISING,2,United States,4,intimidation intervener
+141,EAST GERMAN UPRISING,365,Russia (Soviet Union),1,crisis actor
+142,TRIESTE II,325,Italy,1,crisis actor
+142,TRIESTE II,200,United Kingdom,3,diplomatic intervener
+142,TRIESTE II,2,United States,3,diplomatic intervener
+142,TRIESTE II,345,Yugoslavia (Serbia),1,crisis actor
+143,QIBYA,666,Israel,6,none of the above
+143,QIBYA,663,Jordan,1,a crisis actor
+143,QIBYA,2,US,3,diplomatic intervener
+143,QIBYA,365,USSR,6,none of the above
+143,QIBYA,200,Britain,3,diplomatic intervener
+144,GUATEMALA,90,Guatemala,1,crisis actor
+144,GUATEMALA,91,Honduras,1,crisis actor
+144,GUATEMALA,365,Soviet Union,6,none of the above
+144,GUATEMALA,2,USA,1,crisis actor
+145,DIEN BIEN PHU,710,China,6,none of the above
+145,DIEN BIEN PHU,220,France,1,crisis actor
+145,DIEN BIEN PHU,840,Philippines,6,none of the above
+145,DIEN BIEN PHU,365,Russia,6,none of the above
+145,DIEN BIEN PHU,817,South Vietnam,6,none of the above
+145,DIEN BIEN PHU,200,United Kingdom (Great Britain),1,crisis actor
+145,DIEN BIEN PHU,2,USA,1,crisis actor
+146,TAIWAN STRAIT I,710,China,1,crisis actor
+146,TAIWAN STRAIT I,713,Taiwan (China-Taiwan-Formosa),1,crisis actor
+146,TAIWAN STRAIT I,2,USA,1,crisis actor
+146,TAIWAN STRAIT I,365,USSR,6,none of the above
+147,COSTA RICA-NICARAGUA II,94,Costa Rica,1,crisis actor
+147,COSTA RICA-NICARAGUA II,93,Nicaragua,1,crisis actor
+147,COSTA RICA-NICARAGUA II,2,United States,5,military intervener
+147,COSTA RICA-NICARAGUA II,101,Venezuela,6,none of the above
+148,BAGHDAD PACT,651,Egypt (UAR),1,crisis actor
+148,BAGHDAD PACT,630,Iran,6,none of the above
+148,BAGHDAD PACT,645,Iraq,6,none of the above
+148,BAGHDAD PACT,663,Jordan,6,none of the above
+148,BAGHDAD PACT,660,Lebanon,6,none of the above
+148,BAGHDAD PACT,770,Pakistan,6,none of the above
+148,BAGHDAD PACT,670,Saudi Arabia,6,none of the above
+148,BAGHDAD PACT,365,Soviet Union,5,military intervener
+148,BAGHDAD PACT,652,Syria,6,none of the above
+148,BAGHDAD PACT,640,Turkey,6,none of the above
+148,BAGHDAD PACT,200,United Kingdom,6,none of the above
+148,BAGHDAD PACT,2,United States,3,diplomatic intervener
+148,BAGHDAD PACT,999,Yemen,6,none of the above
+149,GAZA RAID-CZECHOSLOVKIA ARMS,315,Czechoslovakia,5,military intervener
+149,GAZA RAID-CZECHOSLOVKIA ARMS,651,Egypt (UAR),1,crisis actor
+149,GAZA RAID-CZECHOSLOVKIA ARMS,220,France,5,military intervener
+149,GAZA RAID-CZECHOSLOVKIA ARMS,666,Israel,1,crisis actor
+149,GAZA RAID-CZECHOSLOVKIA ARMS,365,Soviet Union,5,military intervener
+149,GAZA RAID-CZECHOSLOVKIA ARMS,2,United States,6,none of the above
+150,PUSHTUNISTAN II,700,Afghanistan,1,crisis actor
+150,PUSHTUNISTAN II,651,Egypt,3,diplomatic intervener
+150,PUSHTUNISTAN II,630,Iran,3,diplomatic intervener
+150,PUSHTUNISTAN II,645,Iraq,3,diplomatic intervener
+150,PUSHTUNISTAN II,770,Pakistan,1,crisis actor
+150,PUSHTUNISTAN II,670,Saudi Arabia,3,diplomatic intervener
+150,PUSHTUNISTAN II,640,Turkey,3,diplomatic intervener
+150,PUSHTUNISTAN II,365,USSR,6,none of the above
+151,GOA I,750,India,5,military intervener
+151,GOA I,235,Portugal,1,crisis actor
+152,SUEZ NATIONALIZATION-WAR,900,Australia,3,diplomatic intervener
+152,SUEZ NATIONALIZATION-WAR,651,Egypt (UAR),1,crisis actor
+152,SUEZ NATIONALIZATION-WAR,220,France,1,crisis actor
+152,SUEZ NATIONALIZATION-WAR,666,Israel,1,crisis actor
+152,SUEZ NATIONALIZATION-WAR,365,Russia (Soviet Union),1,crisis actor
+152,SUEZ NATIONALIZATION-WAR,200,United Kingdom (Great Britain),1,crisis actor
+152,SUEZ NATIONALIZATION-WAR,2,USA,1,crisis actor
+153,Qalqilya Crisis,645,Iraq,6,none of the above
+153,Qalqilya Crisis,666,Israel,1,crisis actor
+153,Qalqilya Crisis,663,Jordan,1,crisis actor
+153,Qalqilya Crisis,200,United Kingdom,2,assurance intervener
+153,Qalqilya Crisis,2,United States,4,intimidation intervener
+154,POLAND LIBERALIZATION,290,Poland,1,crisis actor
+154,POLAND LIBERALIZATION,365,Russia (Soviet Union),1,crisis actor
+154,POLAND LIBERALIZATION,2,United States,6,none of the above
+155,HUNGARIAN UPRISING,310,Hungary,1,crisis actor
+155,HUNGARIAN UPRISING,365,Russia (Soviet Union),1,crisis actor
+155,HUNGARIAN UPRISING,2,United States,4,intimidation intervener
+156,Mocoron Incident,91,Honduras,1,crisis actor
+156,Mocoron Incident,93,Nicaragua,1,crisis actor
+156,Mocoron Incident,2,United States,6,none of the above
+156,Mocoron Incident,365,USSR,6,none of the above
+157,JORDAN REGIME,651,Egypt,6,none of the above
+157,JORDAN REGIME,663,Jordan,1,crisis actor
+157,JORDAN REGIME,670,Sa'udi Arabia,2,assurance intervener
+157,JORDAN REGIME,652,Syria,6,none of the above
+157,JORDAN REGIME,2,United States,5,military intervener
+157,JORDAN REGIME,365,Soviet Union,6,none of the above
+158,FRANCE-TUNISIA,220,France,1,crisis actor
+158,FRANCE-TUNISIA,616,Tunisia,1,crisis actor
+158,FRANCE-TUNISIA,200,United Kingdom,3,diplomatic intervener
+158,FRANCE-TUNISIA,2,United States,3,diplomatic intervener
+159,SYRIA-TURKEY CONFRONTATION,645,Iraq,6,none of the above
+159,SYRIA-TURKEY CONFRONTATION,663,Jordan,2,assurance intervener
+159,SYRIA-TURKEY CONFRONTATION,660,Lebanon,6,none of the above
+159,SYRIA-TURKEY CONFRONTATION,670,Sa'udi Arabia,6,none of the above
+159,SYRIA-TURKEY CONFRONTATION,652,Syria,1,crisis actor
+159,SYRIA-TURKEY CONFRONTATION,640,Turkey,1,crisis actor
+159,SYRIA-TURKEY CONFRONTATION,365,USSR,3,diplomatic intervener
+159,SYRIA-TURKEY CONFRONTATION,2,USA,1,crisis actor
+160,IFNI,600,Morocco,1,crisis actor
+160,IFNI,230,Spain,1,crisis actor
+160,IFNI,2,United States,3,diplomatic intervener
+161,WEST IRIAN I,850,Indonesia,6,none of the above
+161,WEST IRIAN I,210,Netherlands,1,crisis actor
+161,WEST IRIAN I,365,USSR,6,none of the above
+161,WEST IRIAN I,2,U.S.,6,none of the above
+162,FORMATION OF UAR,645,Iraq,1,a crisis actor
+162,FORMATION OF UAR,663,Jordan,1,a crisis actor
+162,FORMATION OF UAR,670,Saudi Arabia,3,diplomatic intervener
+162,FORMATION OF UAR,651,United Arab Republic,6,none of the above
+163,EGYPT-SUDAN BORDER I,651,Egypt,6,none of the above
+163,EGYPT-SUDAN BORDER I,625,Sudan,1,crisis actor
+164,ABORTIVE COUP-INDONESIA,850,Indonesia,1,crisis actor
+164,ABORTIVE COUP-INDONESIA,365,USSR,2,assurance intervener
+164,ABORTIVE COUP-INDONESIA,2,U.S.,4,intimidation intervener
+165,IRAQ-LEBANON UPHEAVAL,651,Egypt,6,none of the above
+165,IRAQ-LEBANON UPHEAVAL,663,Jordan,1,a crisis actor
+165,IRAQ-LEBANON UPHEAVAL,660,Lebanon,1,a crisis actor
+165,IRAQ-LEBANON UPHEAVAL,365,Soviet Union,4,intimidation intervener
+165,IRAQ-LEBANON UPHEAVAL,652,Syria,6,none of the above
+165,IRAQ-LEBANON UPHEAVAL,200,United Kingdom (Great Britain),1,a crisis actor
+165,IRAQ-LEBANON UPHEAVAL,2,USA,1,a crisis actor
+166,TAIWAN STRAIT II,710,China,1,crisis actor
+166,TAIWAN STRAIT II,365,Soviet Union,4,intimidation intervener
+166,TAIWAN STRAIT II,713,Taiwan (China-Taiwan-Formosa),1,crisis actor
+166,TAIWAN STRAIT II,2,USA,1,crisis actor
+167,CAMBODIA-THAILAND,811,Cambodia,1,crisis actor
+167,CAMBODIA-THAILAND,710,China,6,none of the above
+167,CAMBODIA-THAILAND,800,Thailand,1,crisis actor
+168,BERLIN DEADLINE,220,France,1,crisis actor
+168,BERLIN DEADLINE,265,German Democratic Republic (East Germany),1,crisis actor
+168,BERLIN DEADLINE,260,Germany (German Federal Republic) (West Germany),1,crisis actor
+168,BERLIN DEADLINE,365,Russia (Soviet Union),1,crisis actor
+168,BERLIN DEADLINE,2,USA,1,crisis actor
+168,BERLIN DEADLINE,200,United Kingdom (Great Britain),1,crisis actor
+169,MEXICO-GUATEMALA FISHING RIGHTS,90,Guatemala,1,crisis actor
+169,MEXICO-GUATEMALA FISHING RIGHTS,70,Mexico,1,crisis actor
+170,CENTRAL AMERICA-CUBA I,40,Cuba,4,intimidation intervener
+170,CENTRAL AMERICA-CUBA I,42,Dominican Republic,1,crisis actor
+170,CENTRAL AMERICA-CUBA I,41,Haiti,1,crisis actor
+170,CENTRAL AMERICA-CUBA I,93,Nicaragua,1,crisis actor
+170,CENTRAL AMERICA-CUBA I,95,Panama,1,crisis actor
+170,CENTRAL AMERICA-CUBA I,365,Soviet Union,6,none of the above
+170,CENTRAL AMERICA-CUBA I,2,United States,5,military intervener
+171,CHINA-INDIA BORDER I,710,China,1,crisis actor
+171,CHINA-INDIA BORDER I,750,India,1,crisis actor
+171,CHINA-INDIA BORDER I,365,Soviet Union,3,diplomatic intervener
+171,CHINA-INDIA BORDER I,2,United States,3,diplomatic intervener
+172,SHATT-AL-ARAB I,630,Iran,1,crisis actor
+172,SHATT-AL-ARAB I,645,Iraq,1,crisis actor
+172,SHATT-AL-ARAB I,200,U.K.,3,diplomatic intervener
+172,SHATT-AL-ARAB I,2,U.S.,3,diplomatic intervener
+172,SHATT-AL-ARAB I,365,USSR,4,intimidation intervener
+173,ROTTEM,651,Egypt (UAR),1,crisis actor
+173,ROTTEM,666,Israel,1,crisis actor
+173,ROTTEM,365,Soviet Union,4,intimidation intervener
+173,ROTTEM,2,United States,6,none of the above
+174,GHANA-TOGO BORDER I,220,France,6,none of the above
+174,GHANA-TOGO BORDER I,452,Ghana,1,a crisis actor
+174,GHANA-TOGO BORDER I,461,Togo,6,none of the above
+175,FAILED ASSASSINATION-VENEZUELA,42,Dominican Republic,1,crisis actor
+175,FAILED ASSASSINATION-VENEZUELA,2,United States,4,intimidation intervener
+175,FAILED ASSASSINATION-VENEZUELA,365,USSR,3,diplomatic intervener
+175,FAILED ASSASSINATION-VENEZUELA,101,Venezuela,1,crisis actor
+176,CONGO I-KATANGA,211,Belgium,5,military intervener
+176,CONGO I-KATANGA,365,Soviet Union,4,intimidation intervener
+176,CONGO I-KATANGA,2,United States,6,none of the above
+177,MALI FEDERATION,220,France,6,none of the above
+177,MALI FEDERATION,432,Mali,1,crisis actor
+177,MALI FEDERATION,433,Senegal,1,crisis actor
+177,MALI FEDERATION,365,USSR,6,none of the above
+177,MALI FEDERATION,2,United States,6,none of the above
+178,CENTRAL AMERICA-CUBA II,40,Cuba,6,none of the above
+178,CENTRAL AMERICA-CUBA II,90,Guatemala,1,crisis actor
+178,CENTRAL AMERICA-CUBA II,93,Nicaragua,1,crisis actor
+178,CENTRAL AMERICA-CUBA II,365,Soviet Union,6,none of the above
+178,CENTRAL AMERICA-CUBA II,2,United States,5,military intervener
+178,CENTRAL AMERICA-CUBA II,710,China,6,none of the above
+179,ETHIOPIA-SOMALIA,530,Ethiopia,1,crisis actor
+179,ETHIOPIA-SOMALIA,520,Somalia,1,crisis actor
+180,PATHET LAO OFFENSIVE,816,North Vietnam,6,none of the above
+180,PATHET LAO OFFENSIVE,365,Soviet Union,3,diplomatic intervener
+180,PATHET LAO OFFENSIVE,800,Thailand,1,crisis actor
+180,PATHET LAO OFFENSIVE,200,United Kingdom,3,diplomatic intervener
+180,PATHET LAO OFFENSIVE,2,USA,1,crisis actor
+181,BAY OF PIGS,40,Cuba,1,crisis actor
+181,BAY OF PIGS,2,USA,1,crisis actor
+181,BAY OF PIGS,365,USSR,4,intimidation intervener
+182,PUSHTUNISTAN III,700,Afghanistan,1,crisis actor
+182,PUSHTUNISTAN III,770,Pakistan,1,crisis actor
+182,PUSHTUNISTAN III,365,Soviet Union,5,military intervener
+182,PUSHTUNISTAN III,200,United Kingdom,3,diplomatic intervener
+182,PUSHTUNISTAN III,2,United States,3,diplomatic intervener
+183,KUWAIT INDEPENDENCE,651,Egypt,6,none of the above
+183,KUWAIT INDEPENDENCE,645,Iraq,1,a crisis actor
+183,KUWAIT INDEPENDENCE,663,Jordan,2,assurance intervener
+183,KUWAIT INDEPENDENCE,690,Kuwait,1,a crisis actor
+183,KUWAIT INDEPENDENCE,670,Saudi Arabia,2,assurance intervener
+183,KUWAIT INDEPENDENCE,200,United Kingdom (Great Britain),1,a crisis actor
+183,KUWAIT INDEPENDENCE,2,United States,6,none of the above
+184,BIZERTA,220,France,1,crisis actor
+184,BIZERTA,616,Tunisia,1,crisis actor
+185,BERLIN WALL,220,France,5,military intervener
+185,BERLIN WALL,260,Germany (German Federal Republic) (West Germany),1,crisis actor
+185,BERLIN WALL,265,German Democratic Republic (East Germany),1,crisis actor
+185,BERLIN WALL,365,Russia (Soviet Union),1,crisis actor
+185,BERLIN WALL,200,United Kingdom (Great Britain),5,military intervener
+185,BERLIN WALL,2,USA,5,military intervener
+186,VIETCONG ATTACK,816,North Vietnam,6,none of the above
+186,VIETCONG ATTACK,999,SEATO,6,none of the above
+186,VIETCONG ATTACK,365,Soviet,6,none of the above
+186,VIETCONG ATTACK,2,USA,1,crisis actor
+187,WEST IRIAN II,850,Indonesia,1,crisis actor
+187,WEST IRIAN II,210,Netherlands,1,crisis actor
+187,WEST IRIAN II,365,USSR,5,military intervener
+187,WEST IRIAN II,2,United States,3,diplomatic intervener
+188,BREAKUP OF UAR,651,Egypt (UAR),1,crisis actor
+188,BREAKUP OF UAR,652,Syria,6,none of the above
+188,BREAKUP OF UAR,2,U.S.,6,none of the above
+188,BREAKUP OF UAR,365,USSR,6,none of the above
+189,SOVIET NOTE TO FINLAND II,375,Finland,1,crisis actor
+189,SOVIET NOTE TO FINLAND II,365,Soviet Union,5,military intervener
+190,GOA II,750,India,5,military intervener
+190,GOA II,235,Portugal,1,a crisis actor
+190,GOA II,365,Soviet Union,4,intimidation intervener
+190,GOA II,2,United States,3,diplomatic intervener
+191,MALI-MAURITANIA,432,Mali,3,diplomatic intervener
+191,MALI-MAURITANIA,435,Mauritania,1,crisis actor
+192,TAIWAN STRAIT III,710,China,1,crisis actor
+192,TAIWAN STRAIT III,2,United States,4,intimidation intervener
+193,NAM THA,812,Laos,6,none of the above
+193,NAM THA,816,North Vietnam,6,none of the above
+193,NAM THA,800,Thailand,1,crisis actor
+193,NAM THA,365,USSR,3,diplomatic intervener
+193,NAM THA,2,USA,1,crisis actor
+194,CHINA-INDIA BORDER II,900,Australia,5,military intervener
+194,CHINA-INDIA BORDER II,20,Canada,5,military intervener
+194,CHINA-INDIA BORDER II,710,China,1,crisis actor
+194,CHINA-INDIA BORDER II,452,Ghana,3,diplomatic intervener
+194,CHINA-INDIA BORDER II,750,India,1,crisis actor
+194,CHINA-INDIA BORDER II,850,Indonesia,3,diplomatic intervener
+194,CHINA-INDIA BORDER II,770,Pakistan,6,none of the above
+194,CHINA-INDIA BORDER II,780,Sri Lanka,3,diplomatic intervener
+194,CHINA-INDIA BORDER II,651,UAR (Egypt),3,diplomatic intervener
+194,CHINA-INDIA BORDER II,200,UK,5,military intervener
+194,CHINA-INDIA BORDER II,2,US,5,military intervener
+194,CHINA-INDIA BORDER II,365,USSR,4,intimidation intervener
+195,YEMEN WAR I,651,Egypt (UAR),1,crisis actor
+195,YEMEN WAR I,663,Jordan,1,crisis actor
+195,YEMEN WAR I,670,Saudi Arabia,1,crisis actor
+195,YEMEN WAR I,678,Yemen (Arab Republic of Yemen) (North Yemen),1,crisis actor
+195,YEMEN WAR I,2,United States,4,intimidation intervener
+195,YEMEN WAR I,365,USSR,5,military intervener
+196,CUBAN MISSILES,40,Cuba,1,crisis actor
+196,CUBAN MISSILES,365,Russia (Soviet Union),1,crisis actor
+196,CUBAN MISSILES,2,USA,1,crisis actor
+197,MALAYSIA FEDERATION,710,China,6,none of the above
+197,MALAYSIA FEDERATION,850,Indonesia,1,crisis actor
+197,MALAYSIA FEDERATION,820,Malaysia,1,crisis actor
+197,MALAYSIA FEDERATION,840,Philippines,6,none of the above
+197,MALAYSIA FEDERATION,365,Soviet Union,6,none of the above
+197,MALAYSIA FEDERATION,200,United Kingdom,6,none of the above
+197,MALAYSIA FEDERATION,2,United States,3,diplomatic intervener
+198,DOMINICAN REPUBLIC-HAITI II,42,Dominican Republic,1,crisis actor
+198,DOMINICAN REPUBLIC-HAITI II,41,Haiti,1,crisis actor
+198,DOMINICAN REPUBLIC-HAITI II,2,United States,5,military intervener
+199,ALGERIA-MOROCCO BORDER,615,Algeria,1,crisis actor
+199,ALGERIA-MOROCCO BORDER,40,Cuba,6,none of the above
+199,ALGERIA-MOROCCO BORDER,651,Egypt,6,none of the above
+199,ALGERIA-MOROCCO BORDER,530,Ethiopia,3,diplomatic intervener
+199,ALGERIA-MOROCCO BORDER,432,Mali,3,diplomatic intervener
+199,ALGERIA-MOROCCO BORDER,600,Morocco,1,crisis actor
+199,ALGERIA-MOROCCO BORDER,2,United States,6,none of the above
+199,ALGERIA-MOROCCO BORDER,365,USSR,6,none of the above
+200,CUBA-VENEZUELA,40,Cuba,6,none of the above
+200,CUBA-VENEZUELA,365,USSR,6,none of the above
+200,CUBA-VENEZUELA,101,Venezuela,1,a crisis actor
+201,KENYA-SOMALIA,530,Ethiopia,3,diplomatic intervener
+201,KENYA-SOMALIA,501,Kenya,1,crisis actor
+201,KENYA-SOMALIA,520,Somalia,6,none of the above
+201,KENYA-SOMALIA,365,Soviet Union,6,none of the above
+201,KENYA-SOMALIA,200,United Kingdom,5,military intervener
+202,CYPRUS I,352,Cyprus,1,crisis actor
+202,CYPRUS I,350,Greece,1,crisis actor
+202,CYPRUS I,640,Turkey,1,crisis actor
+202,CYPRUS I,200,U.K.,2,assurance intervener
+202,CYPRUS I,2,U.S.,3,diplomatic intervener
+203,JORDAN WATERS,651,Egypt (UAR),1,crisis actor
+203,JORDAN WATERS,666,Israel,1,crisis actor
+203,JORDAN WATERS,663,Jordan,1,crisis actor
+203,JORDAN WATERS,660,Lebanon,1,crisis actor
+203,JORDAN WATERS,652,Syria,1,crisis actor
+204,DAHOMEY-NIGER,434,Benin (Dahomey),1,crisis actor
+204,DAHOMEY-NIGER,220,France,4,intimidation intervener
+204,DAHOMEY-NIGER,481,Gabon,3,diplomatic intervener
+204,DAHOMEY-NIGER,436,Niger,1,crisis actor
+204,DAHOMEY-NIGER,475,Nigeria,3,diplomatic intervener
+204,DAHOMEY-NIGER,461,Togo,3,diplomatic intervener
+204,DAHOMEY-NIGER,439,Upper Volta,3,diplomatic intervener
+205,BURUNDI-RWANDA,516,Burundi,1,crisis actor
+205,BURUNDI-RWANDA,517,Rwanda,1,crisis actor
+205,BURUNDI-RWANDA,2,U.S.,6,none of the above
+205,BURUNDI-RWANDA,365,USSR,6,none of the above
+206,PANAMA FLAG,95,Panama,1,crisis actor
+206,PANAMA FLAG,2,USA,1,crisis actor
+206,PANAMA FLAG,365,USSR,6,none of the above
+207,EAST AFRICA REBELLIONS,501,Kenya,6,none of the above
+207,EAST AFRICA REBELLIONS,510,Tanganyika,6,none of the above
+207,EAST AFRICA REBELLIONS,500,Uganda,6,none of the above
+207,EAST AFRICA REBELLIONS,200,United Kingdom (Great Britain),1,crisis actor
+208,OGADEN I,530,Ethiopia,1,crisis actor
+208,OGADEN I,520,Somalia,1,crisis actor
+208,OGADEN I,365,Soviet Union,3,diplomatic intervener
+208,OGADEN I,625,Sudan,3,diplomatic intervener
+208,OGADEN I,2,United States,6,none of the above
+209,YEMEN WAR II,615,Algeria,3,diplomatic intervener
+209,YEMEN WAR II,651,Egypt (UAR),1,a crisis actor
+209,YEMEN WAR II,645,Iraq,3,diplomatic intervener
+209,YEMEN WAR II,670,Saudi Arabia,1,a crisis actor
+209,YEMEN WAR II,678,Yemen (Arab Republic of Yemen) (North Yemen),1,a crisis actor
+210,GULF OF TONKIN,816,North Vietnam,1,crisis actor
+210,GULF OF TONKIN,2,USA,1,crisis actor
+210,GULF OF TONKIN,365,USSR,3,diplomatic intervener
+211,CONGO II,211,Belgium,1,crisis actor
+211,CONGO II,365,Russia (Soviet Union),1,crisis actor
+211,CONGO II,2,USA,1,crisis actor
+211,CONGO II,200,Britain,5,military intervener
+212,YEMEN WAR III,615,Algeria,3,diplomatic intervener
+212,YEMEN WAR III,651,Egypt (UAR),1,crisis actor
+212,YEMEN WAR III,630,Iran,5,military intervener
+212,YEMEN WAR III,663,Jordan,3,diplomatic intervener
+212,YEMEN WAR III,690,Kuwait,3,diplomatic intervener
+212,YEMEN WAR III,670,Saudi Arabia,1,crisis actor
+212,YEMEN WAR III,365,Soviet Union,5,military intervener
+212,YEMEN WAR III,2,United States,6,none of the above
+212,YEMEN WAR III,678,Yemen (Arab Republic of Yemen) (North Yemen),1,crisis actor
+213,PLEIKU,2,USA,1,a crisis actor
+213,PLEIKU,365,USSR,5,military intervener
+214,RANN OF KUTCH,710,Beijing,6,none of the above
+214,RANN OF KUTCH,750,India,1,a crisis actor
+214,RANN OF KUTCH,365,Moscow,4,intimidation intervener
+214,RANN OF KUTCH,770,Pakistan,1,a crisis actor
+214,RANN OF KUTCH,200,U.K.,3,diplomatic intervener
+214,RANN OF KUTCH,2,U.S.,4,intimidation intervener
+215,DOMINICAN INTERVENTION,40,Cuba,5,military intervener
+215,DOMINICAN INTERVENTION,2,USA,1,crisis actor
+215,DOMINICAN INTERVENTION,365,USSR,5,military intervener
+216,KASHMIR II,710,China,4,intimidation intervener
+216,KASHMIR II,750,India,1,crisis actor
+216,KASHMIR II,770,Pakistan,1,crisis actor
+216,KASHMIR II,365,Soviet Union,3,diplomatic intervener
+216,KASHMIR II,2,United States,4,intimidation intervener
+217,GUINEA REGIME,220,France,6,none of the above
+217,GUINEA REGIME,438,Guinea,1,crisis actor
+217,GUINEA REGIME,437,Ivory Coast,6,none of the above
+217,GUINEA REGIME,365,Soviet Union,6,none of the above
+217,GUINEA REGIME,2,United States,6,none of the above
+218,RHODESIA'S UDI,651,Egypt,6,none of the above
+218,RHODESIA'S UDI,501,Kenya,6,none of the above
+218,RHODESIA'S UDI,475,Nigeria,6,none of the above
+218,RHODESIA'S UDI,510,Tanzania,6,none of the above
+218,RHODESIA'S UDI,200,UK,5,military intervener
+218,RHODESIA'S UDI,551,Zambia,1,crisis actor
+219,YEMEN WAR IV,651,Egypt (UAR),1,crisis actor
+219,YEMEN WAR IV,670,Saudi Arabia,1,crisis actor
+219,YEMEN WAR IV,678,Yemen (Arab Republic of Yemen) (North Yemen),1,crisis actor
+219,YEMEN WAR IV,663,Jordan,3,diplomatic intervener
+219,YEMEN WAR IV,625,Sudan,3,diplomatic intervener
+219,YEMEN WAR IV,616,Tunisia,3,diplomatic intervener
+219,YEMEN WAR IV,2,United States,3,diplomatic intervener
+219,YEMEN WAR IV,365,Soviet Union (USSR),5,military intervener
+220,EL SAMU,666,Israel,1,crisis actor
+220,EL SAMU,663,Jordan,1,crisis actor
+220,EL SAMU,2,U.S.,3,diplomatic intervener
+220,EL SAMU,365,USSR,6,none of the above
+221,CHE GUEVARA-BOLIVIA,160,Argentina,2,assurance intervener
+221,CHE GUEVARA-BOLIVIA,145,Bolivia,1,crisis actor
+221,CHE GUEVARA-BOLIVIA,40,Cuba,6,none of the above
+221,CHE GUEVARA-BOLIVIA,2,United States,5,military intervener
+222,SIX DAY WAR,355,Bulgaria,6,none of the above
+222,SIX DAY WAR,315,Czechoslovakia,6,none of the above
+222,SIX DAY WAR,651,Egypt (UAR),1,crisis actor
+222,SIX DAY WAR,310,Hungary,6,none of the above
+222,SIX DAY WAR,666,Israel,1,crisis actor
+222,SIX DAY WAR,663,Jordan,1,crisis actor
+222,SIX DAY WAR,290,Poland,6,none of the above
+222,SIX DAY WAR,365,Russia (Soviet Union),1,crisis actor
+222,SIX DAY WAR,652,Syria,1,crisis actor
+222,SIX DAY WAR,200,United Kingdom,5,military intervener
+222,SIX DAY WAR,2,USA,1,crisis actor
+222,SIX DAY WAR,345,Yugoslavia,6,none of the above
+223,CYPRUS II,350,Greece,1,crisis actor
+223,CYPRUS II,640,Turkey,1,crisis actor
+223,CYPRUS II,352,Cyprus,1,crisis actor
+223,CYPRUS II,2,United States,3,diplomatic intervener
+224,PUEBLO,731,North Korea (People's Republic of Korea),1,crisis actor
+224,PUEBLO,732,South Korea (Republic of Korea),1,crisis actor
+224,PUEBLO,2,USA,1,crisis actor
+224,PUEBLO,365,Soviet Union,3,diplomatic intervener
+225,TET OFFENSIVE,816,North Vietnam,6,none of the above
+225,TET OFFENSIVE,290,Poland,6,none of the above
+225,TET OFFENSIVE,365,Soviet Union,5,military intervener
+225,TET OFFENSIVE,2,USA,1,crisis actor
+226,KARAMEH,666,Israel,1,crisis actor
+226,KARAMEH,663,Jordan,1,crisis actor
+226,KARAMEH,365,USSR,6,none of the above
+226,KARAMEH,2,United States,6,none of the above
+227,PRAGUE SPRING,355,Bulgaria,1,crisis actor
+227,PRAGUE SPRING,315,Czechoslovakia,1,crisis actor
+227,PRAGUE SPRING,265,German Democratic Republic (East Germany),1,crisis actor
+227,PRAGUE SPRING,310,Hungary,1,crisis actor
+227,PRAGUE SPRING,290,Poland,1,crisis actor
+227,PRAGUE SPRING,360,Romania,6,none of the above
+227,PRAGUE SPRING,365,Russia (Soviet Union),1,crisis actor
+227,PRAGUE SPRING,2,United States,4,intimidation intervener
+227,PRAGUE SPRING,345,Yugoslavia,6,none of the above
+228,ESSEQUIBO I,53,Barbados,4,intimidation intervener
+228,ESSEQUIBO I,110,Guyana,1,crisis actor
+228,ESSEQUIBO I,2,United States,3,diplomatic intervener
+228,ESSEQUIBO I,101,Venezuela,5,military intervener
+229,BEIRUT AIRPORT,220,France,4,intimidation intervener
+229,BEIRUT AIRPORT,666,Israel,6,none of the above
+229,BEIRUT AIRPORT,660,Lebanon,1,crisis actor
+229,BEIRUT AIRPORT,365,Soviet Union,6,none of the above
+229,BEIRUT AIRPORT,2,United States,5,military intervener
+230,VIETNAM SPRING OFFENSIVE,2,USA,1,crisis actor
+230,VIETNAM SPRING OFFENSIVE,811,Cambodia,6,none of the above
+230,VIETNAM SPRING OFFENSIVE,816,North Vietnam,5,military intervener
+231,USSURI RIVER,710,China,1,crisis actor
+231,USSURI RIVER,365,Russia (Soviet Union),1,crisis actor
+231,USSURI RIVER,2,United States,6,none of the above
+232,WAR OF ATTRITION,651,Egypt (UAR),1,crisis actor
+232,WAR OF ATTRITION,220,France,6,none of the above
+232,WAR OF ATTRITION,666,Israel,1,crisis actor
+232,WAR OF ATTRITION,365,Russia (Soviet Union),1,crisis actor
+232,WAR OF ATTRITION,200,United Kingdom,6,none of the above
+232,WAR OF ATTRITION,2,United States,5,military intervener
+233,EC-121 SPY PLANE,740,Japan,2,assurance intervener
+233,EC-121 SPY PLANE,732,South Korea,2,assurance intervener
+233,EC-121 SPY PLANE,365,Soviet Union,4,intimidation intervener
+233,EC-121 SPY PLANE,2,USA,1,crisis actor
+234,SHATT-AL-ARAB II,630,Iran,1,crisis actor
+234,SHATT-AL-ARAB II,645,Iraq,1,crisis actor
+234,SHATT-AL-ARAB II,663,Jordan,3,diplomatic intervener
+234,SHATT-AL-ARAB II,690,Kuwait,3,diplomatic intervener
+234,SHATT-AL-ARAB II,770,Pakistan,3,diplomatic intervener
+234,SHATT-AL-ARAB II,670,Sa'udi Arabia,3,diplomatic intervener
+234,SHATT-AL-ARAB II,640,Turkey,3,diplomatic intervener
+234,SHATT-AL-ARAB II,200,U.K.,3,diplomatic intervener
+234,SHATT-AL-ARAB II,2,U.S.,3,diplomatic intervener
+235,FOOTBALL WAR,94,Costa Rica,3,diplomatic intervener
+235,FOOTBALL WAR,92,El Salvador,1,crisis actor
+235,FOOTBALL WAR,90,Guatemala,3,diplomatic intervener
+235,FOOTBALL WAR,91,Honduras,1,crisis actor
+235,FOOTBALL WAR,93,Nicaragua,3,diplomatic intervener
+235,FOOTBALL WAR,365,USSR,6,none of the above
+235,FOOTBALL WAR,2,United States,4,intimidation intervener
+236,CAIRO AGREEMENT-PLO,651,Egypt,3,diplomatic intervener
+236,CAIRO AGREEMENT-PLO,666,Israel,6,none of the above
+236,CAIRO AGREEMENT-PLO,663,Jordan,3,diplomatic intervener
+236,CAIRO AGREEMENT-PLO,660,Lebanon,1,crisis actor
+236,CAIRO AGREEMENT-PLO,652,Syria,5,military intervener
+237,INVASION OF CAMBODIA,811,Cambodia,1,crisis actor
+237,INVASION OF CAMBODIA,816,North Vietnam,1,crisis actor
+237,INVASION OF CAMBODIA,817,South Vietnam,1,crisis actor
+237,INVASION OF CAMBODIA,2,USA,1,crisis actor
+237,INVASION OF CAMBODIA,999,Sihanouk,6,none of the above
+237,INVASION OF CAMBODIA,365,USSR,3,diplomatic intervener
+237,INVASION OF CAMBODIA,999,Vietcong,6,none of the above
+238,BLACK SEPTEMBER,651,Egypt,5,military intervener
+238,BLACK SEPTEMBER,666,Israel,1,crisis actor
+238,BLACK SEPTEMBER,663,Jordan,1,crisis actor
+238,BLACK SEPTEMBER,652,Syria,1,crisis actor
+238,BLACK SEPTEMBER,2,USA,1,crisis actor
+238,BLACK SEPTEMBER,365,USSR,4,intimidation intervener
+239,CIENFUEGOS SUBMARINE BASE,365,Soviet Union,4,intimidation intervener
+239,CIENFUEGOS SUBMARINE BASE,2,USA,1,crisis actor
+240,CONAKRY RAID,615,Algeria,5,military intervener
+240,CONAKRY RAID,710,China,6,none of the above
+240,CONAKRY RAID,651,Egypt,5,military intervener
+240,CONAKRY RAID,438,Guinea,1,crisis actor
+240,CONAKRY RAID,750,India,6,none of the above
+240,CONAKRY RAID,437,Ivory Coast,6,none of the above
+240,CONAKRY RAID,501,Kenya,5,military intervener
+240,CONAKRY RAID,620,Libya,5,military intervener
+240,CONAKRY RAID,432,Mali,5,military intervener
+240,CONAKRY RAID,475,Nigeria,5,military intervener
+240,CONAKRY RAID,235,Portugal,6,none of the above
+240,CONAKRY RAID,433,Senegal,6,none of the above
+240,CONAKRY RAID,451,Sierra Leone,5,military intervener
+240,CONAKRY RAID,365,Soviet Union,6,none of the above
+240,CONAKRY RAID,510,Tanzania,6,none of the above
+240,CONAKRY RAID,2,U.S.,6,none of the above
+240,CONAKRY RAID,551,Zambia,6,none of the above
+241,INVASION OF LAOS II,20,Canada,6,none of the above
+241,INVASION OF LAOS II,812,Laos,1,crisis actor
+241,INVASION OF LAOS II,817,South Vietnam,5,military intervener
+241,INVASION OF LAOS II,365,Soviet Union,4,intimidation intervener
+241,INVASION OF LAOS II,2,United States,5,military intervener
+242,BANGLADESH,771,Bangladesh,1,crisis actor
+242,BANGLADESH,750,India,1,crisis actor
+242,BANGLADESH,770,Pakistan,1,crisis actor
+242,BANGLADESH,365,Soviet Union,5,military intervener
+242,BANGLADESH,2,United States,5,military intervener
+243,CHAD-LIBYA I,483,Chad,1,crisis actor
+243,CHAD-LIBYA I,220,France,3,diplomatic intervener
+243,CHAD-LIBYA I,620,Libya,1,crisis actor
+243,CHAD-LIBYA I,436,Niger,3,diplomatic intervener
+244,CAPRIVI STRIP,560,South Africa,5,military intervener
+244,CAPRIVI STRIP,551,Zambia,1,a crisis actor
+245,TANZANIA-UGANDA I,510,Tanzania,1,crisis actor
+245,TANZANIA-UGANDA I,500,Uganda,1,crisis actor
+245,TANZANIA-UGANDA I,365,USSR,6,none of the above
+245,TANZANIA-UGANDA I,2,U.S.,6,none of the above
+246,VIETNAM PORTS MINING,710,China,3,diplomatic intervener
+246,VIETNAM PORTS MINING,2,USA,1,crisis actor
+246,VIETNAM PORTS MINING,365,USSR,3,diplomatic intervener
+247,TANZANIA-UGANDA II,520,Somalia,2,assurance intervener
+247,TANZANIA-UGANDA II,510,Tanzania,1,crisis actor
+247,TANZANIA-UGANDA II,500,Uganda,1,crisis actor
+248,NORTH-SOUTH YEMEN I,615,Algeria,3,diplomatic intervener
+248,NORTH-SOUTH YEMEN I,690,Kuwait,3,diplomatic intervener
+248,NORTH-SOUTH YEMEN I,620,Libya,4,intimidation intervener
+248,NORTH-SOUTH YEMEN I,678,Yemen (Arab Republic of Yemen) (North Yemen),1,crisis actor
+249,CHRISTMAS BOMBING,2,USA,1,crisis actor
+249,CHRISTMAS BOMBING,365,USSR,6,none of the above
+250,ZAMBIA RAID,552,Rhodesia,6,none of the above
+250,ZAMBIA RAID,560,South Africa,6,none of the above
+250,ZAMBIA RAID,551,Zambia,1,crisis actor
+251,LIBYAN PLANE,651,Egypt,6,none of the above
+251,LIBYAN PLANE,220,France,3,diplomatic intervener
+251,LIBYAN PLANE,255,Germany,6,none of the above
+251,LIBYAN PLANE,666,Israel,1,crisis actor
+251,LIBYAN PLANE,620,Libya,6,none of the above
+252,IRAQ INVASION-KUWAIT,630,Iran,5,military intervener
+252,IRAQ INVASION-KUWAIT,645,Iraq,6,none of the above
+252,IRAQ INVASION-KUWAIT,690,Kuwait,1,crisis actor
+252,IRAQ INVASION-KUWAIT,660,Lebanon,3,diplomatic intervener
+252,IRAQ INVASION-KUWAIT,670,Sa'udi Arabia,5,military intervener
+252,IRAQ INVASION-KUWAIT,652,Syria,3,diplomatic intervener
+252,IRAQ INVASION-KUWAIT,200,United Kingdom,6,none of the above
+252,IRAQ INVASION-KUWAIT,2,United States,6,none of the above
+252,IRAQ INVASION-KUWAIT,365,USSR,6,none of the above
+253,ISRAEL MOBILIZATION,651,Egypt,5,military intervener
+253,ISRAEL MOBILIZATION,645,Iraq,5,military intervener
+253,ISRAEL MOBILIZATION,666,Israel,1,crisis actor
+253,ISRAEL MOBILIZATION,620,Libya,5,military intervener
+254,COD WAR I,395,Iceland,1,crisis actor
+254,COD WAR I,385,Norway,3,diplomatic intervener
+254,COD WAR I,365,Soviet Union,5,military intervener
+254,COD WAR I,200,United Kingdom (Great Britain),1,crisis actor
+254,COD WAR I,2,United States,6,none of the above
+255,OCTOBER-YOM KIPPUR WAR,651,Egypt (UAR),1,crisis actor
+255,OCTOBER-YOM KIPPUR WAR,666,Israel,1,crisis actor
+255,OCTOBER-YOM KIPPUR WAR,365,Russia (Soviet Union),1,crisis actor
+255,OCTOBER-YOM KIPPUR WAR,652,Syria,1,crisis actor
+255,OCTOBER-YOM KIPPUR WAR,2,USA,1,crisis actor
+256,OMAN-SOUTH YEMEN,690,Kuwait,3,diplomatic intervener
+256,OMAN-SOUTH YEMEN,698,Oman,1,crisis actor
+256,OMAN-SOUTH YEMEN,670,Saudi Arabia,3,diplomatic intervener
+256,OMAN-SOUTH YEMEN,680,South Yemen,5,military intervener
+256,OMAN-SOUTH YEMEN,365,Soviet Union,5,military intervener
+256,OMAN-SOUTH YEMEN,2,United States,5,military intervener
+257,CYPRUS III,352,Cyprus,1,a crisis actor
+257,CYPRUS III,350,Greece,1,a crisis actor
+257,CYPRUS III,640,Turkey,1,a crisis actor
+257,CYPRUS III,365,Soviet Union,5,military intervener
+257,CYPRUS III,200,United Kingdom,3,diplomatic intervener
+257,CYPRUS III,2,United States,3,diplomatic intervener
+258,FINAL NORTH VIETNAM OFFENSIVE,811,Cambodia,1,crisis actor
+258,FINAL NORTH VIETNAM OFFENSIVE,817,South Vietnam,1,crisis actor
+258,FINAL NORTH VIETNAM OFFENSIVE,2,United States,2,assurance intervener
+259,MAYAGUEZ,811,Cambodia,1,crisis actor
+259,MAYAGUEZ,710,PRC,3,diplomatic intervener
+259,MAYAGUEZ,2,USA,1,crisis actor
+259,MAYAGUEZ,365,USSR,6,none of the above
+260,WAR IN ANGOLA,540,Angola,1,crisis actor
+260,WAR IN ANGOLA,710,China,5,military intervener
+260,WAR IN ANGOLA,484,Congo (Brazzaville),5,military intervener
+260,WAR IN ANGOLA,40,Cuba,1,crisis actor
+260,WAR IN ANGOLA,501,Kenya,3,diplomatic intervener
+260,WAR IN ANGOLA,731,North Korea,5,military intervener
+260,WAR IN ANGOLA,365,Russia (Soviet Union),1,crisis actor
+260,WAR IN ANGOLA,560,South Africa,1,crisis actor
+260,WAR IN ANGOLA,510,Tanzania,3,diplomatic intervener
+260,WAR IN ANGOLA,500,Uganda,3,diplomatic intervener
+260,WAR IN ANGOLA,2,USA,1,crisis actor
+260,WAR IN ANGOLA,345,Yugoslavia,5,military intervener
+260,WAR IN ANGOLA,490,Zaire,1,crisis actor
+260,WAR IN ANGOLA,551,Zambia,1,crisis actor
+261,Moroccan March,615,Algeria,1,crisis actor
+261,Moroccan March,40,Cuba,5,military intervener
+261,Moroccan March,651,Egypt,3,diplomatic intervener
+261,Moroccan March,620,Libya,3,diplomatic intervener
+261,Moroccan March,435,Mauritania,1,crisis actor
+261,Moroccan March,600,Morocco,1,crisis actor
+261,Moroccan March,731,North Korea,6,none of the above
+261,Moroccan March,230,Spain,1,crisis actor
+261,Moroccan March,2,United States,5,military intervener
+262,BELIZE I,90,Guatemala,6,none of the above
+262,BELIZE I,200,United Kingdom (Great Britain),1,crisis actor
+262,BELIZE I,2,United States,6,none of the above
+262,BELIZE I,365,USSR,6,none of the above
+263,COD WAR II,20,Canada,6,none of the above
+263,COD WAR II,395,Iceland,1,crisis actor
+263,COD WAR II,230,Spain,6,none of the above
+263,COD WAR II,200,United Kingdom (Great Britain),1,crisis actor
+264,EAST TIMOR I,850,Indonesia,1,crisis actor
+264,EAST TIMOR I,235,Portugal,3,diplomatic intervener
+265,LEBANON CIVIL WAR,645,Iraq,6,none of the above
+265,LEBANON CIVIL WAR,666,Israel,6,none of the above
+265,LEBANON CIVIL WAR,365,Soviet Union,6,none of the above
+265,LEBANON CIVIL WAR,652,Syria,1,crisis actor
+265,LEBANON CIVIL WAR,2,United States,6,none of the above
+266,UGANDA CLAIMS,501,Kenya,1,crisis actor
+266,UGANDA CLAIMS,625,Sudan,6,none of the above
+266,UGANDA CLAIMS,510,Tanzania,6,none of the above
+266,UGANDA CLAIMS,500,Uganda,6,none of the above
+267,OPERATION THRASHER,541,Mozambique,1,a crisis actor
+267,OPERATION THRASHER,552,Rhodesia (Zimbabwe),1,a crisis actor
+267,OPERATION THRASHER,365,Soviet Union,5,military intervener
+267,OPERATION THRASHER,2,United States,6,none of the above
+267,OPERATION THRASHER,551,Zambia,2,assurance intervener
+267,OPERATION THRASHER,510,Tanzania,2,assurance intervener
+268,NOUAKCHOTT I,435,Mauritania,1,crisis actor
+268,NOUAKCHOTT I,365,USSR,6,none of the above
+268,NOUAKCHOTT I,2,United States,6,none of the above
+269,IRAQI THREAT,645,Iraq,5,military intervener
+269,IRAQI THREAT,666,Israel,6,none of the above
+269,IRAQI THREAT,652,Syria,1,crisis actor
+270,ENTEBBE RAID,220,France,6,none of the above
+270,ENTEBBE RAID,666,Israel,1,crisis actor
+270,ENTEBBE RAID,501,Kenya,6,none of the above
+270,ENTEBBE RAID,620,Libya,6,none of the above
+270,ENTEBBE RAID,500,Uganda,1,crisis actor
+271,SUDAN COUP ATTEMPT,651,Egypt,2,assurance intervener
+271,SUDAN COUP ATTEMPT,620,Libya,5,military intervener
+271,SUDAN COUP ATTEMPT,625,Sudan,1,crisis actor
+272,AEGEAN SEA I,350,Greece,1,crisis actor
+272,AEGEAN SEA I,365,Soviet Union,3,diplomatic intervener
+272,AEGEAN SEA I,640,Turkey,1,crisis actor
+272,AEGEAN SEA I,2,United States,3,diplomatic intervener
+273,NAGOMIA RAID,571,Botswana,6,none of the above
+273,NAGOMIA RAID,541,Mozambique,1,crisis actor
+273,NAGOMIA RAID,552,Rhodesia,6,none of the above
+273,NAGOMIA RAID,510,Tanzania,6,none of the above
+273,NAGOMIA RAID,2,United States,3,diplomatic intervener
+273,NAGOMIA RAID,365,USSR,4,intimidation intervener
+273,NAGOMIA RAID,551,Zambia,6,none of the above
+274,POPLAR TREE,710,China,6,none of the above
+274,POPLAR TREE,731,North Korea (People's Republic of Korea),1,crisis actor
+274,POPLAR TREE,365,Soviet Union,3,diplomatic intervener
+274,POPLAR TREE,2,USA,1,crisis actor
+275,SYRIA MOBILIZATION,666,Israel,1,crisis actor
+275,SYRIA MOBILIZATION,652,Syria,6,none of the above
+275,SYRIA MOBILIZATION,2,United States,3,diplomatic intervener
+276,OPERATION TANGENT,571,Botswana,1,crisis actor
+276,OPERATION TANGENT,552,Rhodesia,6,none of the above
+276,OPERATION TANGENT,365,USSR,2,assurance intervener
+277,SHABA I,540,Angola,1,crisis actor
+277,SHABA I,211,Belgium,6,none of the above
+277,SHABA I,40,Cuba,6,none of the above
+277,SHABA I,651,Egypt,5,military intervener
+277,SHABA I,220,France,5,military intervener
+277,SHABA I,600,Morocco,5,military intervener
+277,SHABA I,475,Nigeria,3,diplomatic intervener
+277,SHABA I,2,United States,2,assurance intervener
+277,SHABA I,365,USSR,6,none of the above
+278,MAPAI SEIZURE,541,Mozambique,1,crisis actor
+278,MAPAI SEIZURE,552,Rhodesia,1,crisis actor
+278,MAPAI SEIZURE,560,South Africa,4,intimidation intervener
+278,MAPAI SEIZURE,200,United Kingdom,4,intimidation intervener
+278,MAPAI SEIZURE,2,United States,4,intimidation intervener
+279,BELIZE II,90,Guatemala,6,none of the above
+279,BELIZE II,200,United Kingdom (Great Britain),1,a crisis actor
+279,BELIZE II,2,United States,3,diplomatic intervener
+280,NOUAKCHOTT II,615,Algeria,6,none of the above
+280,NOUAKCHOTT II,435,Mauritania,1,crisis actor
+280,NOUAKCHOTT II,600,Morocco,5,military intervener
+280,NOUAKCHOTT II,2,United States,6,none of the above
+280,NOUAKCHOTT II,365,USSR,6,none of the above
+281,EGYPT-LIBYA CLASHES,615,Algeria,3,diplomatic intervener
+281,EGYPT-LIBYA CLASHES,651,Egypt (UAR),1,a crisis actor
+281,EGYPT-LIBYA CLASHES,690,Kuwait,3,diplomatic intervener
+281,EGYPT-LIBYA CLASHES,620,Libya,1,a crisis actor
+281,EGYPT-LIBYA CLASHES,365,Soviet Union,5,military intervener
+281,EGYPT-LIBYA CLASHES,461,Togo,3,diplomatic intervener
+281,EGYPT-LIBYA CLASHES,2,United States,5,military intervener
+282,OGADEN II,40,Cuba,5,military intervener
+282,OGADEN II,530,Ethiopia,1,crisis actor
+282,OGADEN II,520,Somalia,1,crisis actor
+282,OGADEN II,365,Soviet Union,5,military intervener
+282,OGADEN II,2,United States,5,military intervener
+283,RHODESIA RAID,200,Britain,3,intimidation intervener
+283,RHODESIA RAID,552,Rhodesia,6,none of the above
+283,RHODESIA RAID,2,United States,4,diplomatic intervener
+283,RHODESIA RAID,551,Zambia,1,crisis actor
+284,VIETNAM INVASION OF CAMBODIA,339,Albania,6,none of the above
+284,VIETNAM INVASION OF CAMBODIA,900,Australia,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,200,Britain,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,811,Cambodia,1,crisis actor
+284,VIETNAM INVASION OF CAMBODIA,710,China,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,315,Czechoslovakia,6,none of the above
+284,VIETNAM INVASION OF CAMBODIA,390,Denmark,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,850,Indonesia,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,740,Japan,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,812,Laos,6,none of the above
+284,VIETNAM INVASION OF CAMBODIA,820,Malaysia,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,840,Philippines,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,360,Romania,6,none of the above
+284,VIETNAM INVASION OF CAMBODIA,365,Soviet Union,4,intimidation intervener
+284,VIETNAM INVASION OF CAMBODIA,800,Thailand,1,crisis actor
+284,VIETNAM INVASION OF CAMBODIA,345,Yugoslavia,6,none of the above
+285,FRENCH HOSTAGES MAURITANIA,615,Algeria,1,crisis actor
+285,FRENCH HOSTAGES MAURITANIA,220,France,1,crisis actor
+285,FRENCH HOSTAGES MAURITANIA,433,Senegal,5,military intervener
+286,CHIMOIO-TEMBUE RAIDS,540,Angola,6,none of the above
+286,CHIMOIO-TEMBUE RAIDS,710,China,6,none of the above
+286,CHIMOIO-TEMBUE RAIDS,541,Mozambique,1,crisis actor
+286,CHIMOIO-TEMBUE RAIDS,475,Nigeria,6,none of the above
+286,CHIMOIO-TEMBUE RAIDS,552,Rhodesia,6,none of the above
+286,CHIMOIO-TEMBUE RAIDS,365,Soviet Union,6,none of the above
+286,CHIMOIO-TEMBUE RAIDS,510,Tanzania,6,none of the above
+286,CHIMOIO-TEMBUE RAIDS,200,United Kingdom,4,intimidation intervener
+286,CHIMOIO-TEMBUE RAIDS,2,United States,4,intimidation intervener
+286,CHIMOIO-TEMBUE RAIDS,551,Zambia,6,none of the above
+287,BEAGLE CHANNEL I,160,Argentina,1,crisis actor
+287,BEAGLE CHANNEL I,155,Chile,1,crisis actor
+287,BEAGLE CHANNEL I,2,United States,3,diplomatic intervener
+287,BEAGLE CHANNEL I,365,USSR,6,none of the above
+288,CHAD-LIBYA II,483,Chad,1,crisis actor
+288,CHAD-LIBYA II,220,France,4,intimidation intervener
+288,CHAD-LIBYA II,620,Libya,1,crisis actor
+288,CHAD-LIBYA II,436,Niger,3,diplomatic intervener
+288,CHAD-LIBYA II,625,Sudan,3,diplomatic intervener
+289,LITANI OPERATION,666,Israel,5,military intervener
+289,LITANI OPERATION,660,Lebanon,1,crisis actor
+289,LITANI OPERATION,365,Soviet Union,4,intimidation intervener
+289,LITANI OPERATION,2,United States,3,diplomatic intervener
+290,CHAD-LIBYA III,483,Chad,1,crisis actor
+290,CHAD-LIBYA III,220,France,1,crisis actor
+290,CHAD-LIBYA III,620,Libya,1,crisis actor
+290,CHAD-LIBYA III,2,United States,6,none of the above
+290,CHAD-LIBYA III,365,Soviet Union,6,none of the above
+291,CASSINGA INCIDENT,540,Angola,1,crisis actor
+291,CASSINGA INCIDENT,20,Canada,3,diplomatic intervener
+291,CASSINGA INCIDENT,220,France,3,diplomatic intervener
+291,CASSINGA INCIDENT,560,South Africa,1,crisis actor
+291,CASSINGA INCIDENT,200,U.K.,3,diplomatic intervener
+291,CASSINGA INCIDENT,2,U.S.,3,diplomatic intervener
+291,CASSINGA INCIDENT,365,USSR,5,military intervener
+291,CASSINGA INCIDENT,260,West Germany,3,diplomatic intervener
+292,SHABA II,615,Algeria,6,none of the above
+292,SHABA II,540,Angola,1,crisis actor
+292,SHABA II,211,Belgium,1,crisis actor
+292,SHABA II,710,China,6,none of the above
+292,SHABA II,490,Congo, 6,none of the above
+292,SHABA II,40,Cuba,6,none of the above
+292,SHABA II,220,France,1,crisis actor
+292,SHABA II,620,Libya,6,none of the above
+292,SHABA II,600,Morocco,6,none of the above
+292,SHABA II,433,Senegal,6,none of the above
+292,SHABA II,365,Soviet Union,6,none of the above
+292,SHABA II,2,USA,1,crisis actor
+292,SHABA II,551,Zambia,6,none of the above
+293,AIR RHODESIA INCIDENT,200,U.K.,3,diplomatic intervener
+293,AIR RHODESIA INCIDENT,2,U.S.,3,diplomatic intervener
+293,AIR RHODESIA INCIDENT,551,Zambia,1,crisis actor
+293,AIR RHODESIA INCIDENT,552,Zimbabwe (Rhodesia),1,crisis actor
+294,NICARAGUA CIVIL WAR II,100,Colombia,6,none of the above
+294,NICARAGUA CIVIL WAR II,94,Costa Rica,1,crisis actor
+294,NICARAGUA CIVIL WAR II,42,Dominican Republic,3,diplomatic intervener
+294,NICARAGUA CIVIL WAR II,92,El Salvador,5,military intervener
+294,NICARAGUA CIVIL WAR II,90,Guatemala,5,military intervener
+294,NICARAGUA CIVIL WAR II,91,Honduras,5,military intervener
+294,NICARAGUA CIVIL WAR II,666,Israel,5,military intervener
+294,NICARAGUA CIVIL WAR II,93,Nicaragua,1,crisis actor
+294,NICARAGUA CIVIL WAR II,95,Panama,5,military intervener
+294,NICARAGUA CIVIL WAR II,2,United States,5,military intervener
+294,NICARAGUA CIVIL WAR II,101,Venezuela,2,assurance intervener
+295,BEAGLE CHANNEL II,160,Argentina,1,crisis actor
+295,BEAGLE CHANNEL II,155,Chile,1,crisis actor
+295,BEAGLE CHANNEL II,2,United States,4,intimidation intervener
+296,FALL OF AMIN,501,Kenya,3,intimidation intervener
+296,FALL OF AMIN,620,Libya,5,military intervener
+296,FALL OF AMIN,475,Nigeria,3,intimidation intervener
+296,FALL OF AMIN,365,Soviet Union,6,none of the above
+296,FALL OF AMIN,510,Tanzania,1,crisis actor
+296,FALL OF AMIN,500,Uganda,1,crisis actor
+296,FALL OF AMIN,2,United States,4,intimidation intervener
+296,FALL OF AMIN,365,USSR,6,none of the above
+296,FALL OF AMIN,551,Zambia,3,intimidation intervener
+297,ANGOLA INVASION SCARE,540,Angola,1,crisis actor
+297,ANGOLA INVASION SCARE,560,South Africa,6,none of the above
+298,SINO-VIETNAM WAR,710,China,1,crisis actor
+298,SINO-VIETNAM WAR,385,Norway,3,diplomatic intervener
+298,SINO-VIETNAM WAR,235,Portugal,3,diplomatic intervener
+298,SINO-VIETNAM WAR,200,United Kingdom,3,diplomatic intervener
+298,SINO-VIETNAM WAR,2,United States,3,diplomatic intervener
+298,SINO-VIETNAM WAR,816,Vietnam,6,none of the above
+298,SINO-VIETNAM WAR,365,USSR,6,none of the above
+299,TAN TAN,615,Algeria,6,none of the above
+299,TAN TAN,600,Morocco,1,a crisis actor
+300,RAIDS ON ZIPRA,540,Angola,1,crisis actor
+300,RAIDS ON ZIPRA,560,South Africa,6,none of the above
+300,RAIDS ON ZIPRA,551,Zambia,1,crisis actor
+300,RAIDS ON ZIPRA,552,Zimbabwe (Rhodesia),1,crisis actor
+301,NORTH-SOUTH YEMEN II,40,Cuba,5,military intervener
+301,NORTH-SOUTH YEMEN II,645,Iraq,3,diplomatic intervener
+301,NORTH-SOUTH YEMEN II,663,Jordan,3,diplomatic intervener
+301,NORTH-SOUTH YEMEN II,690,Kuwait,3,diplomatic intervener
+301,NORTH-SOUTH YEMEN II,670,Sa'udi Arabia,5,military intervener
+301,NORTH-SOUTH YEMEN II,652,Syria,3,diplomatic intervener
+301,NORTH-SOUTH YEMEN II,2,United States,5,military intervener
+301,NORTH-SOUTH YEMEN II,365,USSR,5,military intervener
+301,NORTH-SOUTH YEMEN II,678,Yemen (Arab Republic of Yemen) (North Yemen),1,a crisis actor
+302,RAIDS ON SWAPO,540,Angola,1,crisis actor
+302,RAIDS ON SWAPO,560,South Africa,6,none of the above
+302,RAIDS ON SWAPO,2,United States,6,none of the above
+302,RAIDS ON SWAPO,365,USSR,6,none of the above
+303,AFGHANISTAN INVASION,700,Afghanistan,1,crisis actor
+303,AFGHANISTAN INVASION,710,China,5,military intervener
+303,AFGHANISTAN INVASION,651,Egypt,6,none of the above
+303,AFGHANISTAN INVASION,630,Iran,6,none of the above
+303,AFGHANISTAN INVASION,770,Pakistan,1,crisis actor
+303,AFGHANISTAN INVASION,365,Russia (Soviet Union),1,crisis actor
+303,AFGHANISTAN INVASION,2,USA,5,military intervener
+304,CHAD-LIBYA IV,471,Cameroon,6,none of the above
+304,CHAD-LIBYA IV,482,Central African Republic,6,none of the above
+304,CHAD-LIBYA IV,483,Chad,1,crisis actor
+304,CHAD-LIBYA IV,490,Congo,6,none of the above
+304,CHAD-LIBYA IV,220,France,1,crisis actor
+304,CHAD-LIBYA IV,620,Libya,1,crisis actor
+304,CHAD-LIBYA IV,436,Niger,6,none of the above
+304,CHAD-LIBYA IV,475,Nigeria,3,diplomatic intervener
+304,CHAD-LIBYA IV,433,Senegal,6,none of the above
+304,CHAD-LIBYA IV,625,Sudan,6,none of the above
+305,GOULIMIME-TARFAYA ROAD,615,Algeria,1,crisis actor
+305,GOULIMIME-TARFAYA ROAD,438,Guinea,6,none of the above
+305,GOULIMIME-TARFAYA ROAD,437,Ivory Coast,6,none of the above
+305,GOULIMIME-TARFAYA ROAD,432,Mali,6,none of the above
+305,GOULIMIME-TARFAYA ROAD,600,Morocco,1,crisis actor
+305,GOULIMIME-TARFAYA ROAD,475,Nigeria,6,none of the above
+305,GOULIMIME-TARFAYA ROAD,625,Sudan,6,none of the above
+305,GOULIMIME-TARFAYA ROAD,2,United States,5,military intervener
+305,GOULIMIME-TARFAYA ROAD,490,Zaire,6,none of the above
+306,SOVIET THREAT-PAKISTAN,700,Afghanistan,6,none of the above
+306,SOVIET THREAT-PAKISTAN,770,Pakistan,1,crisis actor
+306,SOVIET THREAT-PAKISTAN,365,Soviet Union,4,intimidation intervener
+306,SOVIET THREAT-PAKISTAN,2,United States,6,none of the above
+307,RHODESIA SETTLEMENT,571,Botswana,1,crisis actor
+307,RHODESIA SETTLEMENT,541,Mozambique,1,crisis actor
+307,RHODESIA SETTLEMENT,552,Rhodesia,1,crisis actor
+307,RHODESIA SETTLEMENT,200,United Kingdom,3,diplomatic intervener
+307,RHODESIA SETTLEMENT,2,United States,3,diplomatic intervener
+307,RHODESIA SETTLEMENT,551,Zambia,1,crisis actor
+307,RHODESIA SETTLEMENT,552,Zimbabwe,1,crisis actor
+308,RAID ON ANGOLA,540,Angola,1,a crisis actor
+308,RAID ON ANGOLA,560,South Africa,6,none of the above
+309,US HOSTAGES IN IRAN,615,Algeria,3,diplomatic intervener
+309,US HOSTAGES IN IRAN,651,Egypt,6,none of the above
+309,US HOSTAGES IN IRAN,255,Germany,3,diplomatic intervener
+309,US HOSTAGES IN IRAN,630,Iran,1,crisis actor
+309,US HOSTAGES IN IRAN,645,Iraq,6,none of the above
+309,US HOSTAGES IN IRAN,95,Panama,6,none of the above
+309,US HOSTAGES IN IRAN,290,Poland,6,none of the above
+309,US HOSTAGES IN IRAN,365,Soviet Union,6,none of the above
+309,US HOSTAGES IN IRAN,225,Switzerland,3,diplomatic intervener
+309,US HOSTAGES IN IRAN,200,United Kingdom,5,military intervener
+309,US HOSTAGES IN IRAN,2,United States,1,crisis actor
+310,COLOMBIA-NICARAGUA,100,Colombia,1,crisis actor
+310,COLOMBIA-NICARAGUA,93,Nicaragua,1,crisis actor
+310,COLOMBIA-NICARAGUA,2,United States,4,intimidation intervener
+311,RAID ON GAFSA,615,Algeria,6,none of the above
+311,RAID ON GAFSA,220,France,5,military intervener
+311,RAID ON GAFSA,663,Jordan,3,diplomatic intervener
+311,RAID ON GAFSA,690,Kuwait,3,diplomatic intervener
+311,RAID ON GAFSA,620,Libya,1,crisis actor
+311,RAID ON GAFSA,652,Syria,3,diplomatic intervener
+311,RAID ON GAFSA,616,Tunisia,1,crisis actor
+311,RAID ON GAFSA,2,United States,5,military intervener
+312,OPERATION IMAN,615,Algeria,6,none of the above
+312,OPERATION IMAN,620,Libya,6,none of the above
+312,OPERATION IMAN,600,Morocco,1,crisis actor
+312,OPERATION IMAN,560,South Africa,6,none of the above
+312,OPERATION IMAN,2,United States,6,none of the above
+312,OPERATION IMAN,365,USSR,6,none of the above
+313,OPERATION SMOKESHELL,540,Angola,1,crisis actor
+313,OPERATION SMOKESHELL,560,South Africa,5,military intervener
+313,OPERATION SMOKESHELL,2,United States,6,none of the above
+313,OPERATION SMOKESHELL,365,USSR,6,none of the above
+314,LIBYA THREAT-SADAT,615,Algeria,6,none of the above
+314,LIBYA THREAT-SADAT,651,Egypt (UAR),1,crisis actor
+314,LIBYA THREAT-SADAT,620,Libya,1,crisis actor
+314,LIBYA THREAT-SADAT,652,Syria,6,none of the above
+315,SOLIDARITY,315,Czechoslovakia,1,crisis actor
+315,SOLIDARITY,265,German Democratic Republic (East Germany),1,crisis actor
+315,SOLIDARITY,290,Poland,1,crisis actor
+315,SOLIDARITY,365,Russia (Soviet Union),1,crisis actor
+315,SOLIDARITY,2,United States,4,intimidation intervener
+316,LIBYA-MALTA OIL DISPUTE,325,Italy,5,military intervener
+316,LIBYA-MALTA OIL DISPUTE,620,Libya,6,none of the above
+316,LIBYA-MALTA OIL DISPUTE,338,Malta,1,crisis actor
+316,LIBYA-MALTA OIL DISPUTE,2,United States,6,none of the above
+316,LIBYA-MALTA OIL DISPUTE,365,USSR,6,none of the above
+317,ONSET IRAN-IRAQ WAR,900,Australia,5,military intervener
+317,ONSET IRAN-IRAQ WAR,220,France,5,military intervener
+317,ONSET IRAN-IRAQ WAR,630,Iran,1,crisis actor
+317,ONSET IRAN-IRAQ WAR,645,Iraq,1,crisis actor
+317,ONSET IRAN-IRAQ WAR,666,Israel,5,military intervener
+317,ONSET IRAN-IRAQ WAR,620,Libya,5,military intervener
+317,ONSET IRAN-IRAQ WAR,731,North Korea,5,military intervener
+317,ONSET IRAN-IRAQ WAR,652,Syria,5,military intervener
+317,ONSET IRAN-IRAQ WAR,200,United Kingdom,5,military intervener
+317,ONSET IRAN-IRAQ WAR,2,United States,5,military intervener
+317,ONSET IRAN-IRAQ WAR,365,USSR,5,military intervener
+318,LIBYA INTERVENTION IN THE GAMBIA,420,Gambia,1,crisis actor
+318,LIBYA INTERVENTION IN THE GAMBIA,620,Libya,4,intimidation intervener
+318,LIBYA INTERVENTION IN THE GAMBIA,433,Senegal,5,military intervener
+319,JORDAN-SYRIA CONFRONTATION,663,Jordan,1,crisis actor
+319,JORDAN-SYRIA CONFRONTATION,652,Syria,1,crisis actor
+319,JORDAN-SYRIA CONFRONTATION,670,Sa'udi Arabia,3,diplomatic intervener
+320,EAST AFRICA CONFRONTATION,522,Djibouti,6,none of the above
+320,EAST AFRICA CONFRONTATION,530,Ethiopia,1,a crisis actor
+320,EAST AFRICA CONFRONTATION,501,Kenya,1,a crisis actor
+320,EAST AFRICA CONFRONTATION,520,Somalia,1,a crisis actor
+320,EAST AFRICA CONFRONTATION,510,Tanzania,6,none of the above
+321,CHAD-LIBYA V,482,Central African Republic,6,none of the above
+321,CHAD-LIBYA V,483,Chad,6,none of the above
+321,CHAD-LIBYA V,651,Egypt,4,intimidation intervener
+321,CHAD-LIBYA V,220,France,1,crisis actor
+321,CHAD-LIBYA V,620,Libya,1,crisis actor
+321,CHAD-LIBYA V,432,Mali,6,none of the above
+321,CHAD-LIBYA V,436,Niger,6,none of the above
+321,CHAD-LIBYA V,475,Nigeria,3,diplomatic intervener
+321,CHAD-LIBYA V,625,Sudan,6,none of the above
+321,CHAD-LIBYA V,2,United States,6,none of the above
+321,CHAD-LIBYA V,365,USSR,6,none of the above
+322,ECUADOR-PERU BORDER III,160,Argentina,3,diplomatic intervener
+322,ECUADOR-PERU BORDER III,140,Brazil,3,diplomatic intervener
+322,ECUADOR-PERU BORDER III,155,Chile,3,diplomatic intervener
+322,ECUADOR-PERU BORDER III,100,Colombia,3,diplomatic intervener
+322,ECUADOR-PERU BORDER III,130,Ecuador,1,crisis actor
+322,ECUADOR-PERU BORDER III,135,Peru,1,crisis actor
+322,ECUADOR-PERU BORDER III,2,United States,3,diplomatic intervener
+322,ECUADOR-PERU BORDER III,101,Venezuela,3,diplomatic intervener
+323,MOZAMBIQUE RAID,541,Mozambique,1,crisis actor
+323,MOZAMBIQUE RAID,365,Soviet Union,5,military intervener
+323,MOZAMBIQUE RAID,560,South Africa,6,none of the above
+323,MOZAMBIQUE RAID,2,United States,6,none of the above
+324,IRAQ NUCLEAR REACTOR,220,France,6,none of the above
+324,IRAQ NUCLEAR REACTOR,645,Iraq,1,a crisis actor
+324,IRAQ NUCLEAR REACTOR,666,Israel,1,a crisis actor
+324,IRAQ NUCLEAR REACTOR,670,Sa'udi Arabia,6,none of the above
+324,IRAQ NUCLEAR REACTOR,2,U.S.,4,intimidation intervener
+324,IRAQ NUCLEAR REACTOR,365,USSR,6,none of the above
+325,ESSEQUIBO II,40,Cuba,6,none of the above
+325,ESSEQUIBO II,110,Guyana,1,crisis actor
+325,ESSEQUIBO II,200,United Kingdom,6,none of the above
+325,ESSEQUIBO II,2,United States,6,none of the above
+325,ESSEQUIBO II,101,Venezuela,1,crisis actor
+326,CONTRAS I,91,Honduras,1,a crisis actor
+326,CONTRAS I,93,Nicaragua,1,a crisis actor
+327,AL-BIQA MISSILES I,666,Israel,1,crisis actor
+327,AL-BIQA MISSILES I,670,Saudi Arabia,3,diplomatic intervener
+327,AL-BIQA MISSILES I,652,Syria,1,crisis actor
+327,AL-BIQA MISSILES I,2,United States,4,intimidation intervener
+327,AL-BIQA MISSILES I,365,USSR,5,military intervener
+328,CAMEROON-NIGERIA I,471,Cameroon,1,crisis actor
+328,CAMEROON-NIGERIA I,501,Kenya,3,diplomatic intervener
+328,CAMEROON-NIGERIA I,475,Nigeria,1,crisis actor
+329,COUP ATTEMPT IN THE GAMBIA,433,Senegal,1,crisis actor
+329,COUP ATTEMPT IN THE GAMBIA,420,The Gambia,6,none of the above
+329,COUP ATTEMPT IN THE GAMBIA,365,USSR,6,none of the above
+329,COUP ATTEMPT IN THE GAMBIA,2,United States,6,none of the above
+330,GULF OF SYRTE I,620,Libya,1,crisis actor
+330,GULF OF SYRTE I,2,U.S.,5,military intervener
+330,GULF OF SYRTE I,365,USSR,6,none of the above
+330,GULF OF SYRTE I,651,Egypt,6,none of the above
+330,GULF OF SYRTE I,625,Sudan,6,none of the above
+331,OPERATION PROTEA,540,Angola,1,crisis actor
+331,OPERATION PROTEA,40,Cuba,6,none of the above
+331,OPERATION PROTEA,235,Portugal,6,none of the above
+331,OPERATION PROTEA,560,South Africa,5,military intervener
+331,OPERATION PROTEA,2,United States,6,none of the above
+331,OPERATION PROTEA,365,USSR,6,none of the above
+332,GALTAT ZEMMOUR I,615,Algeria,6,none of the above
+332,GALTAT ZEMMOUR I,220,France,6,none of the above
+332,GALTAT ZEMMOUR I,620,Libya,6,none of the above
+332,GALTAT ZEMMOUR I,435,Mauritania,6,none of the above
+332,GALTAT ZEMMOUR I,600,Morocco,1,crisis actor
+332,GALTAT ZEMMOUR I,365,Soviet Union,6,none of the above
+332,GALTAT ZEMMOUR I,2,United States,3,diplomatic intervener
+333,U-137 INCIDENT,365,Soviet Union (Russia),1,crisis actor
+333,U-137 INCIDENT,380,Sweden,1,crisis actor
+334,COUP ATTEMPT IN BAHRAIN,692,Bahrain,1,crisis actor
+334,COUP ATTEMPT IN BAHRAIN,630,Iran,4,intimidation intervener
+334,COUP ATTEMPT IN BAHRAIN,670,Saudi Arabia,1,crisis actor
+334,COUP ATTEMPT IN BAHRAIN,2,United States,6,none of the above
+335,Khorramshahr,615,Algeria,3,diplomatic intervener
+335,Khorramshahr,651,Egypt,3,diplomatic intervener
+335,Khorramshahr,220,France,5,military intervener
+335,Khorramshahr,645,Iraq,1,crisis actor
+335,Khorramshahr,630,Iran,6,none of the above
+335,Khorramshahr,670,Saudi Arabia,6,none of the above
+335,Khorramshahr,625,Sudan,5,military intervener
+335,Khorramshahr,380,Sweden,3,diplomatic intervener
+335,Khorramshahr,200,United Kingdom,6,none of the above
+335,Khorramshahr,2,United States,5,military intervener
+335,Khorramshahr,365,USSR,5,military intervener
+336,FALKLANDS/MALVINAS,160,Argentina,1,crisis actor
+336,FALKLANDS/MALVINAS,365,Soviet Union,6,none of the above
+336,FALKLANDS/MALVINAS,200,United Kingdom (Great Britain),1,crisis actor
+336,FALKLANDS/MALVINAS,2,United States,3,diplomatic intervener
+337,WAR IN LEBANON,220,France,2,assurance intervener
+337,WAR IN LEBANON,666,Israel,1,crisis actor
+337,WAR IN LEBANON,325,Italy,2,assurance intervener
+337,WAR IN LEBANON,660,Lebanon,1,crisis actor
+337,WAR IN LEBANON,652,Syria,1,crisis actor
+337,WAR IN LEBANON,365,USSR,5,military intervener
+337,WAR IN LEBANON,2,United States,5,military intervener
+338,OGADEN III,530,Ethiopia,1,crisis actor
+338,OGADEN III,520,Somalia,1,crisis actor
+338,OGADEN III,2,United States,5,military intervener
+339,LESOTHO RAID,570,Lesotho,1,a crisis actor
+339,LESOTHO RAID,560,South Africa,6,none of the above
+340,LIBYA THREAT TO SUDAN,651,Egypt (UAR),1,crisis actor
+340,LIBYA THREAT TO SUDAN,620,Libya,1,crisis actor
+340,LIBYA THREAT TO SUDAN,625,Sudan,1,crisis actor
+340,LIBYA THREAT TO SUDAN,2,United States,5,military intervener
+341,CHAD-NIGERIA CLASHES,471,Cameroon,6,none of the above
+341,CHAD-NIGERIA CLASHES,483,Chad,1,crisis actor
+341,CHAD-NIGERIA CLASHES,436,Niger,6,none of the above
+341,CHAD-NIGERIA CLASHES,475,Nigeria,1,crisis actor
+342,CHAD-LIBYA VI,483,Chad,1,crisis actor
+342,CHAD-LIBYA VI,220,France,1,crisis actor
+342,CHAD-LIBYA VI,620,Libya,1,crisis actor
+342,CHAD-LIBYA VI,482,Central African Republic,6,none of the above
+342,CHAD-LIBYA VI,490,Congo,3,diplomatic intervener
+342,CHAD-LIBYA VI,999,Qaddhafi,6,none of the above
+342,CHAD-LIBYA VI,999,Sadat,6,none of the above
+342,CHAD-LIBYA VI,625,Sudan,6,none of the above
+342,CHAD-LIBYA VI,365,USSR,6,none of the above
+342,CHAD-LIBYA VI,2,United States,5,military intervener
+342,CHAD-LIBYA VI,490,Zaire,5,military intervener
+343,INVASION OF GRENADA,53,Barbados,2,assurance intervener
+343,INVASION OF GRENADA,40,Cuba,6,none of the above
+343,INVASION OF GRENADA,54,Dominica,2,assurance intervener
+343,INVASION OF GRENADA,55,Grenada,1,crisis actor
+343,INVASION OF GRENADA,51,Jamaica,2,assurance intervener
+343,INVASION OF GRENADA,93,Nicaragua,6,none of the above
+343,INVASION OF GRENADA,56,St. Lucia,2,assurance intervener
+343,INVASION OF GRENADA,57,St. Vincent,2,assurance intervener
+343,INVASION OF GRENADA,365,USSR,6,none of the above
+343,INVASION OF GRENADA,2,USA,5,military intervener
+344,ABLE ARCHER 83,365,Russia (Soviet Union),1,crisis actor
+344,ABLE ARCHER 83,2,United States,5,military intervener
+345,MAITENGWE CLASHES,571,Botswana,1,crisis actor
+345,MAITENGWE CLASHES,552,Zimbabwe,5,military intervener
+346,ETHIOPIA-SUDAN TENSION,40,Cuba,5,military intervener
+346,ETHIOPIA-SUDAN TENSION,530,Ethiopia,6,none of the above
+346,ETHIOPIA-SUDAN TENSION,620,Libya,5,military intervener
+346,ETHIOPIA-SUDAN TENSION,625,Sudan,1,crisis actor
+346,ETHIOPIA-SUDAN TENSION,365,Soviet Union,5,military intervener
+347,OPERATION ASKARI,540,Angola,1,crisis actor
+347,OPERATION ASKARI,40,Cuba,5,military intervener
+347,OPERATION ASKARI,560,South Africa,5,military intervener
+347,OPERATION ASKARI,365,Soviet Union,4,intimidation intervener
+347,OPERATION ASKARI,2,United States,3,diplomatic intervener
+347,OPERATION ASKARI,551,Zambia,3,diplomatic intervener
+348,BASRA-KHARG ISLAND,140,Brazil,6,none of the above
+348,BASRA-KHARG ISLAND,155,Chile,6,none of the above
+348,BASRA-KHARG ISLAND,710,China,6,none of the above
+348,BASRA-KHARG ISLAND,651,Egypt,6,none of the above
+348,BASRA-KHARG ISLAND,220,France,5,military intervener
+348,BASRA-KHARG ISLAND,630,Iran,1,crisis actor
+348,BASRA-KHARG ISLAND,645,Iraq,1,crisis actor
+348,BASRA-KHARG ISLAND,690,Kuwait,1,crisis actor
+348,BASRA-KHARG ISLAND,670,Saudi Arabia,1,crisis actor
+348,BASRA-KHARG ISLAND,652,Syria,6,none of the above
+348,BASRA-KHARG ISLAND,2,US,5,military intervener
+348,BASRA-KHARG ISLAND,365,USSR,5,military intervener
+349,AEGEAN SEA II,350,Greece,1,crisis actor
+349,AEGEAN SEA II,640,Turkey,6,none of the above
+350,OMDURMAN BOMBING,651,Egypt (UAR),1,crisis actor
+350,OMDURMAN BOMBING,620,Libya,1,crisis actor
+350,OMDURMAN BOMBING,625,Sudan,1,crisis actor
+350,OMDURMAN BOMBING,2,U.S.,5,military intervener
+350,OMDURMAN BOMBING,365,USSR,6,none of the above
+351,VIETNAM INCURSION INTO THAILAND,800,Thailand,1,crisis actor
+351,VIETNAM INCURSION INTO THAILAND,2,United States,5,military intervener
+351,VIETNAM INCURSION INTO THAILAND,816,Vietnam,6,none of the above
+351,VIETNAM INCURSION INTO THAILAND,365,Soviet Union,6,none of the above
+352,SINO-VIETNAM CLASHES,710,China,1,crisis actor
+352,SINO-VIETNAM CLASHES,365,Soviet Union,5,military intervener
+352,SINO-VIETNAM CLASHES,2,United States,6,none of the above
+353,THREE VILLAGE BORDER I,812,Laos,1,crisis actor
+353,THREE VILLAGE BORDER I,800,Thailand,1,crisis actor
+354,NICARAGUA MIG-21S,93,Nicaragua,1,crisis actor
+354,NICARAGUA MIG-21S,365,Soviet Union,6,none of the above
+354,NICARAGUA MIG-21S,2,USA,1,crisis actor
+355,BOTSWANA RAID,571,Botswana,1,crisis actor
+355,BOTSWANA RAID,750,India,4,intimidation intervener
+355,BOTSWANA RAID,560,South Africa,6,none of the above
+355,BOTSWANA RAID,200,United Kingdom,4,intimidation intervener
+355,BOTSWANA RAID,2,United States,4,intimidation intervener
+356,EXPULSION OF TUNISIANS,615,Algeria,6,none of the above
+356,EXPULSION OF TUNISIANS,651,Egypt,6,none of the above
+356,EXPULSION OF TUNISIANS,690,Kuwait,6,none of the above
+356,EXPULSION OF TUNISIANS,620,Libya,6,none of the above
+356,EXPULSION OF TUNISIANS,600,Morocco,6,none of the above
+356,EXPULSION OF TUNISIANS,616,Tunisia,1,crisis actor
+356,EXPULSION OF TUNISIANS,2,United States,3,diplomatic intervener
+357,AL-BIQA MISSILES II,666,Israel,1,crisis actor
+357,AL-BIQA MISSILES II,652,Syria,1,crisis actor
+357,AL-BIQA MISSILES II,2,United States,3,diplomatic intervener
+358,EGYPT AIR HIJACKING,651,Egypt (UAR),1,crisis actor
+358,EGYPT AIR HIJACKING,350,Greece,3,diplomatic intervener
+358,EGYPT AIR HIJACKING,666,Israel,5,military intervener
+358,EGYPT AIR HIJACKING,620,Libya,1,crisis actor
+358,EGYPT AIR HIJACKING,338,Malta,6,none of the above
+358,EGYPT AIR HIJACKING,2,U.S.,5,military intervener
+358,EGYPT AIR HIJACKING,200,U.K.,4,intimidation intervener
+358,EGYPT AIR HIJACKING,365,USSR,6,none of the above
+359,Burkina Faso-Mali Border,434,Benin,2,assurance intervener
+359,Burkina Faso-Mali Border,439,Burkina Faso (Upper Volta),1,crisis actor
+359,Burkina Faso-Mali Border,437,Ivory Coast,6,none of the above
+359,Burkina Faso-Mali Border,620,Libya,3,diplomatic intervener
+359,Burkina Faso-Mali Border,432,Mali,1,crisis actor
+359,Burkina Faso-Mali Border,436,Niger,2,assurance intervener
+359,Burkina Faso-Mali Border,475,Nigeria,3,diplomatic intervener
+360,SOUTH AFRICA RAID ON LESOTHO,570,Lesotho,1,crisis actor
+360,SOUTH AFRICA RAID ON LESOTHO,560,South Africa,5,military intervener
+360,SOUTH AFRICA RAID ON LESOTHO,365,Soviet Union,6,none of the above
+360,SOUTH AFRICA RAID ON LESOTHO,200,United Kingdom,6,none of the above
+360,SOUTH AFRICA RAID ON LESOTHO,2,United States,6,none of the above
+361,CAPTURE OF AL-FAW,645,Iraq,1,crisis actor
+361,CAPTURE OF AL-FAW,630,Iran,1,crisis actor
+361,CAPTURE OF AL-FAW,663,Jordan,3,diplomatic intervener
+361,CAPTURE OF AL-FAW,690,Kuwait,1,crisis actor
+361,CAPTURE OF AL-FAW,600,Morocco,3,diplomatic intervener
+361,CAPTURE OF AL-FAW,678,North Yemen,3,diplomatic intervener
+361,CAPTURE OF AL-FAW,670,Saudi Arabia,1,crisis actor
+361,CAPTURE OF AL-FAW,616,Tunisia,3,diplomatic intervener
+362,CHAD-LIBYA VII,483,Chad,1,crisis actor
+362,CHAD-LIBYA VII,220,France,1,crisis actor
+362,CHAD-LIBYA VII,620,Libya,1,crisis actor
+362,CHAD-LIBYA VII,482,Central African Republic,6,none of the above
+362,CHAD-LIBYA VII,490,Congo,6,none of the above
+362,CHAD-LIBYA VII,475,Nigeria,6,none of the above
+362,CHAD-LIBYA VII,433,Senegal,6,none of the above
+362,CHAD-LIBYA VII,461,Togo,6,none of the above
+362,CHAD-LIBYA VII,2,United States,5,military intervener
+362,CHAD-LIBYA VII,490,Zaire,6,none of the above
+363,GULF OF SYRTE II,615,Algeria,4,intimidation intervener
+363,GULF OF SYRTE II,220,France,3,diplomatic intervener
+363,GULF OF SYRTE II,630,Iran,4,intimidation intervener
+363,GULF OF SYRTE II,620,Libya,1,crisis actor
+363,GULF OF SYRTE II,600,Morocco,4,intimidation intervener
+363,GULF OF SYRTE II,670,Sa'udi Arabia,4,intimidation intervener
+363,GULF OF SYRTE II,365,USSR,4,intimidation intervener
+363,GULF OF SYRTE II,2,USA,1,crisis actor
+363,GULF OF SYRTE II,200,United Kingdom,6,none of the above
+363,GULF OF SYRTE II,260,West Germany,3,diplomatic intervener
+364,AL-DIBAL INCIDENT,692,Bahrain,1,crisis actor
+364,AL-DIBAL INCIDENT,690,Kuwait,3,diplomatic intervener
+364,AL-DIBAL INCIDENT,210,Netherlands,6,none of the above
+364,AL-DIBAL INCIDENT,698,Oman,3,diplomatic intervener
+364,AL-DIBAL INCIDENT,694,Qatar,6,none of the above
+364,AL-DIBAL INCIDENT,670,Sa'udi Arabia,3,diplomatic intervener
+364,AL-DIBAL INCIDENT,696,United Arab Emirates,3,diplomatic intervener
+365,SOUTH AFRICA CROSS BORDER RAID,540,Angola,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,999,Arab League,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,571,Botswana,1,crisis actor
+365,SOUTH AFRICA CROSS BORDER RAID,541,Mozambique,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,560,South Africa,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,510,Tanzania,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,200,UK,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,2,US,4,intimidation intervener
+365,SOUTH AFRICA CROSS BORDER RAID,365,USSR,6,none of the above
+365,SOUTH AFRICA CROSS BORDER RAID,551,Zambia,1,crisis actor
+365,SOUTH AFRICA CROSS BORDER RAID,552,Zimbabwe (Rhodesia),1,crisis actor
+366,REBEL ATTACK ON UGANDA,625,Sudan,6,none of the above
+366,REBEL ATTACK ON UGANDA,500,Uganda,1,crisis actor
+367,MOZAMBIQUE ULTIMATUM,553,Malawi,1,crisis actor
+367,MOZAMBIQUE ULTIMATUM,541,Mozambique,5,military intervener
+367,MOZAMBIQUE ULTIMATUM,560,South Africa,6,none of the above
+367,MOZAMBIQUE ULTIMATUM,551,Zambia,4,intimidation intervener
+367,MOZAMBIQUE ULTIMATUM,552,Zimbabwe,6,none of the above
+368,ATTEMPTED COUP IN TOGO,434,Benin,3,diplomatic intervener
+368,ATTEMPTED COUP IN TOGO,439,Burkina Faso,3,diplomatic intervener
+368,ATTEMPTED COUP IN TOGO,220,France,5,military intervener
+368,ATTEMPTED COUP IN TOGO,452,Ghana,6,none of the above
+368,ATTEMPTED COUP IN TOGO,437,Ivory Coast,3,diplomatic intervener
+368,ATTEMPTED COUP IN TOGO,450,Liberia,3,diplomatic intervener
+368,ATTEMPTED COUP IN TOGO,600,Morocco,3,diplomatic intervener
+368,ATTEMPTED COUP IN TOGO,436,Niger,3,diplomatic intervener
+368,ATTEMPTED COUP IN TOGO,461,Togo,1,crisis actor
+368,ATTEMPTED COUP IN TOGO,490,Zaire,5,military intervener
+369,CONTRAS II,91,Honduras,1,crisis actor
+369,CONTRAS II,93,Nicaragua,1,crisis actor
+369,CONTRAS II,365,Soviet Union,6,none of the above
+369,CONTRAS II,2,United States,5,military intervener
+370,CHAD-LIBYA VIII,615,Algeria,3,diplomatic intervener
+370,CHAD-LIBYA VIII,483,Chad,1,crisis actor
+370,CHAD-LIBYA VIII,651,Egypt,4,intimidation intervener
+370,CHAD-LIBYA VIII,220,France,5,military intervener
+370,CHAD-LIBYA VIII,620,Libya,1,crisis actor
+370,CHAD-LIBYA VIII,436,Niger,3,diplomatic intervener
+370,CHAD-LIBYA VIII,475,Nigeria,3,diplomatic intervener
+370,CHAD-LIBYA VIII,365,Soviet Union,4,intimidation intervener
+370,CHAD-LIBYA VIII,2,United States,5,military intervener
+370,CHAD-LIBYA VIII,490,Zaire,3,diplomatic intervener
+371,SINO-VIETNAM BORDER,710,China,1,crisis actor
+371,SINO-VIETNAM BORDER,2,U.S.,6,none of the above
+371,SINO-VIETNAM BORDER,365,USSR,6,none of the above
+372,PUNJAB WAR SCARE II,651,Egypt,6,none of the above
+372,PUNJAB WAR SCARE II,750,India,1,crisis actor
+372,PUNJAB WAR SCARE II,770,Pakistan,1,crisis actor
+372,PUNJAB WAR SCARE II,365,Soviet Union,6,none of the above
+372,PUNJAB WAR SCARE II,200,United Kingdom,6,none of the above
+372,PUNJAB WAR SCARE II,2,United States,6,none of the above
+373,TODGHERE INCIDENT,530,Ethiopia,6,none of the above
+373,TODGHERE INCIDENT,520,Somalia,1,a crisis actor
+374,SYRIA INTERVENTION IN LEBANON,630,Iran,3,intimidation intervener
+374,SYRIA INTERVENTION IN LEBANON,666,Israel,6,none of the above
+374,SYRIA INTERVENTION IN LEBANON,652,Syria,1,crisis actor
+375,SAND WALL,615,Algeria,1,crisis actor
+375,SAND WALL,435,Mauritania,1,crisis actor
+375,SAND WALL,600,Morocco,1,crisis actor
+375,SAND WALL,670,Saudi Arabia,3,diplomatic intervener
+375,SAND WALL,2,United States,6,none of the above
+376,AEGEAN SEA III,350,Greece,1,crisis actor
+376,AEGEAN SEA III,640,Turkey,1,crisis actor
+376,AEGEAN SEA III,2,United States,3,diplomatic intervener
+377,CAMEROON-NIGERIA II,471,Cameroon,6,none of the above
+377,CAMEROON-NIGERIA II,475,Nigeria,1,a crisis actor
+378,INDIA INTERVENTION IN SRI LANKA,750,India,1,crisis actor
+378,INDIA INTERVENTION IN SRI LANKA,780,Sri Lanka (Ceylon),1,crisis actor
+379,MECCA PILGRIMAGE,630,Iran,1,crisis actor
+379,MECCA PILGRIMAGE,670,Saudi Arabia,1,crisis actor
+379,MECCA PILGRIMAGE,666,Israel,6,none of the above
+379,MECCA PILGRIMAGE,620,Libya,6,none of the above
+379,MECCA PILGRIMAGE,365,Soviet Union,6,none of the above
+379,MECCA PILGRIMAGE,2,United States,6,none of the above
+380,SOUTH AFRICA INTERVENTION IN ANGOLA,540,Angola,1,crisis actor
+380,SOUTH AFRICA INTERVENTION IN ANGOLA,40,Cuba,5,military intervener
+380,SOUTH AFRICA INTERVENTION IN ANGOLA,365,Russia,5,military intervener
+380,SOUTH AFRICA INTERVENTION IN ANGOLA,560,South Africa,1,crisis actor
+380,SOUTH AFRICA INTERVENTION IN ANGOLA,2,United States,3,intimidation intervener
+381,THREE VILLAGE BORDER II,812,Laos,1,crisis actor
+381,THREE VILLAGE BORDER II,800,Thailand,1,crisis actor
+382,KENYA-UGANDA BORDER,501,Kenya,1,crisis actor
+382,KENYA-UGANDA BORDER,500,Uganda,1,crisis actor
+383,CONTRAS III,91,Honduras,1,crisis actor
+383,CONTRAS III,93,Nicaragua,1,crisis actor
+383,CONTRAS III,2,U.S.,5,military intervener
+384,SPRATLY ISLANDS,710,China,1,crisis actor
+384,SPRATLY ISLANDS,820,Malaysia,5,military intervener
+384,SPRATLY ISLANDS,840,Philippines,3,diplomatic intervener
+384,SPRATLY ISLANDS,713,Taiwan,5,military intervener
+385,IRAQ RECAPTURE OF AL-FAW,630,Iran,1,crisis actor
+385,IRAQ RECAPTURE OF AL-FAW,645,Iraq,1,crisis actor
+386,LIBYAN JETS,220,France,3,intimidation intervener
+386,LIBYAN JETS,620,Libya,1,crisis actor
+386,LIBYAN JETS,2,USA,1,crisis actor
+386,LIBYAN JETS,365,USSR,3,intimidation intervener
+386,LIBYAN JETS,200,U.K.,3,intimidation intervener
+387,MAURITANIA-SENEGAL,651,Egypt,3,diplomatic intervener
+387,MAURITANIA-SENEGAL,645,Iraq,5,military intervener
+387,MAURITANIA-SENEGAL,435,Mauritania,1,crisis actor
+387,MAURITANIA-SENEGAL,433,Senegal,1,crisis actor
+387,MAURITANIA-SENEGAL,652,Syria,5,military intervener
+387,MAURITANIA-SENEGAL,2,United States,6,none of the above
+387,MAURITANIA-SENEGAL,365,USSR,6,none of the above
+388,CAMBODIA PEACE CONFERENCE,900,Australia,3,diplomatic intervener
+388,CAMBODIA PEACE CONFERENCE,811,Cambodia,1,crisis actor
+388,CAMBODIA PEACE CONFERENCE,710,China,5,military intervener
+388,CAMBODIA PEACE CONFERENCE,365,Soviet Union,4,intimidation intervener
+388,CAMBODIA PEACE CONFERENCE,800,Thailand,6,none of the above
+388,CAMBODIA PEACE CONFERENCE,2,United States,3,diplomatic intervener
+388,CAMBODIA PEACE CONFERENCE,816,Vietnam,1,crisis actor
+389,CONTRAS IV,20,Canada,6,none of the above
+389,CONTRAS IV,91,Honduras,1,a crisis actor
+389,CONTRAS IV,93,Nicaragua,6,none of the above
+389,CONTRAS IV,230,Spain,6,none of the above
+389,CONTRAS IV,2,United States,6,none of the above
+389,CONTRAS IV,365,USSR,6,none of the above
+389,CONTRAS IV,260,West Germany,6,none of the above
+390,GALTAT ZEMMOUR II,615,Algeria,3,diplomatic intervener
+390,GALTAT ZEMMOUR II,600,Morocco,1,crisis actor
+390,GALTAT ZEMMOUR II,435,Mauritania,6,none of the above
+390,GALTAT ZEMMOUR II,999,SADR,6,none of the above
+390,GALTAT ZEMMOUR II,2,US,6,none of the above
+390,GALTAT ZEMMOUR II,365,USSR,6,none of the above
+391,INVASION OF PANAMA,999,OAS,4,intimidation intervener
+391,INVASION OF PANAMA,95,Panama,1,crisis actor
+391,INVASION OF PANAMA,999,UN,4,intimidation intervener
+391,INVASION OF PANAMA,2,USA,1,crisis actor
+391,INVASION OF PANAMA,365,USSR,4,intimidation intervener
+392,KASHMIR III-NUCLEAR CONFRONTATION,750,India,1,crisis actor
+392,KASHMIR III-NUCLEAR CONFRONTATION,630,Iran,4,intimidation intervener
+392,KASHMIR III-NUCLEAR CONFRONTATION,770,Pakistan,1,crisis actor
+392,KASHMIR III-NUCLEAR CONFRONTATION,365,USSR,4,intimidation intervener
+392,KASHMIR III-NUCLEAR CONFRONTATION,2,United States,4,intimidation intervener
+393,GULF WAR,220,France,1,crisis actor
+393,GULF WAR,645,Iraq,1,crisis actor
+393,GULF WAR,666,Israel,1,crisis actor
+393,GULF WAR,200,United Kingdom (Great Britain),1,crisis actor
+393,GULF WAR,670,Saudi Arabia,1,crisis actor
+393,GULF WAR,652,Syria,1,crisis actor
+393,GULF WAR,696,United Arab Emirates,1,crisis actor
+393,GULF WAR,2,USA,1,crisis actor
+393,GULF WAR,690,Kuwait,1,crisis actor
+393,GULF WAR,692,Bahrain,1,crisis actor
+393,GULF WAR,651,Egypt (UAR),1,crisis actor
+393,GULF WAR,698,Oman,1,crisis actor
+393,GULF WAR,694,Qatar,1,crisis actor
+393,GULF WAR,640,Turkey,5,military intervener
+393,GULF WAR,630,Iran,6,none of the above
+393,GULF WAR,365,Soviet Union,3,diplomatic intervener
+394,RWANDA-UGANDA,211,Belgium,5,military intervener
+394,RWANDA-UGANDA,220,France,5,military intervener
+394,RWANDA-UGANDA,517,Rwanda,1,a crisis actor
+394,RWANDA-UGANDA,365,Russia,6,none of the above
+394,RWANDA-UGANDA,500,Uganda,3,diplomatic intervener
+394,RWANDA-UGANDA,2,United States,6,none of the above
+394,RWANDA-UGANDA,490,Zaire,5,military intervener
+395,LIBERIA-SIERRA LEONE,439,Burkina Faso,5,military intervener
+395,LIBERIA-SIERRA LEONE,437,Ivory Coast,6,none of the above
+395,LIBERIA-SIERRA LEONE,450,Liberia,6,none of the above
+395,LIBERIA-SIERRA LEONE,475,Nigeria,6,none of the above
+395,LIBERIA-SIERRA LEONE,451,Sierra Leone,1,crisis actor
+395,LIBERIA-SIERRA LEONE,420,The Gambia,6,none of the above
+395,LIBERIA-SIERRA LEONE,461,Togo,6,none of the above
+395,LIBERIA-SIERRA LEONE,2,United States,3,diplomatic intervener
+396,GHANA-TOGO BORDER II,452,Ghana,1,crisis actor
+396,GHANA-TOGO BORDER II,461,Togo,5,military intervener
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,305,Austria,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,344,Croatia,1,crisis actor
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,315,Czechoslovakia,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,220,France,4,intimidation intervener
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,255,Germany,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,310,Hungary,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,325,Italy,3,diplomatic intervener
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,212,Luxembourg,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,210,Netherlands,3,diplomatic intervener
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,345,Serbia,1,crisis actor
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,349,Slovenia,1,crisis actor
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,640,Turkey,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,200,United Kingdom,6,none of the above
+397,YUGOSLAVIA I: CROATIA-SLOVENIA,2,United States,4,intimidation intervener
+398,BUBIYAN,645,Iraq,6,none of the above
+398,BUBIYAN,690,Kuwait,1,crisis actor
+398,BUBIYAN,365,USSR,6,none of the above
+398,BUBIYAN,2,United States,6,none of the above
+399,FOREIGN INTERVENTION IN ZAIRE,211,Belgium,1,crisis actor
+399,FOREIGN INTERVENTION IN ZAIRE,220,France,1,crisis actor
+399,FOREIGN INTERVENTION IN ZAIRE,2,United States,5,military intervener
+400,ECUADOR-PERU BORDER IV,160,Argentina,6,none of the above
+400,ECUADOR-PERU BORDER IV,145,Bolivia,2,assurance intervener
+400,ECUADOR-PERU BORDER IV,140,Brazil,6,none of the above
+400,ECUADOR-PERU BORDER IV,155,Chile,6,none of the above
+400,ECUADOR-PERU BORDER IV,100,Colombia,2,assurance intervener
+400,ECUADOR-PERU BORDER IV,130,Ecuador,1,crisis actor
+400,ECUADOR-PERU BORDER IV,135,Peru,1,crisis actor
+400,ECUADOR-PERU BORDER IV,2,United States,6,none of the above
+400,ECUADOR-PERU BORDER IV,101,Venezuela,2,assurance intervener
+401,NAGORNYY-KARABAKH,371,Armenia,1,crisis actor
+401,NAGORNYY-KARABAKH,373,Azerbaijan,1,crisis actor
+401,NAGORNYY-KARABAKH,370,Belarus,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,315,Czechoslovakia,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,220,France,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,255,Germany,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,630,Iran,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,325,Italy,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,365,Russia,5,military intervener
+401,NAGORNYY-KARABAKH,380,Sweden,3,diplomatic intervener
+401,NAGORNYY-KARABAKH,640,Turkey,4,intimidation intervener
+401,NAGORNYY-KARABAKH,2,United States,3,diplomatic intervener
+402,EGYPT-SUDAN BORDER II,20,Canada,6,none of the above
+402,EGYPT-SUDAN BORDER II,651,Egypt (UAR),1,crisis actor
+402,EGYPT-SUDAN BORDER II,625,Sudan,1,crisis actor
+403,YUGOSLAVIA II: BOSNIA,211,Belgium,2,assurance intervener
+403,YUGOSLAVIA II: BOSNIA,346,Bosnia,1,crisis actor
+403,YUGOSLAVIA II: BOSNIA,344,Croatia,1,crisis actor
+403,YUGOSLAVIA II: BOSNIA,315,Czechoslovakia,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,375,Finland,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,220,France,2,assurance intervener
+403,YUGOSLAVIA II: BOSNIA,255,Germany,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,310,Hungary,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,325,Italy,2,assurance intervener
+403,YUGOSLAVIA II: BOSNIA,290,Poland,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,365,Russia,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,345,Serbia,1,crisis actor
+403,YUGOSLAVIA II: BOSNIA,349,Slovenia,3,diplomatic intervener
+403,YUGOSLAVIA II: BOSNIA,230,Spain,2,assurance intervener
+403,YUGOSLAVIA II: BOSNIA,200,United Kingdom,2,assurance intervener
+403,YUGOSLAVIA II: BOSNIA,2,United States,3,diplomatic intervener
+404,PAPUA NEW GUINEA-SOLOMON,900,Australia,2,assurance intervener
+404,PAPUA NEW GUINEA-SOLOMON,20,Canada,2,assurance intervener
+404,PAPUA NEW GUINEA-SOLOMON,740,Japan,6,none of the above
+404,PAPUA NEW GUINEA-SOLOMON,920,New Zealand,2,assurance intervener
+404,PAPUA NEW GUINEA-SOLOMON,910,Papua and New Guinea,1,crisis actor
+404,PAPUA NEW GUINEA-SOLOMON,940,Solomons,1,crisis actor
+404,PAPUA NEW GUINEA-SOLOMON,713,Taiwan,6,none of the above
+405,SLEEPING DOG HILL,775,Myanmar (Burma),1,a crisis actor
+405,SLEEPING DOG HILL,800,Thailand,1,a crisis actor
+406,IRAQ NO-FLY ZONE,615,Algeria,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,651,Egypt,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,220,France,5,military intervener
+406,IRAQ NO-FLY ZONE,645,Iraq,1,crisis actor
+406,IRAQ NO-FLY ZONE,663,Jordan,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,690,Kuwait,6,none of the above
+406,IRAQ NO-FLY ZONE,620,Libya,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,600,Morocco,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,365,Russia,5,military intervener
+406,IRAQ NO-FLY ZONE,670,Sa'udi Arabia,6,none of the above
+406,IRAQ NO-FLY ZONE,625,Sudan,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,652,Syria,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,640,Turkey,4,intimidation intervener
+406,IRAQ NO-FLY ZONE,200,U.K.,5,military intervener
+406,IRAQ NO-FLY ZONE,2,U.S.,5,military intervener
+406,IRAQ NO-FLY ZONE,999,Yemen,4,intimidation intervener
+407,GEORGIA-ABKHAZIA,372,Georgia,1,crisis actor
+407,GEORGIA-ABKHAZIA,365,Russia,5,military intervener
+408,NORTH KOREA NUCLEAR I,710,China,4,intimidation intervener
+408,NORTH KOREA NUCLEAR I,740,Japan,2,assurance intervener
+408,NORTH KOREA NUCLEAR I,731,North Korea (People's Republic of Korea),1,a crisis actor
+408,NORTH KOREA NUCLEAR I,365,Russia,6,none of the above
+408,NORTH KOREA NUCLEAR I,732,South Korea (Republic of Korea),1,a crisis actor
+408,NORTH KOREA NUCLEAR I,2,USA,1,a crisis actor
+409,OPERATION ACCOUNTABILITY,666,Israel,1,crisis actor
+409,OPERATION ACCOUNTABILITY,660,Lebanon,1,crisis actor
+409,OPERATION ACCOUNTABILITY,365,Russia,6,none of the above
+409,OPERATION ACCOUNTABILITY,652,Syria,6,none of the above
+409,OPERATION ACCOUNTABILITY,2,United States,3,diplomatic intervener
+410,CAMEROON-NIGERIA III,471,Cameroon,1,crisis actor
+410,CAMEROON-NIGERIA III,220,France,5,military intervener
+410,CAMEROON-NIGERIA III,475,Nigeria,1,crisis actor
+410,CAMEROON-NIGERIA III,461,Togo,3,diplomatic intervener
+411,HAITI MILITARY REGIME,140,Brazil,6,none of the above
+411,HAITI MILITARY REGIME,710,China,6,none of the above
+411,HAITI MILITARY REGIME,42,Dominican Republic,6,none of the above
+411,HAITI MILITARY REGIME,41,Haiti,1,crisis actor
+411,HAITI MILITARY REGIME,95,Panama,6,none of the above
+411,HAITI MILITARY REGIME,517,Rwanda,6,none of the above
+411,HAITI MILITARY REGIME,2,USA,5,military intervener
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,692,Bahrain,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,651,Egypt,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,220,France,5,military intervener
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,645,Iraq,1,crisis actor
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,663,Jordan,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,690,Kuwait,1,crisis actor
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,698,Oman,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,694,Qatar,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,365,Russia,3,diplomatic intervener
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,670,Saudi Arabia,1,crisis actor
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,652,Syria,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,640,Turkey,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,696,United Arab Emirates,6,none of the above
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,200,United Kingdom,5,military intervener
+412,IRAQ TROOP DEPLOYMENT-KUWAIT,2,United States,1,crisis actor
+413,ECUADOR-PERU V,160,Argentina,2,assurance intervener
+413,ECUADOR-PERU V,140,Brazil,2,assurance intervener
+413,ECUADOR-PERU V,155,Chile,2,assurance intervener
+413,ECUADOR-PERU V,130,Ecuador,1,crisis actor
+413,ECUADOR-PERU V,135,Peru,1,crisis actor
+413,ECUADOR-PERU V,2,United States,2,assurance intervener
+414,SPRATLY ISLANDS,835,Brunei,6,none of the above
+414,SPRATLY ISLANDS,710,China,6,none of the above
+414,SPRATLY ISLANDS,820,Malaysia,6,none of the above
+414,SPRATLY ISLANDS,840,Philippines,1,crisis actor
+414,SPRATLY ISLANDS,365,Russia,6,none of the above
+414,SPRATLY ISLANDS,713,Taiwan,6,none of the above
+414,SPRATLY ISLANDS,2,US,6,none of the above
+414,SPRATLY ISLANDS,816,Vietnam,6,none of the above
+415,TAIWAN STRAIT IV,710,China,1,crisis actor
+415,TAIWAN STRAIT IV,713,Taiwan (China-Taiwan-Formosa),1,crisis actor
+415,TAIWAN STRAIT IV,2,United States,5,military intervener
+416,RED SEA ISLANDS,531,Eritrea,1,crisis actor
+416,RED SEA ISLANDS,2,United States,3,diplomatic intervener
+416,RED SEA ISLANDS,678,Yemen (Arab Republic of Yemen) (North Yemen),1,crisis actor
+417,AEGEAN SEA IV,350,Greece,1,crisis actor
+417,AEGEAN SEA IV,365,Russia,6,none of the above
+417,AEGEAN SEA IV,640,Turkey,1,crisis actor
+417,AEGEAN SEA IV,2,United States,3,diplomatic intervener
+418,OPERATION GRAPES OF WRATH,220,France,3,diplomatic intervener
+418,OPERATION GRAPES OF WRATH,630,Iran,3,diplomatic intervener
+418,OPERATION GRAPES OF WRATH,666,Israel,1,crisis actor
+418,OPERATION GRAPES OF WRATH,325,Italy,3,diplomatic intervener
+418,OPERATION GRAPES OF WRATH,660,Lebanon,1,crisis actor
+418,OPERATION GRAPES OF WRATH,365,Russia,3,diplomatic intervener
+418,OPERATION GRAPES OF WRATH,652,Syria,3,diplomatic intervener
+418,OPERATION GRAPES OF WRATH,200,UK,4,intimidation intervener
+418,OPERATION GRAPES OF WRATH,2,US,3,diplomatic intervener
+419,DESERT STRIKE,645,Iraq,1,crisis actor
+419,DESERT STRIKE,365,Russia,3,diplomatic intervener
+419,DESERT STRIKE,640,Turkey,6,none of the above
+419,DESERT STRIKE,2,USA,1,crisis actor
+420,NORTH KOREAN SUBMARINE,731,North Korea (People's Republic of Korea),1,crisis actor
+420,NORTH KOREAN SUBMARINE,732,South Korea (Republic of Korea),1,crisis actor
+420,NORTH KOREAN SUBMARINE,2,United States of America,3,diplomatic intervener
+421,ZAIRE CIVIL WAR,211,Belgium,2,assurance intervener
+421,ZAIRE CIVIL WAR,516,Burundi,5,military intervener
+421,ZAIRE CIVIL WAR,20,Canada,2,assurance intervener
+421,ZAIRE CIVIL WAR,220,France,2,assurance intervener
+421,ZAIRE CIVIL WAR,620,Libya,6,none of the above
+421,ZAIRE CIVIL WAR,600,Morocco,6,none of the above
+421,ZAIRE CIVIL WAR,517,Rwanda,1,crisis actor
+421,ZAIRE CIVIL WAR,345,Serbia,6,none of the above
+421,ZAIRE CIVIL WAR,560,South Africa,2,assurance intervener
+421,ZAIRE CIVIL WAR,625,Sudan,6,none of the above
+421,ZAIRE CIVIL WAR,500,Uganda,5,military intervener
+421,ZAIRE CIVIL WAR,200,United Kingdom,2,assurance intervener
+421,ZAIRE CIVIL WAR,2,United States,2,assurance intervener
+422,UNSCOM I,710,China,3,intimidation intervener
+422,UNSCOM I,220,France,3,intimidation intervener
+422,UNSCOM I,645,Iraq,1,crisis actor
+422,UNSCOM I,365,Russia,3,intimidation intervener
+422,UNSCOM I,200,UK,5,military intervener
+422,UNSCOM I,2,USA,1,crisis actor
+423,CYPRUS-TURKEY MISSILE CRISIS,352,Cyprus,1,crisis actor
+423,CYPRUS-TURKEY MISSILE CRISIS,350,Greece,6,none of the above
+423,CYPRUS-TURKEY MISSILE CRISIS,640,Turkey,1,crisis actor
+423,CYPRUS-TURKEY MISSILE CRISIS,2,United States,4,intimidation intervener
+424,ETHIOPIA-ERITREA,522,Djibouti,3,diplomatic intervener
+424,ETHIOPIA-ERITREA,531,Eritrea,1,crisis actor
+424,ETHIOPIA-ERITREA,530,Ethiopia,1,crisis actor
+424,ETHIOPIA-ERITREA,517,Rwanda,3,diplomatic intervener
+424,ETHIOPIA-ERITREA,2,United States,3,diplomatic intervener
+425,INDIA-PAKISTAN NUCLEAR TESTS,20,Canada,4,intimidation intervener
+425,INDIA-PAKISTAN NUCLEAR TESTS,255,Germany,4,intimidation intervener
+425,INDIA-PAKISTAN NUCLEAR TESTS,750,India,1,crisis actor
+425,INDIA-PAKISTAN NUCLEAR TESTS,740,Japan,4,intimidation intervener
+425,INDIA-PAKISTAN NUCLEAR TESTS,770,Pakistan,1,crisis actor
+425,INDIA-PAKISTAN NUCLEAR TESTS,2,United States,4,intimidation intervener
+426,DRC CIVIL WAR,540,Angola,1,crisis actor
+426,DRC CIVIL WAR,483,Chad,1,crisis actor
+426,DRC CIVIL WAR,565,Namibia (South West Africa),1,crisis actor
+426,DRC CIVIL WAR,517,Rwanda,1,crisis actor
+426,DRC CIVIL WAR,500,Uganda,1,crisis actor
+426,DRC CIVIL WAR,552,Zimbabwe (Rhodesia),1,crisis actor
+426,DRC CIVIL WAR,560,South Africa,3,diplomatic intervener
+426,DRC CIVIL WAR,2,United States,6,none of the above
+426,DRC CIVIL WAR,551,Zambia,3,diplomatic intervener
+427,US EMBASSY BOMBINGS,700,Afghanistan,1,crisis actor
+427,US EMBASSY BOMBINGS,625,Sudan,1,crisis actor
+427,US EMBASSY BOMBINGS,2,USA,1,crisis actor
+428,SYRIA-TURKEY,651,Egypt,3,diplomatic intervener
+428,SYRIA-TURKEY,630,Iran,3,diplomatic intervener
+428,SYRIA-TURKEY,365,Russia,3,diplomatic intervener
+428,SYRIA-TURKEY,652,Syria,1,crisis actor
+428,SYRIA-TURKEY,640,Turkey,5,military intervener
+428,SYRIA-TURKEY,2,United States,3,diplomatic intervener
+429, UNSCOM II OPERATION DESERT FOX,710, China, 3, diplomatic intervener
+429, UNSCOM II OPERATION DESERT FOX,220, France, 3, diplomatic intervener
+429, UNSCOM II OPERATION DESERT FOX,645, Iraq, 1, crisis actor
+429, UNSCOM II OPERATION DESERT FOX,365, Russia, 3, diplomatic intervener
+429, UNSCOM II OPERATION DESERT FOX,200, United Kingdom (Great Britain), 1, crisis actor
+429, UNSCOM II OPERATION DESERT FOX,2, USA, 1, crisis actor
+430,KOSOVO,710,China,6,none of the above
+430,KOSOVO,365,Russia,4,intimidation intervener
+431,KASHMIR IV KARGIL,710,China,6,none of the above
+431,KASHMIR IV KARGIL,220,France,6,none of the above
+431,KASHMIR IV KARGIL,750,India,1,crisis actor
+431,KASHMIR IV KARGIL,770,Pakistan,1,crisis actor
+431,KASHMIR IV KARGIL,365,Russia,6,none of the above
+431,KASHMIR IV KARGIL,2,United States,3,diplomatic intervener
+432,EAST TIMOR II,900,Australia,1,crisis actor
+432,EAST TIMOR II,850,Indonesia,1,crisis actor
+432,EAST TIMOR II,2,United States,5,military intervener
+433,CASPIAN SEA,373,Azerbaijan,1,crisis actor
+433,CASPIAN SEA,630,Iran,1,crisis actor
+433,CASPIAN SEA,365,Russia,3,diplomatic intervener
+433,CASPIAN SEA,2,United States,4,intimidation intervener
+434,AFGHANISTAN-USA,700,Afghanistan,1,crisis actor
+434,AFGHANISTAN-USA,630,Iran,6,none of the above
+434,AFGHANISTAN-USA,770,Pakistan,1,crisis actor
+434,AFGHANISTAN-USA,365,Russia,6,none of the above
+434,AFGHANISTAN-USA,702,Tajikistan,6,none of the above
+434,AFGHANISTAN-USA,200,United Kingdom (Great Britain),1,crisis actor
+434,AFGHANISTAN-USA,2,USA,1,crisis actor
+435,INDIAN PARLIAMENT ATTACK,750,India,1,crisis actor
+435,INDIAN PARLIAMENT ATTACK,770,Pakistan,1,crisis actor
+435,INDIAN PARLIAMENT ATTACK,200,United Kingdom,3,diplomatic intervener
+435,INDIAN PARLIAMENT ATTACK,2,United States,4,intimidation intervener
+436,KALUCHAK,750,India,1,crisis actor
+436,KALUCHAK,770,Pakistan,1,crisis actor
+436,KALUCHAK,365,Russia,3,diplomatic intervener
+436,KALUCHAK,200,United Kingdom,3,diplomatic intervener
+436,KALUCHAK,2,United States,4,intimidation intervener
+437,MYANMAR-THAILAND,775,Myanmar (Burma),1,crisis actor
+437,MYANMAR-THAILAND,800,Thailand,1,crisis actor
+438,PARSLEY ISLAND,600,Morocco,1,crisis actor
+438,PARSLEY ISLAND,230,Spain,1,crisis actor
+438,PARSLEY ISLAND,2,United States,3,diplomatic intervener
+439,PANKISI GORGE,372,Georgia,1,crisis actor
+439,PANKISI GORGE,365,Russia,1,crisis actor
+439,PANKISI GORGE,2,United States,4,intimidation intervener
+440,IRAQ REGIME CHANGE,220,France,3,diplomatic intervener
+440,IRAQ REGIME CHANGE,255,Germany,3,diplomatic intervener
+440,IRAQ REGIME CHANGE,645,Iraq,1,crisis actor
+440,IRAQ REGIME CHANGE,365,Russia,3,diplomatic intervener
+440,IRAQ REGIME CHANGE,230,Spain,5,military intervener
+440,IRAQ REGIME CHANGE,200,United Kingdom (Great Britain),1,crisis actor
+440,IRAQ REGIME CHANGE,2,USA,1,crisis actor
+441,NORTH KOREA NUCLEAR II,710,China,3,diplomatic intervener
+441,NORTH KOREA NUCLEAR II,740,Japan,3,diplomatic intervener
+441,NORTH KOREA NUCLEAR II,731,North Korea (People's Republic of Korea),1,crisis actor
+441,NORTH KOREA NUCLEAR II,365,Russia,3,diplomatic intervener
+441,NORTH KOREA NUCLEAR II,732,South Korea,3,diplomatic intervener
+441,NORTH KOREA NUCLEAR II,2,USA,1,crisis actor
+442,IRAN NUCLEAR I,710,China,6,none of the above
+442,IRAN NUCLEAR I,220,France,1,crisis actor
+442,IRAN NUCLEAR I,260,Germany (German Federal Republic) (West Germany),1,crisis actor
+442,IRAN NUCLEAR I,630,Iran,1,crisis actor
+442,IRAN NUCLEAR I,666,Israel,6,none of the above
+442,IRAN NUCLEAR I,365,Russia,3,diplomatic intervener
+442,IRAN NUCLEAR I,200,United Kingdom (Great Britain),1,crisis actor
+442,IRAN NUCLEAR I,2,United States,4,intimidation intervener
+443,HAIFA SUICIDE BOMBING,710,China,4,intimidation intervener
+443,HAIFA SUICIDE BOMBING,220,France,4,intimidation intervener
+443,HAIFA SUICIDE BOMBING,255,Germany,4,intimidation intervener
+443,HAIFA SUICIDE BOMBING,666,Israel,1,crisis actor
+443,HAIFA SUICIDE BOMBING,660,Lebanon,6,none of the above
+443,HAIFA SUICIDE BOMBING,365,Russia,4,intimidation intervener
+443,HAIFA SUICIDE BOMBING,652,Syria,1,crisis actor
+443,HAIFA SUICIDE BOMBING,200,United Kingdom,4,intimidation intervener
+443,HAIFA SUICIDE BOMBING,2,United States,4,intimidation intervener
+444,DRC-RWANDA,475,Nigeria,3,diplomatic intervener
+444,DRC-RWANDA,517,Rwanda,1,crisis actor
+444,DRC-RWANDA,2,United States,3,diplomatic intervener
+445,SOUTH OSSETIA-ABKHAZIA,372,Georgia,1,crisis actor
+445,SOUTH OSSETIA-ABKHAZIA,365,Russia (Soviet Union),1,crisis actor
+445,SOUTH OSSETIA-ABKHAZIA,2,United States,6,none of the above
+446,ETHIOPIA-ERITREA II,20,Canada,6,none of the above
+446,ETHIOPIA-ERITREA II,531,Eritrea,1,crisis actor
+446,ETHIOPIA-ERITREA II,530,Ethiopia,1,crisis actor
+446,ETHIOPIA-ERITREA II,740,Japan,3,diplomatic intervener
+446,ETHIOPIA-ERITREA II,365,Russia,6,none of the above
+446,ETHIOPIA-ERITREA II,2,United States,3,diplomatic intervener
+447,CHAD-SUDAN I,483,Chad,1,crisis actor
+447,CHAD-SUDAN I,475,Nigeria,3,diplomatic intervener
+447,CHAD-SUDAN I,625,Sudan,1,crisis actor
+448,IRAN NUCLEAR II,710,China,6,none of the above
+448,IRAN NUCLEAR II,220,France,1,crisis actor
+448,IRAN NUCLEAR II,255,Germany,6,none of the above
+448,IRAN NUCLEAR II,630,Iran,1,crisis actor
+448,IRAN NUCLEAR II,666,Israel,6,none of the above
+448,IRAN NUCLEAR II,365,Russia,6,none of the above
+448,IRAN NUCLEAR II,200,United Kingdom (Great Britain),1,crisis actor
+448,IRAN NUCLEAR II,2,USA,1,crisis actor
+449,CHAD-SUDAN II,483,Chad,1,crisis actor
+449,CHAD-SUDAN II,220,France,3,diplomatic intervener
+449,CHAD-SUDAN II,620,Libya,3,diplomatic intervener
+449,CHAD-SUDAN II,433,Senegal,3,diplomatic intervener
+449,CHAD-SUDAN II,625,Sudan,6,none of the above
+449,CHAD-SUDAN II,2,United States,4,intimidation intervener
+450,NORTH KOREA NUCLEAR III,900,Australia,4,intimidation intervener
+450,NORTH KOREA NUCLEAR III,710,China,3,diplomatic intervener
+450,NORTH KOREA NUCLEAR III,740,Japan,4,intimidation intervener
+450,NORTH KOREA NUCLEAR III,712,Mongolia,4,intimidation intervener
+450,NORTH KOREA NUCLEAR III,731,North Korea (People's Republic of Korea),1,crisis actor
+450,NORTH KOREA NUCLEAR III,365,Russia,3,diplomatic intervener
+450,NORTH KOREA NUCLEAR III,830,Singapore,4,intimidation intervener
+450,NORTH KOREA NUCLEAR III,732,South Korea,4,intimidation intervener
+450,NORTH KOREA NUCLEAR III,2,USA,1,crisis actor
+450,NORTH KOREA NUCLEAR III,816,Vietnam,4,intimidation intervener
+451,ISRAEL-LEBANON WAR II,666,Israel,1,crisis actor
+451,ISRAEL-LEBANON WAR II,660,Lebanon,1,crisis actor
+451,ISRAEL-LEBANON WAR II,2,United States,5,military intervener
+452,ETHIOPIA INVASION SOMALIA,530,Ethiopia,1,crisis actor
+452,ETHIOPIA INVASION SOMALIA,520,Somalia,5,military intervener
+452,ETHIOPIA INVASION SOMALIA,2,United States,5,military intervener
+452,ETHIOPIA INVASION SOMALIA,999,Yemen,3,diplomatic intervener
+452,ETHIOPIA INVASION SOMALIA,625,Sudan,3,diplomatic intervener
+453,CHAD-SUDAN III,483,Chad,1,a crisis actor
+453,CHAD-SUDAN III,710,China,3,diplomatic intervener
+453,CHAD-SUDAN III,651,Egypt,3,diplomatic intervener
+453,CHAD-SUDAN III,531,Eritrea,2,assurance intervener
+453,CHAD-SUDAN III,620,Libya,2,assurance intervener
+453,CHAD-SUDAN III,560,South Africa,3,diplomatic intervener
+453,CHAD-SUDAN III,625,Sudan,1,a crisis actor
+453,CHAD-SUDAN III,2,United States,3,diplomatic intervener
+454,ETHIOPIA-ERITREA III,615,Algeria,6,none of the above
+454,ETHIOPIA-ERITREA III,531,Eritrea,1,crisis actor
+454,ETHIOPIA-ERITREA III,530,Ethiopia,1,crisis actor
+454,ETHIOPIA-ERITREA III,2,United States,6,none of the above
+455,CHAD-SUDAN IV,483,Chad,1,crisis actor
+455,CHAD-SUDAN IV,484,Congo Brazzaville,3,diplomatic intervener
+455,CHAD-SUDAN IV,651,Egypt,3,diplomatic intervener
+455,CHAD-SUDAN IV,531,Eritrea,3,diplomatic intervener
+455,CHAD-SUDAN IV,220,France,5,military intervener
+455,CHAD-SUDAN IV,481,Gabon,3,diplomatic intervener
+455,CHAD-SUDAN IV,630,Iran,6,none of the above
+455,CHAD-SUDAN IV,620,Libya,3,diplomatic intervener
+455,CHAD-SUDAN IV,435,Mauritania,3,diplomatic intervener
+455,CHAD-SUDAN IV,433,Senegal,3,diplomatic intervener
+455,CHAD-SUDAN IV,625,Sudan,1,crisis actor
+456,DJIBOUTI-ERITREA,522,Djibouti (Somalia Fr.),1,crisis actor
+456,DJIBOUTI-ERITREA,531,Eritrea,1,crisis actor
+456,DJIBOUTI-ERITREA,220,France,5,military intervener
+457,PREAH VIHEAR TEMPLE I,811,Cambodia,1,crisis actor
+457,PREAH VIHEAR TEMPLE I,800,Thailand,1,crisis actor
+457,PREAH VIHEAR TEMPLE I,850,Indonesia,6,none of the above
+458,RUSSO-GEORGIAN WAR,375,Finland,3,diplomatic intervener
+458,RUSSO-GEORGIAN WAR,220,France,3,diplomatic intervener
+458,RUSSO-GEORGIAN WAR,372,Georgia,1,crisis actor
+458,RUSSO-GEORGIAN WAR,365,Russia (Soviet Union),1,crisis actor
+458,RUSSO-GEORGIAN WAR,2,United States,3,diplomatic intervener
+459,NORTH KOREA NUCLEAR IV-SATELLITE LAUNCH,740,Japan,1,crisis actor
+459,NORTH KOREA NUCLEAR IV-SATELLITE LAUNCH,731,North Korea (People's Republic of Korea),1,crisis actor
+459,NORTH KOREA NUCLEAR IV-SATELLITE LAUNCH,732,South Korea (Republic of Korea),1,crisis actor
+459,NORTH KOREA NUCLEAR IV-SATELLITE LAUNCH,2,USA,1,crisis actor
+460,CHAD-SUDAN V,483,Chad,1,crisis actor
+460,CHAD-SUDAN V,620,Libya,3,diplomatic intervener
+460,CHAD-SUDAN V,694,Qatar,3,diplomatic intervener
+460,CHAD-SUDAN V,625,Sudan,1,crisis actor
+460,CHAD-SUDAN V,2,United States,3,diplomatic intervener
+461,CHEONAN SINKING,900,Australia,2,assurance intervener
+461,CHEONAN SINKING,710,China,5,military intervener
+461,CHEONAN SINKING,731,North Korea (People's Republic of Korea),1,crisis actor
+461,CHEONAN SINKING,365,Russia,6,none of the above
+461,CHEONAN SINKING,732,South Korea (Republic of Korea),1,crisis actor
+461,CHEONAN SINKING,380,Sweden,2,assurance intervener
+461,CHEONAN SINKING,200,United Kingdom,2,assurance intervener
+461,CHEONAN SINKING,2,United States,5,military intervener
+462,YEONPYEONG ISLAND,710,China,3,diplomatic intervener
+462,YEONPYEONG ISLAND,740,Japan,3,diplomatic intervener
+462,YEONPYEONG ISLAND,731,North Korea (People's Republic of Korea),1,crisis actor
+462,YEONPYEONG ISLAND,365,Russia,3,diplomatic intervener
+462,YEONPYEONG ISLAND,732,South Korea (Republic of Korea),1,crisis actor
+462,YEONPYEONG ISLAND,2,United States,5,military intervener
+463,PREAH VIHEAR TEMPLE II,811,Cambodia,1,crisis actor
+463,PREAH VIHEAR TEMPLE II,850,Indonesia,3,diplomatic intervener
+463,PREAH VIHEAR TEMPLE II,800,Thailand,1,crisis actor
+464,LIBYAN CIVIL WAR,355,Bulgaria,5,military intervener
+464,LIBYAN CIVIL WAR,211,Belgium,5,military intervener
+464,LIBYAN CIVIL WAR,20,Canada,1,a crisis actor
+464,LIBYAN CIVIL WAR,710,China,6,none of the above
+464,LIBYAN CIVIL WAR,390,Denmark,5,military intervener
+464,LIBYAN CIVIL WAR,220,France,1,a crisis actor
+464,LIBYAN CIVIL WAR,350,Greece,5,military intervener
+464,LIBYAN CIVIL WAR,325,Italy,1,a crisis actor
+464,LIBYAN CIVIL WAR,663,Jordan,5,military intervener
+464,LIBYAN CIVIL WAR,620,Libya,1,a crisis actor
+464,LIBYAN CIVIL WAR,210,Netherlands,5,military intervener
+464,LIBYAN CIVIL WAR,385,Norway,5,military intervener
+464,LIBYAN CIVIL WAR,694,Qatar,1,a crisis actor
+464,LIBYAN CIVIL WAR,360,Romania,5,military intervener
+464,LIBYAN CIVIL WAR,365,Russia,6,none of the above
+464,LIBYAN CIVIL WAR,230,Spain,5,military intervener
+464,LIBYAN CIVIL WAR,380,Sweden,5,military intervener
+464,LIBYAN CIVIL WAR,640,Turkey,5,military intervener
+464,LIBYAN CIVIL WAR,696,United Arab Emirates,5,military intervener
+464,LIBYAN CIVIL WAR,200,United Kingdom (Great Britain),1,a crisis actor
+464,LIBYAN CIVIL WAR,2,USA,1,a crisis actor
+465,COTE D'IVOIRE PRESIDENTIAL CRISIS,437,Cote D'Ivoire,1,crisis actor
+465,COTE D'IVOIRE PRESIDENTIAL CRISIS,220,France,5,military intervener
+466,SUDAN-SOUTH SUDAN,530,Ethiopia,2,assurance intervener
+466,SUDAN-SOUTH SUDAN,626,South Sudan,1,crisis actor
+466,SUDAN-SOUTH SUDAN,625,Sudan,1,crisis actor
+466,SUDAN-SOUTH SUDAN,2,United States,4,intimidation intervener
+467,SCARBOROUGH SHOAL,710,China,4,intimidation intervener
+467,SCARBOROUGH SHOAL,840,Philippines,1,crisis actor
+467,SCARBOROUGH SHOAL,2,United States,3,diplomatic intervener
+468,SYRIA-TURKEY BORDER INCIDENTS,365,Russia,3,diplomatic intervener
+468,SYRIA-TURKEY BORDER INCIDENTS,652,Syria,6,none of the above
+468,SYRIA-TURKEY BORDER INCIDENTS,640,Turkey,1,crisis actor
+468,SYRIA-TURKEY BORDER INCIDENTS,2,United States,4,intimidation intervener
+469,NORTH KOREA NUCLEAR V,710,China,3,diplomatic intervener
+469,NORTH KOREA NUCLEAR V,740,Japan,1,crisis actor
+469,NORTH KOREA NUCLEAR V,731,North Korea (People's Republic of Korea),1,crisis actor
+469,NORTH KOREA NUCLEAR V,365,Russia,4,intimidation intervener
+469,NORTH KOREA NUCLEAR V,732,South Korea (Republic of Korea),1,crisis actor
+469,NORTH KOREA NUCLEAR V,225,Switzerland,3,diplomatic intervener
+469,NORTH KOREA NUCLEAR V,2,USA,1,crisis actor
+470,SYRIA CHEMICAL WEAPONS,220,France,4,intimidation intervener
+470,SYRIA CHEMICAL WEAPONS,365,Russia,3,diplomatic intervener
+470,SYRIA CHEMICAL WEAPONS,652,Syria,1,a crisis actor
+470,SYRIA CHEMICAL WEAPONS,200,UK,4,intimidation intervener
+470,SYRIA CHEMICAL WEAPONS,2,USA,1,a crisis actor
+471,CRIMEA-DONBAS,220,France,3,diplomatic intervener
+471,CRIMEA-DONBAS,255,Germany,3,diplomatic intervener
+471,CRIMEA-DONBAS,820,Malaysia,6,none of the above
+471,CRIMEA-DONBAS,210,Netherlands,6,none of the above
+471,CRIMEA-DONBAS,365,Russia (Soviet Union),1,crisis actor
+471,CRIMEA-DONBAS,369,Ukraine,1,crisis actor
+471,CRIMEA-DONBAS,2,United States,4,intimidation intervener
+472,CHINESE OIL RIG,710,China,1,crisis actor
+472,CHINESE OIL RIG,2,United States,4,intimidation intervener
+473,INDIA-PAKISTAN BORDER FIRING,750,India,1,crisis actor
+473,INDIA-PAKISTAN BORDER FIRING,770,Pakistan,1,crisis actor
+473,INDIA-PAKISTAN BORDER FIRING,365,Russia,6,none of the above
+473,INDIA-PAKISTAN BORDER FIRING,2,United States,6,none of the above
+474,HOUTHI REBELLION,692,Bahrain,5,military intervener
+474,HOUTHI REBELLION,651,Egypt,5,military intervener
+474,HOUTHI REBELLION,630,Iran,6,none of the above
+474,HOUTHI REBELLION,663,Jordan,5,military intervener
+474,HOUTHI REBELLION,690,Kuwait,5,military intervener
+474,HOUTHI REBELLION,600,Morocco,5,military intervener
+474,HOUTHI REBELLION,365,Russia,3,diplomatic intervener
+474,HOUTHI REBELLION,670,Saudi Arabia,1,crisis actor
+474,HOUTHI REBELLION,625,Sudan,5,military intervener
+474,HOUTHI REBELLION,696,United Arab Emirates,1,crisis actor
+474,HOUTHI REBELLION,2,United States,5,military intervener
+475,KOREAN LAND MINE,731,North Korea (People's Republic of Korea),1,crisis actor
+475,KOREAN LAND MINE,732,South Korea (Republic of Korea),1,crisis actor
+475,KOREAN LAND MINE,2,United States,5,military intervener
+476,TURKEY-RUSSIA JET INCIDENT,220,France,1,crisis actor
+476,TURKEY-RUSSIA JET INCIDENT,260,Germany (German Federal Republic) (West Germany),1,crisis actor
+476,TURKEY-RUSSIA JET INCIDENT,325,Italy,5,military intervener
+476,TURKEY-RUSSIA JET INCIDENT,365,Russia (Soviet Union),1,crisis actor
+476,TURKEY-RUSSIA JET INCIDENT,230,Spain,5,military intervener
+476,TURKEY-RUSSIA JET INCIDENT,640,Turkey,1,crisis actor
+476,TURKEY-RUSSIA JET INCIDENT,2,USA,1,crisis actor
+476,TURKEY-RUSSIA JET INCIDENT,200,United Kingdom (Great Britain),1,crisis actor
+477,NORTH KOREA NUCLEAR VI,710,China,3,intimidation intervener
+477,NORTH KOREA NUCLEAR VI,740,Japan,1,crisis actor
+477,NORTH KOREA NUCLEAR VI,731,North Korea (People's Republic of Korea),1,crisis actor
+477,NORTH KOREA NUCLEAR VI,365,Russia,3,intimidation intervener
+477,NORTH KOREA NUCLEAR VI,732,South Korea (Republic of Korea),1,crisis actor
+477,NORTH KOREA NUCLEAR VI,2,USA,1,crisis actor
+478,NAGORNYY-KARABAKH APRIL WAR,371,Armenia,1,crisis actor
+478,NAGORNYY-KARABAKH APRIL WAR,373,Azerbaijan,1,crisis actor
+478,NAGORNYY-KARABAKH APRIL WAR,255,Germany,3,diplomatic intervener
+478,NAGORNYY-KARABAKH APRIL WAR,365,Russia,3,diplomatic intervener
+478,NAGORNYY-KARABAKH APRIL WAR,2,United States,4,intimidation intervener
+479,EAST CHINA SEA,710,China,6,none of the above
+479,EAST CHINA SEA,750,India,5,military intervener
+479,EAST CHINA SEA,740,Japan,1,crisis actor
+479,EAST CHINA SEA,365,Russia,6,none of the above
+479,EAST CHINA SEA,2,United States,5,military intervener
+480,TORKHAM BORDER INCIDENT,700,Afghanistan,1,crisis actor
+480,TORKHAM BORDER INCIDENT,770,Pakistan,1,crisis actor
+480,TORKHAM BORDER INCIDENT,2,United States,3,diplomatic intervener
+481,OPERATION EUPHRATES SHIELD,365,Russia,3,intimidation intervener
+481,OPERATION EUPHRATES SHIELD,652,Syria,1,crisis actor
+481,OPERATION EUPHRATES SHIELD,640,Turkey,1,crisis actor
+481,OPERATION EUPHRATES SHIELD,2,United States,5,military intervener
+482,URI BASE ATTACK,750,India,1,crisis actor
+482,URI BASE ATTACK,770,Pakistan,1,crisis actor
+482,URI BASE ATTACK,365,Russia,6,none of the above
+482,URI BASE ATTACK,670,Saudi Arabia,6,none of the above
+482,URI BASE ATTACK,696,United Arab Emirates,6,none of the above
+482,URI BASE ATTACK,2,United States,6,none of the above
+483,KISANGANI CONFLICT,517,Rwanda,1,crisis actor
+483,KISANGANI CONFLICT,500,Uganda,1,crisis actor
+483,KISANGANI CONFLICT,200,United Kingdom,3,diplomatic intervener
+483,KISANGANI CONFLICT,2,United States,4,intimidation intervener
+484,SERBIAN TRAIN INCIDENT,347,Kosovo,1,a crisis actor
+484,SERBIAN TRAIN INCIDENT,365,Russia,3,diplomatic intervener
+484,SERBIAN TRAIN INCIDENT,345,Serbia,1,a crisis actor
+484,SERBIAN TRAIN INCIDENT,2,United States,4,intimidation intervener
+485,SHRINE LAL SHAHBAZ ATTACK,700,Afghanistan,1,crisis actor
+485,SHRINE LAL SHAHBAZ ATTACK,770,Pakistan,1,crisis actor
+485,SHRINE LAL SHAHBAZ ATTACK,2,United States,4,intimidation intervener
+486,SYRIA CHEMICAL WEAPONS II,365,Russia (Soviet Union),1,crisis actor
+486,SYRIA CHEMICAL WEAPONS II,652,Syria,1,crisis actor
+486,SYRIA CHEMICAL WEAPONS II,2,USA,1,crisis actor
+487,NORTH KOREA NUCLEAR VII,710,China,6,none of the above
+487,NORTH KOREA NUCLEAR VII,740,Japan,1,crisis actor
+487,NORTH KOREA NUCLEAR VII,731,North Korea (People's Republic of Korea),1,crisis actor
+487,NORTH KOREA NUCLEAR VII,365,Russia,5,military intervener
+487,NORTH KOREA NUCLEAR VII,732,South Korea (Republic of Korea),1,crisis actor
+487,NORTH KOREA NUCLEAR VII,2,USA,1,crisis actor
+488,ISRAEL-IRAN CLASHES IN SYRIA,630,Iran,1,crisis actor
+488,ISRAEL-IRAN CLASHES IN SYRIA,666,Israel,1,crisis actor
+488,ISRAEL-IRAN CLASHES IN SYRIA,365,Russia,3,diplomatic intervener
+488,ISRAEL-IRAN CLASHES IN SYRIA,2,United States,4,intimidation intervener
+489,SYRIA CHEMICAL WEAPONS III,220,France,1,crisis actor
+489,SYRIA CHEMICAL WEAPONS III,630,Iran,6,none of the above
+489,SYRIA CHEMICAL WEAPONS III,365,Russia (Soviet Union),1,crisis actor
+489,SYRIA CHEMICAL WEAPONS III,652,Syria,1,crisis actor
+489,SYRIA CHEMICAL WEAPONS III,200,United Kingdom (Great Britain),1,crisis actor
+489,SYRIA CHEMICAL WEAPONS III,2,USA,1,crisis actor
+490,UAE WITHDRAWAL FROM SOMALIA,520,Somalia,1,crisis actor
+490,UAE WITHDRAWAL FROM SOMALIA,696,United Arab Emirates,6,none of the above
+490,UAE WITHDRAWAL FROM SOMALIA,2,United States,6,none of the above
+490,UAE WITHDRAWAL FROM SOMALIA,365,Russia,6,none of the above
+491,SEA OF AZOV,365,Russia (Soviet Union),1,crisis actor
+491,SEA OF AZOV,369,Ukraine,1,crisis actor
+491,SEA OF AZOV,200,United Kingdom,5,military intervener
+491,SEA OF AZOV,2,United States,5,military intervener
+492,ISRAEL-IRAN CLASHES IN SYRIA II,630,Iran,1,crisis actor
+492,ISRAEL-IRAN CLASHES IN SYRIA II,666,Israel,1,crisis actor
+492,ISRAEL-IRAN CLASHES IN SYRIA II,365,Russia,4,intimidation intervener
+492,ISRAEL-IRAN CLASHES IN SYRIA II,652,Syria,1,crisis actor
+492,ISRAEL-IRAN CLASHES IN SYRIA II,2,U.S.,4,intimidation intervener
+493,Venezuelan Election,100,Colombia,2,assurance intervener
+493,Venezuelan Election,365,Russia,5,military intervener
+493,Venezuelan Election,2,United States,4,intimidation intervener
+493,Venezuelan Election,101,Venezuela,1,crisis actor
+494,PULWAMA SUICIDE BOMBING,710,China,6,none of the above
+494,PULWAMA SUICIDE BOMBING,750,India,1,a crisis actor
+494,PULWAMA SUICIDE BOMBING,770,Pakistan,1,a crisis actor
+494,PULWAMA SUICIDE BOMBING,365,Russia,6,none of the above
+494,PULWAMA SUICIDE BOMBING,2,United States,6,none of the above
+495,SOLEIMANI ASSASSINATION,630,Iran,1,crisis actor
+495,SOLEIMANI ASSASSINATION,365,Russia,6,none of the above
+495,SOLEIMANI ASSASSINATION,2,USA,1,crisis actor
+496,ABQAIQ OIL STRIKE,630,Iran,1,crisis actor
+496,ABQAIQ OIL STRIKE,770,Pakistan,3,diplomatic intervener
+496,ABQAIQ OIL STRIKE,670,Saudi Arabia,1,crisis actor
+496,ABQAIQ OIL STRIKE,2,USA,1,crisis actor

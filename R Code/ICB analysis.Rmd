@@ -1,0 +1,590 @@
+---
+title: "ICB Data Analysis"
+author: "Tianxiang"
+date: "2026-04-13"
+output: html_document
+---
+
+```{r, echo = F, message = F}
+rm(list = ls())
+
+library(magick)
+library(pandoc)
+library(writexl)
+library(readr)
+library(tidyr)
+library(stringr)
+library(dplyr)
+library(readxl)
+library(haven)
+library(countrycode)
+library(car)
+library(sandwich)
+library(lmtest)
+library(ggplot2)
+library(broom)
+library(modelsummary)
+library(kableExtra)
+library(mediation)
+library(webshot2)
+library(gt)
+library(here)
+library(MatchIt)
+library(marginaleffects)
+
+synthesized_data = read.csv(here("Cleaned Data", "ICB_oob.csv"))
+```
+
+# Matching Design and Coefficient Test Function
+
+```{r}
+# ============================================================
+# Caliper Matching
+# ============================================================
+
+matching_variables <- c(
+  "regime_type_int",
+  "regime_type_difference",
+  "coldwar",
+  "relative_power",
+  "contiguous_intervener",
+  "milint",
+  "contiguous_actors",
+  "protrac",
+  "gravcr"
+)
+
+data_complete <- synthesized_data[
+  complete.cases(synthesized_data[, matching_variables]),
+]
+
+
+m.caliper <- MatchIt::matchit(
+  regime_type_int ~ regime_type_difference + coldwar +
+    relative_power + contiguous_intervener + milint +
+    contiguous_actors + protrac + gravcr,
+  data = data_complete,
+  method = "nearest",
+  distance = "glm",
+  caliper = 0.2,
+  ratio = 1,
+  replace = FALSE
+)
+
+matched_caliper <- MatchIt::match.data(m.caliper)
+
+
+# ============================================================
+# Clustered HC3 test function
+# ============================================================
+
+cluster_test <- function(model) {
+  lmtest::coeftest(
+    model,
+    vcov. = sandwich::vcovCL(
+      model,
+      cluster = ~ crisno,
+      type = "HC3"
+    )
+  )
+}
+```
+
+# Main Results
+
+## Long-term Models
+
+```{r}
+# ============================================================
+# H1.1: Regime type
+# ============================================================
+
+h1.1_without_US <- glm(
+  outesr ~ regime_type_int +
+    regime_type_difference +
+    coldwar +
+    relative_power +
+    contiguous_intervener +
+    milint +
+    contiguous_actors +
+    protrac +
+    gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.1_without_US)
+
+
+# ============================================================
+# H1.2: personalism
+# ============================================================
+
+h1.2_without_US <- glm(
+  outesr ~ presidentialism +
+    regime_type_difference +
+    coldwar +
+    relative_power +
+    contiguous_intervener +
+    milint +
+    contiguous_actors +
+    protrac +
+    gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.2_without_US)
+
+
+# ============================================================
+# H1.3: Regime type × log military expenditure
+# Controls for ties to both sides
+# ============================================================
+
+h1.3_without_US <- glm(
+  outesr ~ regime_type_int * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference +
+    coldwar +
+    relative_power +
+    contiguous_intervener +
+    milint +
+    contiguous_actors +
+    protrac +
+    gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.3_without_US)
+
+
+# ============================================================
+# H1.4: personalism × log military expenditure
+# Controls for ties to both sides
+# ============================================================
+
+h1.4_without_US <- glm(
+  outesr ~ presidentialism * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference +
+    coldwar +
+    relative_power +
+    contiguous_intervener +
+    milint +
+    contiguous_actors +
+    protrac +
+    gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.4_without_US)
+
+
+# ============================================================
+# H1.5: Regime type × ties to both sides
+# Controls for log military expenditure
+# ============================================================
+
+h1.5_without_US <- glm(
+  outesr ~ regime_type_int * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference +
+    coldwar +
+    relative_power +
+    contiguous_intervener +
+    milint +
+    contiguous_actors +
+    protrac +
+    gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.5_without_US)
+
+# H1.6: personalism × Ties
+
+h1.6_without_US <- glm(
+  outesr ~ presidentialism * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.6_without_US)
+
+
+# H1.7: Human Rights × Ties
+
+h1.7_without_US <- glm(
+  outesr ~ human_rights * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.7_without_US)
+
+# H1.8: Human Rights × Military Expenditure
+
+h1.8_without_US <- glm(
+  outesr ~ human_rights * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.8_without_US)
+
+# H1.9: Electoral Democracy × Military Expenditure
+
+h1.9_without_US <- glm(
+  outesr ~ electoral_demo * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.9_without_US)
+
+# H1.10: Transparency × Military Expenditure
+
+h1.10_without_US <- glm(
+  outesr ~ transparency * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.10_without_US)
+
+# H1.11: Electoral Democracy × Ties
+
+h1.11_without_US <- glm(
+  outesr ~ electoral_demo * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.11_without_US)
+
+# H1.12: Transparency × Ties
+
+h1.12_without_US <- glm(
+  outesr ~ transparency * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h1.12_without_US)
+```
+
+## Short-term Models
+
+```{r}
+# H2.1: Regime type
+
+h2.1_without_US <- glm(
+  forout ~ regime_type_int + regime_type_difference + coldwar +
+    relative_power + contiguous_intervener + milint +
+    contiguous_actors + protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.1_without_US)
+
+
+# H2.2: presidentialism
+
+h2.2_without_US <- glm(
+  forout ~ presidentialism + regime_type_difference + coldwar +
+    relative_power + contiguous_intervener + milint +
+    contiguous_actors + protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.2_without_US)
+
+# H2.3: Regime type × Military expenditure
+
+h2.3_without_US <- glm(
+  forout ~ regime_type_int * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.3_without_US)
+
+
+# H2.4: presidentialism × Military expenditure
+
+h2.4_without_US <- glm(
+  forout ~ presidentialism * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.4_without_US)
+
+# H2.5: Regime type × Ties
+
+h2.5_without_US <- glm(
+  forout ~ regime_type_int * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.5_without_US)
+
+
+# H2.6: presidentialism × Ties
+
+h2.6_without_US <- glm(
+  forout ~ presidentialism * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.6_without_US)
+
+
+# H2.7: Human rights × Ties
+
+h2.7_without_US <- glm(
+  forout ~ human_rights * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.7_without_US)
+
+# H2.8: Human rights × Military expenditure
+
+h2.8_without_US <- glm(
+  forout ~ human_rights * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.8_without_US)
+
+
+# H2.9: Electoral democracy × Military expenditure
+
+h2.9_without_US <- glm(
+  forout ~ electoral_demo * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.9_without_US)
+
+
+# H2.10: Transparency × Military expenditure
+
+h2.10_without_US <- glm(
+  forout ~ transparency * log(military_expenditure_int) +
+    ties_to_both_sides +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.10_without_US)
+
+# H2.11: Electoral democracy × Ties
+
+h2.11_without_US <- glm(
+  forout ~ electoral_demo * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.11_without_US)
+
+
+# H2.12: Transparency × Ties
+
+h2.12_without_US <- glm(
+  forout ~ transparency * ties_to_both_sides +
+    log(military_expenditure_int) +
+    regime_type_difference + coldwar + relative_power +
+    contiguous_intervener + milint + contiguous_actors +
+    protrac + gravcr,
+  data = matched_caliper,
+  family = binomial(link = "logit"),
+  weights = weights
+)
+
+cluster_test(h2.12_without_US)
+```
+
+# Robustness Check: Whether the regime type effect is in fact a US effect?
+
+## Long-term Models
+
+```{r}
+h1.1_with_US  <- update(h1.1_without_US,  . ~ . + US_involvement)
+h1.2_with_US  <- update(h1.2_without_US,  . ~ . + US_involvement)
+h1.3_with_US  <- update(h1.3_without_US,  . ~ . + US_involvement)
+h1.4_with_US  <- update(h1.4_without_US,  . ~ . + US_involvement)
+h1.5_with_US  <- update(h1.5_without_US,  . ~ . + US_involvement)
+h1.6_with_US  <- update(h1.6_without_US,  . ~ . + US_involvement)
+h1.7_with_US  <- update(h1.7_without_US,  . ~ . + US_involvement)
+h1.8_with_US  <- update(h1.8_without_US,  . ~ . + US_involvement)
+h1.9_with_US  <- update(h1.9_without_US,  . ~ . + US_involvement)
+h1.10_with_US <- update(h1.10_without_US, . ~ . + US_involvement)
+h1.11_with_US <- update(h1.11_without_US, . ~ . + US_involvement)
+h1.12_with_US <- update(h1.12_without_US, . ~ . + US_involvement)
+
+cluster_test(h1.1_with_US)
+cluster_test(h1.2_with_US)
+cluster_test(h1.3_with_US)
+cluster_test(h1.4_with_US)
+cluster_test(h1.5_with_US)
+cluster_test(h1.6_with_US)
+cluster_test(h1.7_with_US)
+cluster_test(h1.8_with_US)
+cluster_test(h1.9_with_US)
+cluster_test(h1.10_with_US)
+cluster_test(h1.11_with_US)
+cluster_test(h1.12_with_US)
+```
+
+## Short-term Models
+
+```{r}
+h2.1_with_US  <- update(h2.1_without_US,  . ~ . + US_involvement)
+h2.2_with_US  <- update(h2.2_without_US,  . ~ . + US_involvement)
+h2.3_with_US  <- update(h2.3_without_US,  . ~ . + US_involvement)
+h2.4_with_US  <- update(h2.4_without_US,  . ~ . + US_involvement)
+h2.5_with_US  <- update(h2.5_without_US,  . ~ . + US_involvement)
+h2.6_with_US  <- update(h2.6_without_US,  . ~ . + US_involvement)
+h2.7_with_US  <- update(h2.7_without_US,  . ~ . + US_involvement)
+h2.8_with_US  <- update(h2.8_without_US,  . ~ . + US_involvement)
+h2.9_with_US  <- update(h2.9_without_US,  . ~ . + US_involvement)
+h2.10_with_US <- update(h2.10_without_US, . ~ . + US_involvement)
+h2.11_with_US <- update(h2.11_without_US, . ~ . + US_involvement)
+h2.12_with_US <- update(h2.12_without_US, . ~ . + US_involvement)
+
+cluster_test(h2.1_with_US)
+cluster_test(h2.2_with_US)
+cluster_test(h2.3_with_US)
+cluster_test(h2.4_with_US)
+cluster_test(h2.5_with_US)
+cluster_test(h2.6_with_US)
+cluster_test(h2.7_with_US)
+cluster_test(h2.8_with_US)
+cluster_test(h2.9_with_US)
+cluster_test(h2.10_with_US)
+cluster_test(h2.11_with_US)
+cluster_test(h2.12_with_US)
+```
+
+```{r}
+# ============================================================
+# Export models for ICB-Plots.Rmd
+# ============================================================
+
+dir.create(here("models"), showWarnings = FALSE)
+
+model_names <- ls(
+  pattern = "^h[12]\\.[0-9]+_(without|with)_US$"
+)
+
+print(model_names)
+cat("\nNumber of models:", length(model_names), "\n")
+
+stopifnot(length(model_names) == 48)
+
+save(
+  list = c(model_names, "matched_caliper"),
+  file = here("models", "ICB_models.RData")
+)
+
+```

@@ -1,0 +1,3601 @@
+---
+title: "ICB Plots"
+author: "Tianxiang"
+date: "2026-09-07"
+output: html_document
+---
+
+```{r, echo = F, message = F}
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(marginaleffects)
+library(sandwich)
+library(here)
+
+load(here("models", "ICB_models.RData"))
+```
+
+# Common settings and functions
+```{r, echo = F}
+# ============================================================
+# Common settings and functions
+# ============================================================
+
+military_probs <- c(0, 1)
+
+# Upper limit of the x-axis (only the US exceeds 4e8)
+military_max <- 4e8
+
+get_model_data <- function(model) {
+
+  used_rows <- rownames(model.frame(model))
+
+  positions <- match(
+    used_rows,
+    rownames(matched_caliper)
+  )
+
+  if (anyNA(positions)) {
+    stop("Some model observations could not be matched to matched_caliper.")
+  }
+
+  matched_caliper[
+    positions,
+    ,
+    drop = FALSE
+  ]
+}
+
+
+get_model_data_nonUS <- function(model) {
+
+  used_rows <- rownames(model.frame(model))
+
+  positions <- match(
+    used_rows,
+    rownames(matched_nonUS)
+  )
+
+  if (anyNA(positions)) {
+    stop("Some model observations could not be matched to matched_nonUS.")
+  }
+
+  matched_nonUS[
+    positions,
+    ,
+    drop = FALSE
+  ]
+}
+
+make_controls <- function(data, n) {
+
+  regime_difference_value <- if (
+    is.factor(data$regime_type_difference)
+  ) {
+    if ("1" %in% levels(data$regime_type_difference)) {
+      "1"
+    } else {
+      levels(data$regime_type_difference)[1]
+    }
+  } else {
+    1
+  }
+
+  data.frame(
+    regime_type_difference = rep(
+      regime_difference_value,
+      n
+    ),
+    coldwar = rep(1, n),
+    relative_power = rep(
+      mean(data$relative_power, na.rm = TRUE),
+      n
+    ),
+    contiguous_intervener = rep(1, n),
+    milint = rep(
+      mean(data$milint, na.rm = TRUE),
+      n
+    ),
+    contiguous_actors = rep(1, n),
+    protrac = rep(1, n),
+    gravcr = rep(0, n)
+  )
+}
+
+
+make_controls_with_US <- function(data, n) {
+  cbind(
+    make_controls(data, n),
+    US_involvement = rep(1, n)
+  )
+}
+
+# Moderator values: mean - 1 SD and mean + 1 SD
+get_mean_sd <- function(data, variable) {
+
+  x <- data[[variable]]
+
+  mean(x, na.rm = TRUE) +
+    c(-1, 1) * sd(x, na.rm = TRUE)
+}
+
+
+# Rug only shows observations within the x-axis range
+rug_data <- function(data) {
+  data[
+    !is.na(data$military_expenditure_int) &
+      data$military_expenditure_int <= military_max,
+    ,
+    drop = FALSE
+  ]
+}
+
+
+get_military_sequence <- function(data, n = 100) {
+
+  military_values <- data$military_expenditure_int
+
+  military_values <- military_values[
+    is.finite(military_values) &
+      military_values > 0 &
+      military_values <= military_max
+  ]
+
+  military_limits <- quantile(
+    military_values,
+    probs = military_probs,
+    na.rm = TRUE,
+    names = FALSE
+  )
+
+  exp(
+    seq(
+      log(military_limits[1]),
+      log(military_limits[2]),
+      length.out = n
+    )
+  )
+}
+
+
+cluster_predictions <- function(model, newdata) {
+
+  cluster_vcov <- sandwich::vcovCL(
+    model,
+    cluster = ~ crisno,
+    type = "HC3"
+  )
+
+  pred <- marginaleffects::predictions(
+    model,
+    newdata = newdata,
+    vcov = cluster_vcov,
+    type = "response"
+  )
+
+  data.frame(
+    newdata,
+    fit = pred$estimate,
+    lower = pmax(pred$conf.low, 0),
+    upper = pmin(pred$conf.high, 1)
+  )
+}
+
+
+common_theme <- theme_minimal(base_size = 13) +
+  theme(
+    legend.position = "bottom"
+  )
+```
+
+# Long-term Results
+
+H1.1 Regime Type
+```{r, echo = F}
+model_data_1.1 <- get_model_data(
+  h1.1_without_US
+)
+
+pred_data_1.1 <- cbind(
+  data.frame(
+    regime_type_int = c(0, 1)
+  ),
+  make_controls(
+    model_data_1.1,
+    n = 2
+  )
+)
+
+pred_df_1.1 <- cluster_predictions(
+  h1.1_without_US,
+  pred_data_1.1
+)
+
+pred_df_1.1$regime_group <- factor(
+  pred_df_1.1$regime_type_int,
+  levels = c(0, 1),
+  labels = c(
+    "Non-Democracy",
+    "Democracy"
+  )
+)
+
+figure_1.1 <- ggplot(
+  pred_df_1.1,
+  aes(
+    x = regime_group,
+    y = fit
+  )
+) +
+  geom_point(
+    size = 3,
+    color = "steelblue"
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    width = 0.1,
+    color = "steelblue"
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Regime Type",
+    y = "Predicted Probability of Tension Reduction",
+    title = "Regime Type (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.1
+```
+
+H1.2 Personalism
+```{r, echo = F}
+model_data_1.2 <- get_model_data(
+  h1.2_without_US
+)
+
+presidentialism_values_1.2 <- get_mean_sd(
+  model_data_1.2,
+  "presidentialism"
+)
+
+pred_data_1.2 <- cbind(
+  data.frame(
+    presidentialism = presidentialism_values_1.2
+  ),
+  make_controls(
+    model_data_1.2,
+    n = 2
+  )
+)
+
+pred_df_1.2 <- cluster_predictions(
+  h1.2_without_US,
+  pred_data_1.2
+)
+
+pred_df_1.2$presidentialism_group <- factor(
+  pred_df_1.2$presidentialism,
+  levels = presidentialism_values_1.2,
+  labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  )
+)
+
+figure_1.2 <- ggplot(
+  pred_df_1.2,
+  aes(
+    x = presidentialism_group,
+    y = fit
+  )
+) +
+  geom_point(
+    size = 3,
+    color = "steelblue"
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    width = 0.1,
+    color = "steelblue"
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Personalism",
+    y = "Predicted Probability of Tension Reduction",
+    title = "Personalism (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.2
+```
+
+H1.3 Regime Type * Military Expenditure
+```{r, echo = F}
+model_data_1.3 <- get_model_data(
+  h1.3_without_US
+)
+
+military_values_1.3 <- get_military_sequence(
+  model_data_1.3
+)
+
+pred_data_1.3 <- expand.grid(
+  military_expenditure_int = military_values_1.3,
+  regime_type_int = c(0, 1)
+)
+
+pred_data_1.3 <- cbind(
+  pred_data_1.3,
+  ties_to_both_sides = mean(
+    model_data_1.3$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls(
+    model_data_1.3,
+    n = nrow(pred_data_1.3)
+  )
+)
+
+pred_df_1.3 <- cluster_predictions(
+  h1.3_without_US,
+  pred_data_1.3
+)
+
+pred_df_1.3$regime_group <- factor(
+  pred_df_1.3$regime_type_int,
+  levels = c(0, 1),
+  labels = c(
+    "Non-Democracy",
+    "Democracy"
+  )
+)
+
+figure_1.3 <- ggplot(
+  pred_df_1.3,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = regime_group,
+    fill = regime_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.3),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Regime Type",
+    fill = "Regime Type",
+    title = "Regime Type \u00D7 Military Expenditure (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.3
+```
+
+H1.4 Personalism * Military Expenditure
+```{r, echo = F}
+model_data_1.4 <- get_model_data(
+  h1.4_without_US
+)
+
+presidentialism_values_1.4 <- get_mean_sd(
+  model_data_1.4,
+  "presidentialism"
+)
+
+military_values_1.4 <- get_military_sequence(
+  model_data_1.4
+)
+
+pred_data_1.4 <- expand.grid(
+  military_expenditure_int = military_values_1.4,
+  presidentialism = presidentialism_values_1.4
+)
+
+pred_data_1.4 <- cbind(
+  pred_data_1.4,
+  ties_to_both_sides = mean(
+    model_data_1.4$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls(
+    model_data_1.4,
+    n = nrow(pred_data_1.4)
+  )
+)
+
+pred_df_1.4 <- cluster_predictions(
+  h1.4_without_US,
+  pred_data_1.4
+)
+
+pred_df_1.4$presidentialism_group <- factor(
+  pred_df_1.4$presidentialism,
+  levels = presidentialism_values_1.4,
+  labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  )
+)
+
+figure_1.4 <- ggplot(
+  pred_df_1.4,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = presidentialism_group,
+    fill = presidentialism_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.4),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Personalism",
+    fill = "Personalism",
+    title = "Personalism \u00D7 Military Expenditure (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.4
+```
+
+H1.5 Regime Type * Ties to Both Sides
+```{r, echo = F}
+model_data_1.5 <- get_model_data(
+  h1.5_without_US
+)
+
+typical_military_1.5 <- median(
+  model_data_1.5$military_expenditure_int[
+    model_data_1.5$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.5 <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  regime_type_int = c(0, 1)
+)
+
+pred_data_1.5 <- cbind(
+  pred_data_1.5,
+  military_expenditure_int = typical_military_1.5,
+  make_controls(
+    model_data_1.5,
+    n = nrow(pred_data_1.5)
+  )
+)
+
+pred_df_1.5 <- cluster_predictions(
+  h1.5_without_US,
+  pred_data_1.5
+)
+
+pred_df_1.5$ties_group <- factor(
+  pred_df_1.5$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.5$regime_group <- factor(
+  pred_df_1.5$regime_type_int,
+  levels = c(0, 1),
+  labels = c(
+    "Non-Democracy",
+    "Democracy"
+  )
+)
+
+position_1.5 <- position_dodge(
+  width = 0.2
+)
+
+figure_1.5 <- ggplot(
+  pred_df_1.5,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = regime_group,
+    group = regime_group
+  )
+) +
+  geom_point(
+    position = position_1.5,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.5,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Regime Type",
+    title = "Regime Type \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.5
+```
+
+H1.6 Personalism * Ties to Both Sides
+```{r, echo = F}
+model_data_1.6 <- get_model_data(
+  h1.6_without_US
+)
+
+presidentialism_values_1.6 <- get_mean_sd(
+  model_data_1.6,
+  "presidentialism"
+)
+
+typical_military_1.6 <- median(
+  model_data_1.6$military_expenditure_int[
+    model_data_1.6$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.6 <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  presidentialism = presidentialism_values_1.6
+)
+
+pred_data_1.6 <- cbind(
+  pred_data_1.6,
+  military_expenditure_int = typical_military_1.6,
+  make_controls(
+    model_data_1.6,
+    n = nrow(pred_data_1.6)
+  )
+)
+
+pred_df_1.6 <- cluster_predictions(
+  h1.6_without_US,
+  pred_data_1.6
+)
+
+pred_df_1.6$ties_group <- factor(
+  pred_df_1.6$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.6$presidentialism_group <- factor(
+  pred_df_1.6$presidentialism,
+  levels = presidentialism_values_1.6,
+  labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  )
+)
+
+position_1.6 <- position_dodge(
+  width = 0.2
+)
+
+figure_1.6 <- ggplot(
+  pred_df_1.6,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = presidentialism_group,
+    group = presidentialism_group
+  )
+) +
+  geom_point(
+    position = position_1.6,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.6,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Personalism",
+    title = "Personalism \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.6
+```
+
+H1.7 Human Rights * Ties to Both Sides
+```{r, echo = F}
+model_data_1.7 <- get_model_data(
+  h1.7_without_US
+)
+
+human_rights_values_1.7 <- get_mean_sd(
+  model_data_1.7,
+  "human_rights"
+)
+
+typical_military_1.7 <- median(
+  model_data_1.7$military_expenditure_int[
+    model_data_1.7$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.7 <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  human_rights = human_rights_values_1.7
+)
+
+pred_data_1.7 <- cbind(
+  pred_data_1.7,
+  military_expenditure_int = typical_military_1.7,
+  make_controls(
+    model_data_1.7,
+    n = nrow(pred_data_1.7)
+  )
+)
+
+pred_df_1.7 <- cluster_predictions(
+  h1.7_without_US,
+  pred_data_1.7
+)
+
+pred_df_1.7$ties_group <- factor(
+  pred_df_1.7$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.7$human_rights_group <- factor(
+  pred_df_1.7$human_rights,
+  levels = human_rights_values_1.7,
+  labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  )
+)
+
+position_1.7 <- position_dodge(
+  width = 0.2
+)
+
+figure_1.7 <- ggplot(
+  pred_df_1.7,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = human_rights_group,
+    group = human_rights_group
+  )
+) +
+  geom_point(
+    position = position_1.7,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.7,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Human Rights",
+    title = "Human Rights \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.7
+```
+
+H1.8 Human Rights * Military Expenditure
+```{r, echo = F}
+model_data_1.8 <- get_model_data(
+  h1.8_without_US
+)
+
+human_rights_values_1.8 <- get_mean_sd(
+  model_data_1.8,
+  "human_rights"
+)
+
+military_values_1.8 <- get_military_sequence(
+  model_data_1.8
+)
+
+pred_data_1.8 <- expand.grid(
+  military_expenditure_int = military_values_1.8,
+  human_rights = human_rights_values_1.8
+)
+
+pred_data_1.8 <- cbind(
+  pred_data_1.8,
+  ties_to_both_sides = mean(
+    model_data_1.8$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls(
+    model_data_1.8,
+    n = nrow(pred_data_1.8)
+  )
+)
+
+pred_df_1.8 <- cluster_predictions(
+  h1.8_without_US,
+  pred_data_1.8
+)
+
+pred_df_1.8$human_rights_group <- factor(
+  pred_df_1.8$human_rights,
+  levels = human_rights_values_1.8,
+  labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  )
+)
+
+figure_1.8 <- ggplot(
+  pred_df_1.8,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = human_rights_group,
+    fill = human_rights_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.8),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Human Rights",
+    fill = "Human Rights",
+    title = "Human Rights \u00D7 Military Expenditure (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.8
+```
+
+H1.9 Electoral Democracy * Military Expenditure
+```{r, echo = F}
+model_data_1.9 <- get_model_data(
+  h1.9_without_US
+)
+
+electoral_values_1.9 <- get_mean_sd(
+  model_data_1.9,
+  "electoral_demo"
+)
+
+military_values_1.9 <- get_military_sequence(
+  model_data_1.9
+)
+
+pred_data_1.9 <- expand.grid(
+  military_expenditure_int = military_values_1.9,
+  electoral_demo = electoral_values_1.9
+)
+
+pred_data_1.9 <- cbind(
+  pred_data_1.9,
+  ties_to_both_sides = mean(
+    model_data_1.9$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls(
+    model_data_1.9,
+    n = nrow(pred_data_1.9)
+  )
+)
+
+pred_df_1.9 <- cluster_predictions(
+  h1.9_without_US,
+  pred_data_1.9
+)
+
+pred_df_1.9$electoral_group <- factor(
+  pred_df_1.9$electoral_demo,
+  levels = electoral_values_1.9,
+  labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  )
+)
+
+figure_1.9 <- ggplot(
+  pred_df_1.9,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = electoral_group,
+    fill = electoral_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.9),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Electoral Democracy",
+    fill = "Electoral Democracy",
+    title = "Electoral Democracy \u00D7 Military Expenditure (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.9
+```
+
+H1.10 Transparency * Military Expenditure
+```{r, echo = F}
+model_data_1.10 <- get_model_data(
+  h1.10_without_US
+)
+
+transparency_values_1.10 <- get_mean_sd(
+  model_data_1.10,
+  "transparency"
+)
+
+military_values_1.10 <- get_military_sequence(
+  model_data_1.10
+)
+
+pred_data_1.10 <- expand.grid(
+  military_expenditure_int = military_values_1.10,
+  transparency = transparency_values_1.10
+)
+
+pred_data_1.10 <- cbind(
+  pred_data_1.10,
+  ties_to_both_sides = mean(
+    model_data_1.10$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls(
+    model_data_1.10,
+    n = nrow(pred_data_1.10)
+  )
+)
+
+pred_df_1.10 <- cluster_predictions(
+  h1.10_without_US,
+  pred_data_1.10
+)
+
+pred_df_1.10$transparency_group <- factor(
+  pred_df_1.10$transparency,
+  levels = transparency_values_1.10,
+  labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  )
+)
+
+figure_1.10 <- ggplot(
+  pred_df_1.10,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = transparency_group,
+    fill = transparency_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.10),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Transparency",
+    fill = "Transparency",
+    title = "Transparency \u00D7 Military Expenditure (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.10
+```
+
+H1.11 Electoral Democracy * Ties to Both Sides
+```{r, echo = F}
+model_data_1.11 <- get_model_data(
+  h1.11_without_US
+)
+
+electoral_values_1.11 <- get_mean_sd(
+  model_data_1.11,
+  "electoral_demo"
+)
+
+typical_military_1.11 <- median(
+  model_data_1.11$military_expenditure_int[
+    model_data_1.11$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.11 <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  electoral_demo = electoral_values_1.11
+)
+
+pred_data_1.11 <- cbind(
+  pred_data_1.11,
+  military_expenditure_int = typical_military_1.11,
+  make_controls(
+    model_data_1.11,
+    n = nrow(pred_data_1.11)
+  )
+)
+
+pred_df_1.11 <- cluster_predictions(
+  h1.11_without_US,
+  pred_data_1.11
+)
+
+pred_df_1.11$ties_group <- factor(
+  pred_df_1.11$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.11$electoral_group <- factor(
+  pred_df_1.11$electoral_demo,
+  levels = electoral_values_1.11,
+  labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  )
+)
+
+position_1.11 <- position_dodge(
+  width = 0.2
+)
+
+figure_1.11 <- ggplot(
+  pred_df_1.11,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = electoral_group,
+    group = electoral_group
+  )
+) +
+  geom_point(
+    position = position_1.11,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.11,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Electoral Democracy",
+    title = "Electoral Democracy \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.11
+```
+
+H1.12 Transparency * Ties to Both Sides
+```{r, echo = F}
+model_data_1.12 <- get_model_data(
+  h1.12_without_US
+)
+
+transparency_values_1.12 <- get_mean_sd(
+  model_data_1.12,
+  "transparency"
+)
+
+typical_military_1.12 <- median(
+  model_data_1.12$military_expenditure_int[
+    model_data_1.12$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.12 <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  transparency = transparency_values_1.12
+)
+
+pred_data_1.12 <- cbind(
+  pred_data_1.12,
+  military_expenditure_int = typical_military_1.12,
+  make_controls(
+    model_data_1.12,
+    n = nrow(pred_data_1.12)
+  )
+)
+
+pred_df_1.12 <- cluster_predictions(
+  h1.12_without_US,
+  pred_data_1.12
+)
+
+pred_df_1.12$ties_group <- factor(
+  pred_df_1.12$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.12$transparency_group <- factor(
+  pred_df_1.12$transparency,
+  levels = transparency_values_1.12,
+  labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  )
+)
+
+position_1.12 <- position_dodge(
+  width = 0.2
+)
+
+figure_1.12 <- ggplot(
+  pred_df_1.12,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = transparency_group,
+    group = transparency_group
+  )
+) +
+  geom_point(
+    position = position_1.12,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.12,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Transparency",
+    title = "Transparency \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.12
+```
+
+# Short-term Results
+
+```{r, echo = F}
+# ============================================================
+# Plotting functions for short-term models
+# ============================================================
+
+# Main-effect plots: H2.1 and H2.2
+make_main_effect_plot <- function(
+  model,
+  variable,
+  values,
+  value_labels,
+  x_label,
+  figure_title
+) {
+
+  model_data <- get_model_data(model)
+
+  pred_data <- data.frame(values)
+  names(pred_data) <- variable
+
+  pred_data <- cbind(
+    pred_data,
+    make_controls(
+      model_data,
+      n = nrow(pred_data)
+    )
+  )
+
+  pred_df <- cluster_predictions(
+    model,
+    pred_data
+  )
+
+  pred_df$display_group <- factor(
+    pred_df[[variable]],
+    levels = values,
+    labels = value_labels
+  )
+
+  ggplot(
+    pred_df,
+    aes(
+      x = display_group,
+      y = fit
+    )
+  ) +
+    geom_point(
+      size = 3,
+      color = "steelblue"
+    ) +
+    geom_errorbar(
+      aes(
+        ymin = lower,
+        ymax = upper
+      ),
+      width = 0.1,
+      color = "steelblue"
+    ) +
+    coord_cartesian(
+      ylim = c(0, 1)
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format()
+    ) +
+    labs(
+      x = x_label,
+      y = "Predicted Probability of Agreement",
+      title = figure_title,
+      subtitle = "95% crisis-clustered HC3 confidence intervals"
+    ) +
+    common_theme
+}
+
+
+# Military expenditure interaction plots: H2.3, H2.4, H2.8, H2.9, H2.10
+make_military_interaction_plot <- function(
+  model,
+  moderator,
+  moderator_values,
+  moderator_labels,
+  legend_title,
+  figure_title
+) {
+
+  model_data <- get_model_data(model)
+
+  military_values <- get_military_sequence(
+    model_data
+  )
+
+  pred_data <- expand.grid(
+    military_expenditure_int = military_values,
+    moderator_value = moderator_values
+  )
+
+  names(pred_data)[2] <- moderator
+
+  pred_data <- cbind(
+    pred_data,
+    ties_to_both_sides = mean(
+      model_data$ties_to_both_sides,
+      na.rm = TRUE
+    ),
+    make_controls(
+      model_data,
+      n = nrow(pred_data)
+    )
+  )
+
+  pred_df <- cluster_predictions(
+    model,
+    pred_data
+  )
+
+  pred_df$moderator_group <- factor(
+    pred_df[[moderator]],
+    levels = moderator_values,
+    labels = moderator_labels
+  )
+
+  ggplot(
+    pred_df,
+    aes(
+      x = military_expenditure_int,
+      y = fit,
+      color = moderator_group,
+      fill = moderator_group
+    )
+  ) +
+    geom_ribbon(
+      aes(
+        ymin = lower,
+        ymax = upper
+      ),
+      alpha = 0.15,
+      color = NA
+    ) +
+    geom_line(
+      linewidth = 1
+    ) +
+    geom_rug(
+      data = rug_data(model_data),
+      aes(
+        x = military_expenditure_int
+      ),
+      inherit.aes = FALSE,
+      alpha = 0.2
+    ) +
+    scale_x_log10(
+      labels = scales::label_number(
+        big.mark = ","
+      )
+    ) +
+    coord_cartesian(
+      ylim = c(0, 1)
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format()
+    ) +
+    labs(
+      x = "Intervener Military Expenditure (log scale)",
+      y = "Predicted Probability of Agreement",
+      color = legend_title,
+      fill = legend_title,
+      title = figure_title,
+      subtitle = "95% crisis-clustered HC3 confidence intervals"
+    ) +
+    common_theme
+}
+
+
+# Ties interaction plots: H2.5, H2.6, H2.7, H2.11, H2.12
+make_ties_interaction_plot <- function(
+  model,
+  moderator,
+  moderator_values,
+  moderator_labels,
+  legend_title,
+  figure_title
+) {
+
+  model_data <- get_model_data(model)
+
+  typical_military <- median(
+    model_data$military_expenditure_int[
+      model_data$military_expenditure_int > 0
+    ],
+    na.rm = TRUE
+  )
+
+  pred_data <- expand.grid(
+    ties_to_both_sides = c(0, 1),
+    moderator_value = moderator_values
+  )
+
+  names(pred_data)[2] <- moderator
+
+  pred_data <- cbind(
+    pred_data,
+    military_expenditure_int = typical_military,
+    make_controls(
+      model_data,
+      n = nrow(pred_data)
+    )
+  )
+
+  pred_df <- cluster_predictions(
+    model,
+    pred_data
+  )
+
+  pred_df$ties_group <- factor(
+    pred_df$ties_to_both_sides,
+    levels = c(0, 1),
+    labels = c(
+      "No Ties",
+      "Ties to Both Sides"
+    )
+  )
+
+  pred_df$moderator_group <- factor(
+    pred_df[[moderator]],
+    levels = moderator_values,
+    labels = moderator_labels
+  )
+
+  plot_position <- position_dodge(
+    width = 0.2
+  )
+
+  ggplot(
+    pred_df,
+    aes(
+      x = ties_group,
+      y = fit,
+      color = moderator_group,
+      group = moderator_group
+    )
+  ) +
+    geom_point(
+      position = plot_position,
+      size = 3
+    ) +
+    geom_errorbar(
+      aes(
+        ymin = lower,
+        ymax = upper
+      ),
+      position = plot_position,
+      width = 0.1
+    ) +
+    coord_cartesian(
+      ylim = c(0, 1)
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format()
+    ) +
+    labs(
+      x = "Ties to Both Sides",
+      y = "Predicted Probability of Agreement",
+      color = legend_title,
+      title = figure_title,
+      subtitle = "95% crisis-clustered HC3 confidence intervals"
+    ) +
+    common_theme
+}
+```
+
+```{r, echo = F}
+figure_2.1 <- make_main_effect_plot(
+  model = h2.1_without_US,
+  variable = "regime_type_int",
+  values = c(0, 1),
+  value_labels = c(
+    "Non-Democracy",
+    "Democracy"
+  ),
+  x_label = "Intervener Regime Type",
+  figure_title = "Regime Type (Short-term)"
+)
+
+figure_2.1
+```
+
+H2.2 Personalism
+```{r, echo = F}
+model_data_2.2 <- get_model_data(
+  h2.2_without_US
+)
+
+presidentialism_values_2.2 <- get_mean_sd(
+  model_data_2.2,
+  "presidentialism"
+)
+
+figure_2.2 <- make_main_effect_plot(
+  model = h2.2_without_US,
+  variable = "presidentialism",
+  values = presidentialism_values_2.2,
+  value_labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  ),
+  x_label = "Personalism",
+  figure_title = "Personalism (Short-term)"
+)
+
+figure_2.2
+```
+
+H2.3 Regime type × Military expenditure
+```{r, echo = F}
+figure_2.3 <- make_military_interaction_plot(
+  model = h2.3_without_US,
+  moderator = "regime_type_int",
+  moderator_values = c(0, 1),
+  moderator_labels = c(
+    "Non-Democracy",
+    "Democracy"
+  ),
+  legend_title = "Regime Type",
+  figure_title = "Regime Type \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.3
+```
+
+H2.4 Personalism × Military expenditure
+```{r, echo = F}
+model_data_2.4 <- get_model_data(
+  h2.4_without_US
+)
+
+presidentialism_values_2.4 <- get_mean_sd(
+  model_data_2.4,
+  "presidentialism"
+)
+
+figure_2.4 <- make_military_interaction_plot(
+  model = h2.4_without_US,
+  moderator = "presidentialism",
+  moderator_values = presidentialism_values_2.4,
+  moderator_labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  ),
+  legend_title = "Personalism",
+  figure_title = "Personalism \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.4
+```
+
+H2.5 Regime Type * Ties to Both Sides
+```{r, echo = F}
+figure_2.5 <- make_ties_interaction_plot(
+  model = h2.5_without_US,
+  moderator = "regime_type_int",
+  moderator_values = c(0, 1),
+  moderator_labels = c(
+    "Non-Democracy",
+    "Democracy"
+  ),
+  legend_title = "Regime Type",
+  figure_title = "Regime Type \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.5
+```
+
+H2.6 Personalism × Ties to both sides
+```{r, echo = F}
+model_data_2.6 <- get_model_data(
+  h2.6_without_US
+)
+
+presidentialism_values_2.6 <- get_mean_sd(
+  model_data_2.6,
+  "presidentialism"
+)
+
+figure_2.6 <- make_ties_interaction_plot(
+  model = h2.6_without_US,
+  moderator = "presidentialism",
+  moderator_values = presidentialism_values_2.6,
+  moderator_labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  ),
+  legend_title = "Personalism",
+  figure_title = "Personalism \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.6
+```
+
+H2.7: Human Rights * Ties to Both Sides
+```{r, echo = F}
+model_data_2.7 <- get_model_data(
+  h2.7_without_US
+)
+
+human_rights_values_2.7 <- get_mean_sd(
+  model_data_2.7,
+  "human_rights"
+)
+
+figure_2.7 <- make_ties_interaction_plot(
+  model = h2.7_without_US,
+  moderator = "human_rights",
+  moderator_values = human_rights_values_2.7,
+  moderator_labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  ),
+  legend_title = "Human Rights",
+  figure_title = "Human Rights \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.7
+```
+
+H2.8 Human Rights * Military Expenditure
+```{r, echo = F}
+model_data_2.8 <- get_model_data(
+  h2.8_without_US
+)
+
+human_rights_values_2.8 <- get_mean_sd(
+  model_data_2.8,
+  "human_rights"
+)
+
+figure_2.8 <- make_military_interaction_plot(
+  model = h2.8_without_US,
+  moderator = "human_rights",
+  moderator_values = human_rights_values_2.8,
+  moderator_labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  ),
+  legend_title = "Human Rights",
+  figure_title = "Human Rights \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.8
+```
+
+H2.9 Electoral Democracy * Military Expenditure
+```{r, echo = F}
+model_data_2.9 <- get_model_data(
+  h2.9_without_US
+)
+
+electoral_values_2.9 <- get_mean_sd(
+  model_data_2.9,
+  "electoral_demo"
+)
+
+figure_2.9 <- make_military_interaction_plot(
+  model = h2.9_without_US,
+  moderator = "electoral_demo",
+  moderator_values = electoral_values_2.9,
+  moderator_labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  ),
+  legend_title = "Electoral Democracy",
+  figure_title = "Electoral Democracy \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.9
+```
+
+H2.10 Transparency * Military Expenditure
+```{r, echo = F}
+model_data_2.10 <- get_model_data(
+  h2.10_without_US
+)
+
+transparency_values_2.10 <- get_mean_sd(
+  model_data_2.10,
+  "transparency"
+)
+
+figure_2.10 <- make_military_interaction_plot(
+  model = h2.10_without_US,
+  moderator = "transparency",
+  moderator_values = transparency_values_2.10,
+  moderator_labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  ),
+  legend_title = "Transparency",
+  figure_title = "Transparency \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.10
+```
+
+H2.11 Electoral Demo * Ties to Both Sides
+```{r, echo = F}
+model_data_2.11 <- get_model_data(
+  h2.11_without_US
+)
+
+electoral_values_2.11 <- get_mean_sd(
+  model_data_2.11,
+  "electoral_demo"
+)
+
+figure_2.11 <- make_ties_interaction_plot(
+  model = h2.11_without_US,
+  moderator = "electoral_demo",
+  moderator_values = electoral_values_2.11,
+  moderator_labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  ),
+  legend_title = "Electoral Democracy",
+  figure_title = "Electoral Democracy \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.11
+```
+
+H2.12 Transparency * Ties to Both Sides
+```{r}
+model_data_2.12 <- get_model_data(
+  h2.12_without_US
+)
+
+transparency_values_2.12 <- get_mean_sd(
+  model_data_2.12,
+  "transparency"
+)
+
+figure_2.12 <- make_ties_interaction_plot(
+  model = h2.12_without_US,
+  moderator = "transparency",
+  moderator_values = transparency_values_2.12,
+  moderator_labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  ),
+  legend_title = "Transparency",
+  figure_title = "Transparency \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.12
+```
+
+# Robustness Check: Including US-Involvement Variable
+
+## Long-term Results
+
+H1.1 Regime Type
+```{r, echo = F}
+model_data_1.1_with_US <- get_model_data(
+  h1.1_with_US
+)
+
+pred_data_1.1_with_US <- cbind(
+  data.frame(
+    regime_type_int = c(0, 1)
+  ),
+  make_controls_with_US(
+    model_data_1.1_with_US,
+    n = 2
+  )
+)
+
+pred_df_1.1_with_US <- cluster_predictions(
+  h1.1_with_US,
+  pred_data_1.1_with_US
+)
+
+pred_df_1.1_with_US$regime_group <- factor(
+  pred_df_1.1_with_US$regime_type_int,
+  levels = c(0, 1),
+  labels = c(
+    "Non-Democracy",
+    "Democracy"
+  )
+)
+
+figure_1.1_with_US <- ggplot(
+  pred_df_1.1_with_US,
+  aes(
+    x = regime_group,
+    y = fit
+  )
+) +
+  geom_point(
+    size = 3,
+    color = "steelblue"
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    width = 0.1,
+    color = "steelblue"
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Regime Type",
+    y = "Predicted Probability of Tension Reduction",
+    title = "Regime Type (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.1_with_US
+```
+
+H1.2 Personalism
+```{r, echo = F}
+model_data_1.2_with_US <- get_model_data(
+  h1.2_with_US
+)
+
+presidentialism_values_1.2_with_US <- get_mean_sd(
+  model_data_1.2_with_US,
+  "presidentialism"
+)
+
+pred_data_1.2_with_US <- cbind(
+  data.frame(
+    presidentialism = presidentialism_values_1.2_with_US
+  ),
+  make_controls_with_US(
+    model_data_1.2_with_US,
+    n = 2
+  )
+)
+
+pred_df_1.2_with_US <- cluster_predictions(
+  h1.2_with_US,
+  pred_data_1.2_with_US
+)
+
+pred_df_1.2_with_US$presidentialism_group <- factor(
+  pred_df_1.2_with_US$presidentialism,
+  levels = presidentialism_values_1.2_with_US,
+  labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  )
+)
+
+figure_1.2_with_US <- ggplot(
+  pred_df_1.2_with_US,
+  aes(
+    x = presidentialism_group,
+    y = fit
+  )
+) +
+  geom_point(
+    size = 3,
+    color = "steelblue"
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    width = 0.1,
+    color = "steelblue"
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Personalism",
+    y = "Predicted Probability of Tension Reduction",
+    title = "Personalism (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.2_with_US
+```
+
+H1.3 Regime Type * Military Expenditure
+```{r, echo = F}
+model_data_1.3_with_US <- get_model_data(
+  h1.3_with_US
+)
+
+military_values_1.3_with_US <- get_military_sequence(
+  model_data_1.3_with_US
+)
+
+pred_data_1.3_with_US <- expand.grid(
+  military_expenditure_int = military_values_1.3_with_US,
+  regime_type_int = c(0, 1)
+)
+
+pred_data_1.3_with_US <- cbind(
+  pred_data_1.3_with_US,
+  ties_to_both_sides = mean(
+    model_data_1.3_with_US$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls_with_US(
+    model_data_1.3_with_US,
+    n = nrow(pred_data_1.3_with_US)
+  )
+)
+
+pred_df_1.3_with_US <- cluster_predictions(
+  h1.3_with_US,
+  pred_data_1.3_with_US
+)
+
+pred_df_1.3_with_US$regime_group <- factor(
+  pred_df_1.3_with_US$regime_type_int,
+  levels = c(0, 1),
+  labels = c(
+    "Non-Democracy",
+    "Democracy"
+  )
+)
+
+figure_1.3_with_US <- ggplot(
+  pred_df_1.3_with_US,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = regime_group,
+    fill = regime_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.3_with_US),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Regime Type",
+    fill = "Regime Type",
+    title = "Regime Type \u00D7 Military Expenditure (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.3_with_US
+```
+
+H1.4 Personalism * Military Expenditure
+```{r, echo = F}
+model_data_1.4_with_US <- get_model_data(
+  h1.4_with_US
+)
+
+presidentialism_values_1.4_with_US <- get_mean_sd(
+  model_data_1.4_with_US,
+  "presidentialism"
+)
+
+military_values_1.4_with_US <- get_military_sequence(
+  model_data_1.4_with_US
+)
+
+pred_data_1.4_with_US <- expand.grid(
+  military_expenditure_int = military_values_1.4_with_US,
+  presidentialism = presidentialism_values_1.4_with_US
+)
+
+pred_data_1.4_with_US <- cbind(
+  pred_data_1.4_with_US,
+  ties_to_both_sides = mean(
+    model_data_1.4_with_US$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls_with_US(
+    model_data_1.4_with_US,
+    n = nrow(pred_data_1.4_with_US)
+  )
+)
+
+pred_df_1.4_with_US <- cluster_predictions(
+  h1.4_with_US,
+  pred_data_1.4_with_US
+)
+
+pred_df_1.4_with_US$presidentialism_group <- factor(
+  pred_df_1.4_with_US$presidentialism,
+  levels = presidentialism_values_1.4_with_US,
+  labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  )
+)
+
+figure_1.4_with_US <- ggplot(
+  pred_df_1.4_with_US,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = presidentialism_group,
+    fill = presidentialism_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.4_with_US),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Personalism",
+    fill = "Personalism",
+    title = "Personalism \u00D7 Military Expenditure (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.4_with_US
+```
+
+H1.5 Regime Type * Ties to Both Sides
+```{r, echo = F}
+model_data_1.5_with_US <- get_model_data(
+  h1.5_with_US
+)
+
+typical_military_1.5_with_US <- median(
+  model_data_1.5_with_US$military_expenditure_int[
+    model_data_1.5_with_US$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.5_with_US <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  regime_type_int = c(0, 1)
+)
+
+pred_data_1.5_with_US <- cbind(
+  pred_data_1.5_with_US,
+  military_expenditure_int = typical_military_1.5_with_US,
+  make_controls_with_US(
+    model_data_1.5_with_US,
+    n = nrow(pred_data_1.5_with_US)
+  )
+)
+
+pred_df_1.5_with_US <- cluster_predictions(
+  h1.5_with_US,
+  pred_data_1.5_with_US
+)
+
+pred_df_1.5_with_US$ties_group <- factor(
+  pred_df_1.5_with_US$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.5_with_US$regime_group <- factor(
+  pred_df_1.5_with_US$regime_type_int,
+  levels = c(0, 1),
+  labels = c(
+    "Non-Democracy",
+    "Democracy"
+  )
+)
+
+position_1.5_with_US <- position_dodge(
+  width = 0.2
+)
+
+figure_1.5_with_US <- ggplot(
+  pred_df_1.5_with_US,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = regime_group,
+    group = regime_group
+  )
+) +
+  geom_point(
+    position = position_1.5_with_US,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.5_with_US,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Regime Type",
+    title = "Regime Type \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.5_with_US
+```
+
+H1.6 Personalism * Ties to Both Sides
+```{r, echo = F}
+model_data_1.6_with_US <- get_model_data(
+  h1.6_with_US
+)
+
+presidentialism_values_1.6_with_US <- get_mean_sd(
+  model_data_1.6_with_US,
+  "presidentialism"
+)
+
+typical_military_1.6_with_US <- median(
+  model_data_1.6_with_US$military_expenditure_int[
+    model_data_1.6_with_US$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.6_with_US <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  presidentialism = presidentialism_values_1.6_with_US
+)
+
+pred_data_1.6_with_US <- cbind(
+  pred_data_1.6_with_US,
+  military_expenditure_int = typical_military_1.6_with_US,
+  make_controls_with_US(
+    model_data_1.6_with_US,
+    n = nrow(pred_data_1.6_with_US)
+  )
+)
+
+pred_df_1.6_with_US <- cluster_predictions(
+  h1.6_with_US,
+  pred_data_1.6_with_US
+)
+
+pred_df_1.6_with_US$ties_group <- factor(
+  pred_df_1.6_with_US$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.6_with_US$presidentialism_group <- factor(
+  pred_df_1.6_with_US$presidentialism,
+  levels = presidentialism_values_1.6_with_US,
+  labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  )
+)
+
+position_1.6_with_US <- position_dodge(
+  width = 0.2
+)
+
+figure_1.6_with_US <- ggplot(
+  pred_df_1.6_with_US,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = presidentialism_group,
+    group = presidentialism_group
+  )
+) +
+  geom_point(
+    position = position_1.6_with_US,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.6_with_US,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Personalism",
+    title = "Personalism \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.6_with_US
+```
+
+H1.7 Human Rights * Ties to Both Sides
+```{r, echo = F}
+model_data_1.7_with_US <- get_model_data(
+  h1.7_with_US
+)
+
+human_rights_values_1.7_with_US <- get_mean_sd(
+  model_data_1.7_with_US,
+  "human_rights"
+)
+
+typical_military_1.7_with_US <- median(
+  model_data_1.7_with_US$military_expenditure_int[
+    model_data_1.7_with_US$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.7_with_US <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  human_rights = human_rights_values_1.7_with_US
+)
+
+pred_data_1.7_with_US <- cbind(
+  pred_data_1.7_with_US,
+  military_expenditure_int = typical_military_1.7_with_US,
+  make_controls_with_US(
+    model_data_1.7_with_US,
+    n = nrow(pred_data_1.7_with_US)
+  )
+)
+
+pred_df_1.7_with_US <- cluster_predictions(
+  h1.7_with_US,
+  pred_data_1.7_with_US
+)
+
+pred_df_1.7_with_US$ties_group <- factor(
+  pred_df_1.7_with_US$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.7_with_US$human_rights_group <- factor(
+  pred_df_1.7_with_US$human_rights,
+  levels = human_rights_values_1.7_with_US,
+  labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  )
+)
+
+position_1.7_with_US <- position_dodge(
+  width = 0.2
+)
+
+figure_1.7_with_US <- ggplot(
+  pred_df_1.7_with_US,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = human_rights_group,
+    group = human_rights_group
+  )
+) +
+  geom_point(
+    position = position_1.7_with_US,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.7_with_US,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Human Rights",
+    title = "Human Rights \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.7_with_US
+```
+
+H1.8 Human Rights * Military Expenditure
+```{r, echo = F}
+model_data_1.8_with_US <- get_model_data(
+  h1.8_with_US
+)
+
+human_rights_values_1.8_with_US <- get_mean_sd(
+  model_data_1.8_with_US,
+  "human_rights"
+)
+
+military_values_1.8_with_US <- get_military_sequence(
+  model_data_1.8_with_US
+)
+
+pred_data_1.8_with_US <- expand.grid(
+  military_expenditure_int = military_values_1.8_with_US,
+  human_rights = human_rights_values_1.8_with_US
+)
+
+pred_data_1.8_with_US <- cbind(
+  pred_data_1.8_with_US,
+  ties_to_both_sides = mean(
+    model_data_1.8_with_US$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls_with_US(
+    model_data_1.8_with_US,
+    n = nrow(pred_data_1.8_with_US)
+  )
+)
+
+pred_df_1.8_with_US <- cluster_predictions(
+  h1.8_with_US,
+  pred_data_1.8_with_US
+)
+
+pred_df_1.8_with_US$human_rights_group <- factor(
+  pred_df_1.8_with_US$human_rights,
+  levels = human_rights_values_1.8_with_US,
+  labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  )
+)
+
+figure_1.8_with_US <- ggplot(
+  pred_df_1.8_with_US,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = human_rights_group,
+    fill = human_rights_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.8_with_US),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Human Rights",
+    fill = "Human Rights",
+    title = "Human Rights \u00D7 Military Expenditure (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.8_with_US
+```
+
+H1.9 Electoral Democracy * Military Expenditure
+```{r, echo = F}
+model_data_1.9_with_US <- get_model_data(
+  h1.9_with_US
+)
+
+electoral_values_1.9_with_US <- get_mean_sd(
+  model_data_1.9_with_US,
+  "electoral_demo"
+)
+
+military_values_1.9_with_US <- get_military_sequence(
+  model_data_1.9_with_US
+)
+
+pred_data_1.9_with_US <- expand.grid(
+  military_expenditure_int = military_values_1.9_with_US,
+  electoral_demo = electoral_values_1.9_with_US
+)
+
+pred_data_1.9_with_US <- cbind(
+  pred_data_1.9_with_US,
+  ties_to_both_sides = mean(
+    model_data_1.9_with_US$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls_with_US(
+    model_data_1.9_with_US,
+    n = nrow(pred_data_1.9_with_US)
+  )
+)
+
+pred_df_1.9_with_US <- cluster_predictions(
+  h1.9_with_US,
+  pred_data_1.9_with_US
+)
+
+pred_df_1.9_with_US$electoral_group <- factor(
+  pred_df_1.9_with_US$electoral_demo,
+  levels = electoral_values_1.9_with_US,
+  labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  )
+)
+
+figure_1.9_with_US <- ggplot(
+  pred_df_1.9_with_US,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = electoral_group,
+    fill = electoral_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.9_with_US),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Electoral Democracy",
+    fill = "Electoral Democracy",
+    title = "Electoral Democracy \u00D7 Military Expenditure (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.9_with_US
+```
+
+H1.10 Transparency * Military Expenditure
+```{r, echo = F}
+model_data_1.10_with_US <- get_model_data(
+  h1.10_with_US
+)
+
+transparency_values_1.10_with_US <- get_mean_sd(
+  model_data_1.10_with_US,
+  "transparency"
+)
+
+military_values_1.10_with_US <- get_military_sequence(
+  model_data_1.10_with_US
+)
+
+pred_data_1.10_with_US <- expand.grid(
+  military_expenditure_int = military_values_1.10_with_US,
+  transparency = transparency_values_1.10_with_US
+)
+
+pred_data_1.10_with_US <- cbind(
+  pred_data_1.10_with_US,
+  ties_to_both_sides = mean(
+    model_data_1.10_with_US$ties_to_both_sides,
+    na.rm = TRUE
+  ),
+  make_controls_with_US(
+    model_data_1.10_with_US,
+    n = nrow(pred_data_1.10_with_US)
+  )
+)
+
+pred_df_1.10_with_US <- cluster_predictions(
+  h1.10_with_US,
+  pred_data_1.10_with_US
+)
+
+pred_df_1.10_with_US$transparency_group <- factor(
+  pred_df_1.10_with_US$transparency,
+  levels = transparency_values_1.10_with_US,
+  labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  )
+)
+
+figure_1.10_with_US <- ggplot(
+  pred_df_1.10_with_US,
+  aes(
+    x = military_expenditure_int,
+    y = fit,
+    color = transparency_group,
+    fill = transparency_group
+  )
+) +
+  geom_ribbon(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    alpha = 0.15,
+    color = NA
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_rug(
+    data = rug_data(model_data_1.10_with_US),
+    aes(
+      x = military_expenditure_int
+    ),
+    inherit.aes = FALSE,
+    alpha = 0.2
+  ) +
+  scale_x_log10(
+    labels = scales::label_number(
+      big.mark = ","
+    )
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Intervener Military Expenditure (log scale)",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Transparency",
+    fill = "Transparency",
+    title = "Transparency \u00D7 Military Expenditure (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.10_with_US
+```
+
+H1.11 Electoral Democracy * Ties to Both Sides
+```{r, echo = F}
+model_data_1.11_with_US <- get_model_data(
+  h1.11_with_US
+)
+
+electoral_values_1.11_with_US <- get_mean_sd(
+  model_data_1.11_with_US,
+  "electoral_demo"
+)
+
+typical_military_1.11_with_US <- median(
+  model_data_1.11_with_US$military_expenditure_int[
+    model_data_1.11_with_US$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.11_with_US <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  electoral_demo = electoral_values_1.11_with_US
+)
+
+pred_data_1.11_with_US <- cbind(
+  pred_data_1.11_with_US,
+  military_expenditure_int = typical_military_1.11_with_US,
+  make_controls_with_US(
+    model_data_1.11_with_US,
+    n = nrow(pred_data_1.11_with_US)
+  )
+)
+
+pred_df_1.11_with_US <- cluster_predictions(
+  h1.11_with_US,
+  pred_data_1.11_with_US
+)
+
+pred_df_1.11_with_US$ties_group <- factor(
+  pred_df_1.11_with_US$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.11_with_US$electoral_group <- factor(
+  pred_df_1.11_with_US$electoral_demo,
+  levels = electoral_values_1.11_with_US,
+  labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  )
+)
+
+position_1.11_with_US <- position_dodge(
+  width = 0.2
+)
+
+figure_1.11_with_US <- ggplot(
+  pred_df_1.11_with_US,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = electoral_group,
+    group = electoral_group
+  )
+) +
+  geom_point(
+    position = position_1.11_with_US,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.11_with_US,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Electoral Democracy",
+    title = "Electoral Democracy \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.11_with_US
+```
+
+H1.12 Transparency * Ties to Both Sides
+```{r, echo = F}
+model_data_1.12_with_US <- get_model_data(
+  h1.12_with_US
+)
+
+transparency_values_1.12_with_US <- get_mean_sd(
+  model_data_1.12_with_US,
+  "transparency"
+)
+
+typical_military_1.12_with_US <- median(
+  model_data_1.12_with_US$military_expenditure_int[
+    model_data_1.12_with_US$military_expenditure_int > 0
+  ],
+  na.rm = TRUE
+)
+
+pred_data_1.12_with_US <- expand.grid(
+  ties_to_both_sides = c(0, 1),
+  transparency = transparency_values_1.12_with_US
+)
+
+pred_data_1.12_with_US <- cbind(
+  pred_data_1.12_with_US,
+  military_expenditure_int = typical_military_1.12_with_US,
+  make_controls_with_US(
+    model_data_1.12_with_US,
+    n = nrow(pred_data_1.12_with_US)
+  )
+)
+
+pred_df_1.12_with_US <- cluster_predictions(
+  h1.12_with_US,
+  pred_data_1.12_with_US
+)
+
+pred_df_1.12_with_US$ties_group <- factor(
+  pred_df_1.12_with_US$ties_to_both_sides,
+  levels = c(0, 1),
+  labels = c(
+    "No Ties",
+    "Ties to Both Sides"
+  )
+)
+
+pred_df_1.12_with_US$transparency_group <- factor(
+  pred_df_1.12_with_US$transparency,
+  levels = transparency_values_1.12_with_US,
+  labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  )
+)
+
+position_1.12_with_US <- position_dodge(
+  width = 0.2
+)
+
+figure_1.12_with_US <- ggplot(
+  pred_df_1.12_with_US,
+  aes(
+    x = ties_group,
+    y = fit,
+    color = transparency_group,
+    group = transparency_group
+  )
+) +
+  geom_point(
+    position = position_1.12_with_US,
+    size = 3
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = lower,
+      ymax = upper
+    ),
+    position = position_1.12_with_US,
+    width = 0.1
+  ) +
+  coord_cartesian(
+    ylim = c(0, 1)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format()
+  ) +
+  labs(
+    x = "Ties to Both Sides",
+    y = "Predicted Probability of Tension Reduction",
+    color = "Transparency",
+    title = "Transparency \u00D7 Ties to Both Sides (Long-term)",
+    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+  ) +
+  common_theme
+
+figure_1.12_with_US
+```
+
+## Short-term Results
+
+```{r, echo = F}
+# ============================================================
+# Plotting functions for short-term models (with US involvement)
+# Same as make_main_effect_plot / make_military_interaction_plot /
+# make_ties_interaction_plot, except that they use
+# make_controls_with_US() instead of make_controls()
+# ============================================================
+
+make_main_effect_plot_with_US <- function(
+  model,
+  variable,
+  values,
+  value_labels,
+  x_label,
+  figure_title
+) {
+
+  model_data <- get_model_data(model)
+
+  pred_data <- data.frame(values)
+  names(pred_data) <- variable
+
+  pred_data <- cbind(
+    pred_data,
+    make_controls_with_US(
+      model_data,
+      n = nrow(pred_data)
+    )
+  )
+
+  pred_df <- cluster_predictions(
+    model,
+    pred_data
+  )
+
+  pred_df$display_group <- factor(
+    pred_df[[variable]],
+    levels = values,
+    labels = value_labels
+  )
+
+  ggplot(
+    pred_df,
+    aes(
+      x = display_group,
+      y = fit
+    )
+  ) +
+    geom_point(
+      size = 3,
+      color = "steelblue"
+    ) +
+    geom_errorbar(
+      aes(
+        ymin = lower,
+        ymax = upper
+      ),
+      width = 0.1,
+      color = "steelblue"
+    ) +
+    coord_cartesian(
+      ylim = c(0, 1)
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format()
+    ) +
+    labs(
+      x = x_label,
+      y = "Predicted Probability of Agreement",
+      title = figure_title,
+      subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    ) +
+    common_theme
+}
+
+
+make_military_interaction_plot_with_US <- function(
+  model,
+  moderator,
+  moderator_values,
+  moderator_labels,
+  legend_title,
+  figure_title
+) {
+
+  model_data <- get_model_data(model)
+
+  military_values <- get_military_sequence(
+    model_data
+  )
+
+  pred_data <- expand.grid(
+    military_expenditure_int = military_values,
+    moderator_value = moderator_values
+  )
+
+  names(pred_data)[2] <- moderator
+
+  pred_data <- cbind(
+    pred_data,
+    ties_to_both_sides = mean(
+      model_data$ties_to_both_sides,
+      na.rm = TRUE
+    ),
+    make_controls_with_US(
+      model_data,
+      n = nrow(pred_data)
+    )
+  )
+
+  pred_df <- cluster_predictions(
+    model,
+    pred_data
+  )
+
+  pred_df$moderator_group <- factor(
+    pred_df[[moderator]],
+    levels = moderator_values,
+    labels = moderator_labels
+  )
+
+  ggplot(
+    pred_df,
+    aes(
+      x = military_expenditure_int,
+      y = fit,
+      color = moderator_group,
+      fill = moderator_group
+    )
+  ) +
+    geom_ribbon(
+      aes(
+        ymin = lower,
+        ymax = upper
+      ),
+      alpha = 0.15,
+      color = NA
+    ) +
+    geom_line(
+      linewidth = 1
+    ) +
+    geom_rug(
+      data = rug_data(model_data),
+      aes(
+        x = military_expenditure_int
+      ),
+      inherit.aes = FALSE,
+      alpha = 0.2
+    ) +
+    scale_x_log10(
+      labels = scales::label_number(
+        big.mark = ","
+      )
+    ) +
+    coord_cartesian(
+      ylim = c(0, 1)
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format()
+    ) +
+    labs(
+      x = "Intervener Military Expenditure (log scale)",
+      y = "Predicted Probability of Agreement",
+      color = legend_title,
+      fill = legend_title,
+      title = figure_title,
+      subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    ) +
+    common_theme
+}
+
+
+make_ties_interaction_plot_with_US <- function(
+  model,
+  moderator,
+  moderator_values,
+  moderator_labels,
+  legend_title,
+  figure_title
+) {
+
+  model_data <- get_model_data(model)
+
+  typical_military <- median(
+    model_data$military_expenditure_int[
+      model_data$military_expenditure_int > 0
+    ],
+    na.rm = TRUE
+  )
+
+  pred_data <- expand.grid(
+    ties_to_both_sides = c(0, 1),
+    moderator_value = moderator_values
+  )
+
+  names(pred_data)[2] <- moderator
+
+  pred_data <- cbind(
+    pred_data,
+    military_expenditure_int = typical_military,
+    make_controls_with_US(
+      model_data,
+      n = nrow(pred_data)
+    )
+  )
+
+  pred_df <- cluster_predictions(
+    model,
+    pred_data
+  )
+
+  pred_df$ties_group <- factor(
+    pred_df$ties_to_both_sides,
+    levels = c(0, 1),
+    labels = c(
+      "No Ties",
+      "Ties to Both Sides"
+    )
+  )
+
+  pred_df$moderator_group <- factor(
+    pred_df[[moderator]],
+    levels = moderator_values,
+    labels = moderator_labels
+  )
+
+  plot_position <- position_dodge(
+    width = 0.2
+  )
+
+  ggplot(
+    pred_df,
+    aes(
+      x = ties_group,
+      y = fit,
+      color = moderator_group,
+      group = moderator_group
+    )
+  ) +
+    geom_point(
+      position = plot_position,
+      size = 3
+    ) +
+    geom_errorbar(
+      aes(
+        ymin = lower,
+        ymax = upper
+      ),
+      position = plot_position,
+      width = 0.1
+    ) +
+    coord_cartesian(
+      ylim = c(0, 1)
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format()
+    ) +
+    labs(
+      x = "Ties to Both Sides",
+      y = "Predicted Probability of Agreement",
+      color = legend_title,
+      title = figure_title,
+      subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    ) +
+    common_theme
+}
+```
+
+H2.1 Regime Type
+```{r, echo = F}
+figure_2.1_with_US <- make_main_effect_plot_with_US(
+  model = h2.1_with_US,
+  variable = "regime_type_int",
+  values = c(0, 1),
+  value_labels = c(
+    "Non-Democracy",
+    "Democracy"
+  ),
+  x_label = "Intervener Regime Type",
+  figure_title = "Regime Type (Short-term)"
+)
+
+figure_2.1_with_US
+```
+
+H2.2 Personalism
+```{r, echo = F}
+model_data_2.2_with_US <- get_model_data(
+  h2.2_with_US
+)
+
+presidentialism_values_2.2_with_US <- get_mean_sd(
+  model_data_2.2_with_US,
+  "presidentialism"
+)
+
+figure_2.2_with_US <- make_main_effect_plot_with_US(
+  model = h2.2_with_US,
+  variable = "presidentialism",
+  values = presidentialism_values_2.2_with_US,
+  value_labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  ),
+  x_label = "Personalism",
+  figure_title = "Personalism (Short-term)"
+)
+
+figure_2.2_with_US
+```
+
+H2.3 Regime type × Military expenditure
+```{r, echo = F}
+figure_2.3_with_US <- make_military_interaction_plot_with_US(
+  model = h2.3_with_US,
+  moderator = "regime_type_int",
+  moderator_values = c(0, 1),
+  moderator_labels = c(
+    "Non-Democracy",
+    "Democracy"
+  ),
+  legend_title = "Regime Type",
+  figure_title = "Regime Type \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.3_with_US
+```
+
+H2.4 Personalism × Military expenditure
+```{r, echo = F}
+model_data_2.4_with_US <- get_model_data(
+  h2.4_with_US
+)
+
+presidentialism_values_2.4_with_US <- get_mean_sd(
+  model_data_2.4_with_US,
+  "presidentialism"
+)
+
+figure_2.4_with_US <- make_military_interaction_plot_with_US(
+  model = h2.4_with_US,
+  moderator = "presidentialism",
+  moderator_values = presidentialism_values_2.4_with_US,
+  moderator_labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  ),
+  legend_title = "Personalism",
+  figure_title = "Personalism \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.4_with_US
+```
+
+H2.5 Regime Type * Ties to Both Sides
+```{r, echo = F}
+figure_2.5_with_US <- make_ties_interaction_plot_with_US(
+  model = h2.5_with_US,
+  moderator = "regime_type_int",
+  moderator_values = c(0, 1),
+  moderator_labels = c(
+    "Non-Democracy",
+    "Democracy"
+  ),
+  legend_title = "Regime Type",
+  figure_title = "Regime Type \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.5_with_US
+```
+
+H2.6 Personalism × Ties to both sides
+```{r, echo = F}
+model_data_2.6_with_US <- get_model_data(
+  h2.6_with_US
+)
+
+presidentialism_values_2.6_with_US <- get_mean_sd(
+  model_data_2.6_with_US,
+  "presidentialism"
+)
+
+figure_2.6_with_US <- make_ties_interaction_plot_with_US(
+  model = h2.6_with_US,
+  moderator = "presidentialism",
+  moderator_values = presidentialism_values_2.6_with_US,
+  moderator_labels = c(
+    "Low Personalism (-1 SD)",
+    "High Personalism (+1 SD)"
+  ),
+  legend_title = "Personalism",
+  figure_title = "Personalism \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.6_with_US
+```
+
+H2.7 Human Rights * Ties to Both Sides
+```{r, echo = F}
+model_data_2.7_with_US <- get_model_data(
+  h2.7_with_US
+)
+
+human_rights_values_2.7_with_US <- get_mean_sd(
+  model_data_2.7_with_US,
+  "human_rights"
+)
+
+figure_2.7_with_US <- make_ties_interaction_plot_with_US(
+  model = h2.7_with_US,
+  moderator = "human_rights",
+  moderator_values = human_rights_values_2.7_with_US,
+  moderator_labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  ),
+  legend_title = "Human Rights",
+  figure_title = "Human Rights \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.7_with_US
+```
+
+H2.8 Human Rights * Military Expenditure
+```{r, echo = F}
+model_data_2.8_with_US <- get_model_data(
+  h2.8_with_US
+)
+
+human_rights_values_2.8_with_US <- get_mean_sd(
+  model_data_2.8_with_US,
+  "human_rights"
+)
+
+figure_2.8_with_US <- make_military_interaction_plot_with_US(
+  model = h2.8_with_US,
+  moderator = "human_rights",
+  moderator_values = human_rights_values_2.8_with_US,
+  moderator_labels = c(
+    "Low Human Rights (-1 SD)",
+    "High Human Rights (+1 SD)"
+  ),
+  legend_title = "Human Rights",
+  figure_title = "Human Rights \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.8_with_US
+```
+
+H2.9 Electoral Democracy * Military Expenditure
+```{r, echo = F}
+model_data_2.9_with_US <- get_model_data(
+  h2.9_with_US
+)
+
+electoral_values_2.9_with_US <- get_mean_sd(
+  model_data_2.9_with_US,
+  "electoral_demo"
+)
+
+figure_2.9_with_US <- make_military_interaction_plot_with_US(
+  model = h2.9_with_US,
+  moderator = "electoral_demo",
+  moderator_values = electoral_values_2.9_with_US,
+  moderator_labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  ),
+  legend_title = "Electoral Democracy",
+  figure_title = "Electoral Democracy \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.9_with_US
+```
+
+H2.10 Transparency * Military Expenditure
+```{r, echo = F}
+model_data_2.10_with_US <- get_model_data(
+  h2.10_with_US
+)
+
+transparency_values_2.10_with_US <- get_mean_sd(
+  model_data_2.10_with_US,
+  "transparency"
+)
+
+figure_2.10_with_US <- make_military_interaction_plot_with_US(
+  model = h2.10_with_US,
+  moderator = "transparency",
+  moderator_values = transparency_values_2.10_with_US,
+  moderator_labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  ),
+  legend_title = "Transparency",
+  figure_title = "Transparency \u00D7 Military Expenditure (Short-term)"
+)
+
+figure_2.10_with_US
+```
+
+H2.11 Electoral Demo * Ties to Both Sides
+```{r, echo = F}
+model_data_2.11_with_US <- get_model_data(
+  h2.11_with_US
+)
+
+electoral_values_2.11_with_US <- get_mean_sd(
+  model_data_2.11_with_US,
+  "electoral_demo"
+)
+
+figure_2.11_with_US <- make_ties_interaction_plot_with_US(
+  model = h2.11_with_US,
+  moderator = "electoral_demo",
+  moderator_values = electoral_values_2.11_with_US,
+  moderator_labels = c(
+    "Low Electoral Democracy (-1 SD)",
+    "High Electoral Democracy (+1 SD)"
+  ),
+  legend_title = "Electoral Democracy",
+  figure_title = "Electoral Democracy \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.11_with_US
+```
+
+H2.12 Transparency * Ties to Both Sides
+```{r, echo = F}
+model_data_2.12_with_US <- get_model_data(
+  h2.12_with_US
+)
+
+transparency_values_2.12_with_US <- get_mean_sd(
+  model_data_2.12_with_US,
+  "transparency"
+)
+
+figure_2.12_with_US <- make_ties_interaction_plot_with_US(
+  model = h2.12_with_US,
+  moderator = "transparency",
+  moderator_values = transparency_values_2.12_with_US,
+  moderator_labels = c(
+    "Low Transparency (-1 SD)",
+    "High Transparency (+1 SD)"
+  ),
+  legend_title = "Transparency",
+  figure_title = "Transparency \u00D7 Ties to Both Sides (Short-term)"
+)
+
+figure_2.12_with_US
+```
+
+
+# Export: Core Finding Plots
+```{r, echo = F}
+# Figures 2-7 in the paper (main models, without US involvement)
+core_plots <- list(
+  "Figure 2 - Regime Type x Military Expenditure (Agreement)" = figure_2.3,
+  "Figure 3 - Personalism x Military Expenditure (Agreement)" = figure_2.4,
+  "Figure 4 - Regime Type x Ties to Both Sides (Tension Reduction)" = figure_1.5,
+  "Figure 5 - Human Rights x Ties to Both Sides (Tension Reduction)" = figure_1.7,
+  "Figure 6 - Personalism x Ties to Both Sides (Tension Reduction)" = figure_1.6,
+  "Figure 7 - Personalism x Ties to Both Sides (Agreement)" = figure_2.6
+)
+
+for (plot_name in names(core_plots)) {
+  ggsave(
+    here("Plots", "Core Finding Plots", paste0(plot_name, ".png")),
+    core_plots[[plot_name]],
+    width = 8,
+    height = 6,
+    dpi = 300,
+    bg = "white"
+  )
+}
+```
+
+# Export: Other Plots
+```{r, echo = F}
+# All remaining figures: main models not used in the paper body,
+# and all robustness models (with US involvement)
+core_plot_objects <- c(
+  "figure_2.3", "figure_2.4", "figure_1.5",
+  "figure_1.7", "figure_1.6", "figure_2.6"
+)
+
+other_plot_objects <- setdiff(
+  ls(pattern = "^figure_[12]\\.[0-9]+(_with_US)?$"),
+  core_plot_objects
+)
+
+for (object_name in other_plot_objects) {
+
+  plot_object <- get(object_name)
+
+  hypothesis <- sub("^figure_([12]\\.[0-9]+).*$", "H\\1", object_name)
+
+  outcome <- if (startsWith(hypothesis, "H1")) {
+    "Tension Reduction"
+  } else {
+    "Agreement"
+  }
+
+  plot_title <- sub(" \\(.*\\)$", "", plot_object$labels$title)
+  plot_title <- gsub(" × ", " x ", plot_title)
+
+  sub_folder <- if (grepl("_with_US$", object_name)) {
+    "Robustness - US Involvement"
+  } else {
+    "Main Models"
+  }
+
+  dir.create(
+    here("Plots", "Other Plots", sub_folder),
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+
+  ggsave(
+    here(
+      "Plots",
+      "Other Plots",
+      sub_folder,
+      paste0(hypothesis, " - ", plot_title, " (", outcome, ").png")
+    ),
+    plot_object,
+    width = 8,
+    height = 6,
+    dpi = 300,
+    bg = "white"
+  )
+}
+```

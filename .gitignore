@@ -1,0 +1,13 @@
+# R / RStudio
+.Rproj.user
+.Rhistory
+.RData
+.RDataTmp
+.Ruserdata
+
+# macOS
+.DS_Store
+
+# Raw data files over GitHub's 100 MB limit (see README for download instructions)
+Raw Data/V-Dem-CY-FullOthers-v14_csv_YyKfizl/V-Dem-CY-Full+Others-v14.csv
+Raw Data/UNGA Ideal Points/AgreementScores.csv

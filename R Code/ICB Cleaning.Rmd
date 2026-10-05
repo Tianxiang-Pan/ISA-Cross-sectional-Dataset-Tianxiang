@@ -1,0 +1,605 @@
+---
+title: "ICB Cleaning"
+author: "Tianxiang"
+date: "2026-04-13"
+output: html_document
+---
+
+Data and basic packages
+
+```{r, echo = F, message = F}
+rm(list = ls())
+library(writexl)
+library(readr)
+library(tidyr)
+library(stringr)
+library(dplyr)
+library(readxl)
+library(haven)
+library(countrycode)
+library(car)
+library(sandwich)
+library(lmtest)
+library(ggplot2)
+library(here)
+
+ICBdy    = read.csv(here("Raw Data", "ICB data", "icbdy_v15.csv"))
+ICB_int  = read.csv(here("Raw Data", "ICB data", "icb_interveners_prompt_run_20241122.csv"))
+ICB2     = read.csv(here("Raw Data", "ICB data", "icb2v15.csv"))
+ICB1     = read.csv(here("Raw Data", "ICB data", "icb1v15.csv"))
+VDEM     = read.csv(here("Raw Data", "V-Dem-CY-FullOthers-v14_csv_YyKfizl", "V-Dem-CY-Full+Others-v14.csv"))
+alliance = read.csv(here("Raw Data", "version4.1_csv", "alliance_v4.1_by_dyad_yearly.csv"))
+military = read.csv(here("Raw Data", "NMC_Documentation-6", "NMC-60-abridged", "NMC-60-abridged.csv"))
+contdird = read.csv(here("Raw Data", "DirectContiguity320", "contdird.csv"))
+```
+
+This R code modifies the Gleditsch and Ward country codes (gwncode) based on the Correlates of War (COW) country codes (COWcode) in VDEM dataset.
+
+```{r, echo = F}
+VDEM_simple = data.frame(
+  country_name = VDEM$country_name,
+  COWcode = VDEM$COWcode,
+  regime_type = VDEM$v2x_regime_amb, # General Regime Type Variable
+  electoral_demo = VDEM$v2x_polyarchy, # Electoral democracy index
+  presidentialism = VDEM$v2xnp_pres, # Presidentialism Index
+  human_rights = VDEM$v2x_civlib, # Civil liberty Index
+  transparency = VDEM$v2x_freexp_altinf, # Freedom of Expression
+  civil_society_participation = VDEM$v2x_cspart, 
+  judicial_constraints = VDEM$v2x_jucon,
+  year = VDEM$year
+)
+
+VDEM_simple$regime_type = ifelse(VDEM_simple$regime_type <= 4, 0, 1)
+
+VDEM_simple$gwncode = countrycode(VDEM_simple$COWcode, origin = "cown", destination = "gwn")
+
+VDEM_simple$gwncode[VDEM_simple$COWcode == 260] = 260  # Germany
+VDEM_simple$gwncode[VDEM_simple$COWcode == 271] = 260  # Wuerttemburg to Germany
+VDEM_simple$gwncode[VDEM_simple$COWcode == 273] = 260  # Hesse-Kassel to Germany
+VDEM_simple$gwncode[VDEM_simple$COWcode == 275] = 260  # Hesse-Darmstadt to Germany
+VDEM_simple$gwncode[VDEM_simple$COWcode == 403] = 403  # Sao Tome and Principe 
+VDEM_simple$gwncode[VDEM_simple$COWcode == 591] = 591  # Seychells
+VDEM_simple$gwncode[VDEM_simple$COWcode == 679] = 678  # Yemen
+VDEM_simple$gwncode[VDEM_simple$COWcode == 730] = 732  # South Korea
+VDEM_simple$gwncode[VDEM_simple$COWcode == 817] = 816  # Republic Vietnam to Vietnam
+VDEM_simple$gwncode[VDEM_simple$COWcode == 935] = 935  # Vanuatu
+# I find that there are some countries which do not have COWcode at all. How can we solve this problem?
+
+VDEM_simple$cracid = VDEM_simple$gwncode
+VDEM_simple$gwncode = NULL
+```
+
+```{r, echo = F}
+ICB_years = ICBdy %>%
+  dplyr::select(crisno, year) %>%
+  distinct() 
+# extract basic time information from ICB-dyadic level data
+ICBint_step1 = left_join(ICB_int, ICB_years, by = "crisno")
+# combine the year infromation with the ICB_int level data
+ICBint_step1 = ICBint_step1[ICBint_step1$intervener_category_id != 1,]
+# Remove all the crisis actors
+```
+
+```{r, echo = F}
+ICBint_step2 = left_join(ICBint_step1,VDEM_simple,by = c("cracid","year"))
+
+ICBint_step2 = ICBint_step2 %>%
+  group_by(crisno, cracid) %>%
+  filter(year == min(year)) %>%  
+  ungroup()
+
+
+ICBint_step2 = ICBint_step2[!ICBint_step2$actor %in% c("SEATO", "Sihanouk", "UN", "Qaddhafi", "Sadat", "Arab League", "OAS", "Vietcong"), ]
+
+########################################
+### Germany
+########################################
+
+Germany = VDEM_simple[VDEM_simple$country_name == "Germany",]
+
+ICBint_step2 = ICBint_step2 %>%
+  mutate(
+    country_name = ifelse(actor == "Germany" & is.na(COWcode),
+                     Germany$country_name[match(year, Germany$year)],
+                     country_name),
+    COWcode = ifelse(actor == "Germany" & is.na(COWcode),
+                     Germany$COWcode[match(year, Germany$year)],
+                     COWcode),
+    regime_type = ifelse(actor == "Germany" & is.na(regime_type),
+                     Germany$regime_type[match(year, Germany$year)],
+                     regime_type),
+    electoral_demo = ifelse(actor == "Germany" & is.na(electoral_demo),
+                     Germany$electoral_demo[match(year, Germany$year)],
+                     electoral_demo),
+    presidentialism = ifelse(actor == "Germany" & is.na(presidentialism),
+                     Germany$presidentialism[match(year, Germany$year)],
+                     presidentialism),
+    human_rights = ifelse(actor == "Germany" & is.na(human_rights),
+                     Germany$human_rights[match(year, Germany$year)],
+                     human_rights),
+    transparency = ifelse(actor == "Germany" & is.na(transparency),
+                     Germany$transparency[match(year, Germany$year)],
+                     transparency),
+    judicial_constraints = ifelse(actor == "Germany" & is.na(judicial_constraints),
+                     Germany$judicial_constraints[match(year, Germany$year)],
+                     judicial_constraints),
+    civil_society_participation = ifelse(actor == "Germany" & is.na(civil_society_participation),
+                     Germany$civil_society_participation[match(year, Germany$year)],
+                     civil_society_participation)
+  )
+
+
+########################################
+### Yemen
+########################################
+
+Yemen = VDEM_simple[VDEM_simple$country_name == "Yemen",]
+
+ICBint_step2 = ICBint_step2 %>%
+  mutate(
+    country_name = ifelse(actor == "Yemen" & is.na(COWcode),
+                     Yemen$country_name[match(year, Yemen$year)],
+                     country_name),
+    COWcode = ifelse(actor == "Yemen" & is.na(COWcode),
+                     Yemen$COWcode[match(year, Yemen$year)],
+                     COWcode),
+    regime_type = ifelse(actor == "Yemen" & is.na(regime_type),
+                     Yemen$regime_type[match(year, Yemen$year)],
+                     regime_type),
+    electoral_demo = ifelse(actor == "Yemen" & is.na(electoral_demo),
+                     Yemen$electoral_demo[match(year, Yemen$year)],
+                     electoral_demo),
+    presidentialism = ifelse(actor == "Yemen" & is.na(presidentialism),
+                     Yemen$presidentialism[match(year, Yemen$year)],
+                     presidentialism),
+    human_rights = ifelse(actor == "Yemen" & is.na(human_rights),
+                     Yemen$human_rights[match(year, Yemen$year)],
+                     human_rights),
+    transparency = ifelse(actor == "Yemen" & is.na(transparency),
+                     Yemen$transparency[match(year, Yemen$year)],
+                     transparency),
+    judicial_constraints = ifelse(actor == "Yemen" & is.na(judicial_constraints),
+                     Yemen$judicial_constraints[match(year, Yemen$year)],
+                     judicial_constraints),
+    civil_society_participation = ifelse(actor == "Yemen" & is.na(civil_society_participation),
+                     Yemen$civil_society_participation[match(year, Yemen$year)],
+                     civil_society_participation)
+  )
+
+
+########################################
+### Vietnam
+########################################
+
+Vietnam = VDEM_simple[VDEM_simple$country_name == "Vietnam",]
+
+ICBint_step2 = ICBint_step2 %>%
+  mutate(
+    country_name = ifelse(actor == "Vietnam" & is.na(COWcode),
+                     Vietnam$country_name[match(year, Vietnam$year)],
+                     country_name),
+    COWcode = ifelse(actor == "Vietnam" & is.na(COWcode),
+                     Vietnam$COWcode[match(year, Vietnam$year)],
+                     COWcode),
+    regime_type = ifelse(actor == "Vietnam" & is.na(regime_type),
+                     Vietnam$regime_type[match(year, Vietnam$year)],
+                     regime_type),
+    electoral_demo = ifelse(actor == "Vietnam" & is.na(electoral_demo),
+                     Vietnam$electoral_demo[match(year, Vietnam$year)],
+                     electoral_demo),
+    presidentialism = ifelse(actor == "Vietnam" & is.na(presidentialism),
+                     Vietnam$presidentialism[match(year, Vietnam$year)],
+                     presidentialism),
+    human_rights = ifelse(actor == "Vietnam" & is.na(human_rights),
+                     Vietnam$human_rights[match(year, Vietnam$year)],
+                     human_rights),
+    transparency = ifelse(actor == "Vietnam" & is.na(transparency),
+                     Vietnam$transparency[match(year, Vietnam$year)],
+                     transparency),
+    judicial_constraints = ifelse(actor == "Vietnam" & is.na(judicial_constraints),
+                     Vietnam$judicial_constraints[match(year, Vietnam$year)],
+                     judicial_constraints),
+    civil_society_participation = ifelse(actor == "Vietnam" & is.na(civil_society_participation),
+                     Vietnam$civil_society_participation[match(year, Vietnam$year)],
+                     civil_society_participation)
+  )
+
+
+########################################
+### Taiwan
+########################################
+
+Taiwan = VDEM_simple[VDEM_simple$country_name == "Taiwan",]
+
+ICBint_step2 = ICBint_step2 %>%
+  mutate(
+    country_name = ifelse(actor == "China (Taiwan)" & is.na(COWcode),
+                     Taiwan$country_name[match(year, Taiwan$year)],
+                     country_name),
+    COWcode = ifelse(actor == "China (Taiwan)" & is.na(COWcode),
+                     Taiwan$COWcode[match(year, Taiwan$year)],
+                     COWcode),
+    regime_type = ifelse(actor == "China (Taiwan)" & is.na(regime_type),
+                     Taiwan$regime_type[match(year, Taiwan$year)],
+                     regime_type),
+    electoral_demo = ifelse(actor == "China (Taiwan)" & is.na(electoral_demo),
+                     Taiwan$electoral_demo[match(year, Taiwan$year)],
+                     electoral_demo),
+    presidentialism = ifelse(actor == "China (Taiwan)" & is.na(presidentialism),
+                     Taiwan$presidentialism[match(year, Taiwan$year)],
+                     presidentialism),
+    human_rights = ifelse(actor == "China (Taiwan)" & is.na(human_rights),
+                     Taiwan$human_rights[match(year, Taiwan$year)],
+                     human_rights),
+    transparency = ifelse(actor == "China (Taiwan)" & is.na(transparency),
+                     Taiwan$transparency[match(year, Taiwan$year)],
+                     transparency),
+    judicial_constraints = ifelse(actor == "China (Taiwan)" & is.na(judicial_constraints),
+                     Taiwan$judicial_constraints[match(year, Taiwan$year)],
+                     judicial_constraints),
+    civil_society_participation = ifelse(actor == "China (Taiwan)" & is.na(civil_society_participation),
+                     Taiwan$civil_society_participation[match(year, Taiwan$year)],
+                     civil_society_participation)
+  )
+```
+
+```{r, echo = F}
+ICB_outcome = data.frame(
+  crisno = ICB1$crisno,
+  forout = ICB1$forout, # a factor variable, with 1 = formal agreement, 2 = semi-formal agreement, 3 = tacit understanding, 4 = unilateral act, 5 = imposed agreement, 6 = other, 7 = crisis faded
+  outesr = ICB1$outesr, # outcome on the tension level
+  crismg = ICB1$crismg, 
+  protrac = ICB1$protrac,
+  gravcr = ICB1$gravcr)
+
+ICB_outcome$protrac = ifelse(ICB_outcome$protrac == 1, 0, 1)
+ICB_outcome$gravcr = ifelse(ICB_outcome$gravcr == 5|ICB_outcome$gravcr == 6, 1, 0)
+ICB_outcome$forout = ifelse(ICB_outcome$forout == 1|ICB_outcome$forout == 2|ICB_outcome$forout == 3,1,0) # code this variable as a binary variable, the standard of assigning a 1 is whether this conflict ends by mutually-agreed treaties
+ICB_outcome$outesr = ifelse(ICB_outcome$outesr == 1,0,
+                           ifelse(ICB_outcome$outesr == 2,1,NA))
+# Escalation has been assigned a 0. Reduction is assigned a 1. Recent crises are regarded as NA.
+ICB_outcome$crismg = ifelse(ICB_outcome$crismg==1|ICB_outcome$crismg==2|ICB_outcome$crismg==3|ICB_outcome$crismg==4|ICB_outcome$crismg==5|ICB_outcome$crismg==6,0,1)
+# Violent crisis management will be assigned a 1, other values will be assigned a 0.
+
+ICBint_step3 = left_join(
+  ICBint_step2,
+  ICB_outcome,
+  by = "crisno"
+) %>%
+  group_by(crisno) %>%
+  mutate(
+    US_involvement = as.integer(any(cracid == 2, na.rm = TRUE))
+  ) %>%
+  ungroup() # create a variable to indicated the effect of the U.S.
+```
+
+Dyadic level and crisis-actor level data
+
+```{r, echo = F}
+ICBdy_clean = ICBdy %>%
+  group_by(crdynum) %>% 
+  filter(year == min(year))
+ICBdy_clean$ongoing = NULL 
+
+select = c("actnuma","actnumb","trgmody","trgdady","trmyrdy","trmmody","trmdady","year")
+ICBdy_clean = ICBdy_clean[, !(names(ICBdy_clean) %in% select)]
+
+
+ICBdy_step1 = left_join(ICBdy_clean, ICBint_step3, by = c("crisno"))
+ICBdy_step1$crisis_name = NULL
+ICBdy_step1$year = NULL
+ICBdy_step1$cowcode = ICBdy_step1$COWcode
+ICBdy_step1$gwncode = ICBdy_step1$cracid
+ICBdy_step1$cracid = NULL
+ICBdy_step1$COWcode = NULL
+```
+
+Bring in the polity information of crisis actors (Source of data: VDEM)
+
+```{r, echo = F}
+VDEM_simple2 = data.frame(
+  year = VDEM_simple$year,
+  cracid = VDEM_simple$cracid,
+  regime_type = VDEM_simple$regime_type
+)
+
+ICBdy_step2 = left_join(ICBdy_step1, VDEM_simple2, by = c("statea" = "cracid", "trgyrdy" = "year")) 
+
+colnames(ICBdy_step2)[colnames(ICBdy_step2) == "regime_type.y"] = "regime_type_a"
+colnames(ICBdy_step2)[colnames(ICBdy_step2) == "regime_type.x"] = "regime_type_int"
+
+
+ICBdy_step3 = left_join(ICBdy_step2, VDEM_simple2, by = c("stateb" = "cracid", "trgyrdy" = "year")) 
+
+colnames(ICBdy_step3)[colnames(ICBdy_step3) == "regime_type"] = "regime_type_b"
+
+ICBdy_step3$regime_type_difference = ifelse(ICBdy_step3$regime_type_a == 0 & ICBdy_step3$regime_type_b == 0, 1,
+                               ifelse(ICBdy_step3$regime_type_a == 1 & ICBdy_step3$regime_type_b == 0, 2,
+                                      ifelse(ICBdy_step3$regime_type_a == 0 & ICBdy_step3$regime_type_b == 1, 2, 3)))
+# Both are autocracies --> 1, Auto vs. Demo --> 2, Both are democracies --> 3
+ICBdy_step3$regime_type_difference = factor(ICBdy_step3$regime_type_difference)
+```
+
+Cold war
+
+```{r, echo = F}
+ICBdy_step3$coldwar = ifelse(ICBdy_step3$trgyrdy <= 1991 & ICBdy_step3$trgyrdy >= 1947, 1 , 0)
+```
+
+Alliance (Source of data: COW)
+
+```{r, echo = F}
+alliance_simple = data.frame(
+  ccode1 = alliance$ccode1,
+  ccode2 = alliance$ccode2,
+  year = alliance$year
+)
+
+alliance_simple$gwncode1 = countrycode(alliance_simple$ccode1, origin = "cown", destination = "gwn")
+alliance_simple$gwncode2 = countrycode(alliance_simple$ccode2, origin = "cown", destination = "gwn")
+
+alliance_simple$gwncode1[alliance_simple$ccode1 == 260] = 260  # Germany
+alliance_simple$gwncode1[alliance_simple$ccode1 == 271] = 260  # Wuerttemburg to Germany
+alliance_simple$gwncode1[alliance_simple$ccode1 == 273] = 260  # Hesse-Kassel to Germany
+alliance_simple$gwncode1[alliance_simple$ccode1 == 275] = 260  # Hesse-Darmstadt to Germany
+alliance_simple$gwncode1[alliance_simple$ccode1 == 403] = 403  # Sao Tome and Principe 
+alliance_simple$gwncode1[alliance_simple$ccode1 == 679] = 678  # Yemen
+alliance_simple$gwncode1[alliance_simple$ccode1 == 730] = 732  # South Korea
+
+alliance_simple$gwncode2[alliance_simple$ccode2 == 260] = 260  # Germany
+alliance_simple$gwncode2[alliance_simple$ccode2 == 271] = 260  # Wuerttemburg to Germany
+alliance_simple$gwncode2[alliance_simple$ccode2 == 273] = 260  # Hesse-Kassel to Germany
+alliance_simple$gwncode2[alliance_simple$ccode2 == 275] = 260  # Hesse-Darmstadt to Germany
+alliance_simple$gwncode2[alliance_simple$ccode2 == 679] = 678  # Yemen
+alliance_simple$gwncode2[alliance_simple$ccode2 == 817] = 816  # Republic Vietnam to Vietnam
+
+alliance_simple$alliance = 1
+alliance_simple$ccode1 = NULL
+alliance_simple$ccode2 = NULL
+
+ICBdy_step4 = left_join(ICBdy_step3, alliance_simple, by = c("statea" = "gwncode1","gwncode" = "gwncode2", "trgyrdy" = "year"))
+colnames(ICBdy_step4)[colnames(ICBdy_step4) == "alliance"] = "alliancea1"
+
+ICBdy_step4 = ICBdy_step4[!duplicated(ICBdy_step4), ]
+
+ICBdy_step5 = left_join(ICBdy_step4, alliance_simple, by = c("statea" = "gwncode2","gwncode" = "gwncode1", "trgyrdy" = "year"))
+colnames(ICBdy_step5)[colnames(ICBdy_step5) == "alliance"] = "alliancea2"
+
+ICBdy_step5 = ICBdy_step5[!duplicated(ICBdy_step5), ]
+
+ICBdy_step6 = left_join(ICBdy_step5, alliance_simple, by = c("stateb" = "gwncode1","gwncode" = "gwncode2", "trgyrdy" = "year"))
+colnames(ICBdy_step6)[colnames(ICBdy_step6) == "alliance"] = "allianceb1"
+
+ICBdy_step6 = ICBdy_step6[!duplicated(ICBdy_step6), ]
+
+ICBdy_step7 = left_join(ICBdy_step6, alliance_simple, by = c("stateb" = "gwncode2","gwncode" = "gwncode1", "trgyrdy" = "year"))
+colnames(ICBdy_step7)[colnames(ICBdy_step7) == "alliance"] = "allianceb2"
+
+ICBdy_step7 = ICBdy_step7[!duplicated(ICBdy_step7), ]
+
+ICBdy_step7$alliancea1 = ifelse(is.na(ICBdy_step7$alliancea1), 0, ICBdy_step7$alliancea1)
+ICBdy_step7$alliancea2 = ifelse(is.na(ICBdy_step7$alliancea2), 0, ICBdy_step7$alliancea2)
+
+ICBdy_step7$alliancea = ifelse(ICBdy_step7$alliancea1 == 1|ICBdy_step7$alliancea2 == 1, 1, 0)
+
+ICBdy_step7$allianceb1 = ifelse(is.na(ICBdy_step7$allianceb1), 0, ICBdy_step7$allianceb1)
+ICBdy_step7$allianceb2 = ifelse(is.na(ICBdy_step7$allianceb2), 0, ICBdy_step7$allianceb2)
+
+ICBdy_step7$allianceb = ifelse(ICBdy_step7$allianceb1 == 1|ICBdy_step7$allianceb2 == 1, 1, 0)
+
+ICBdy_step7$ties_to_both_sides = ifelse(ICBdy_step7$alliancea == 1 & ICBdy_step7$allianceb == 1, 1, 0)
+
+ICBdy_step7$alliance = ifelse((ICBdy_step7$alliancea == 1 | ICBdy_step7$allianceb == 1) & ICBdy_step7$ties_to_both_sides == 0, 1, 0)
+
+ICBdy_step7$alliancea1 = NULL
+ICBdy_step7$alliancea2 = NULL
+ICBdy_step7$allianceb1 = NULL
+ICBdy_step7$allianceb2 = NULL
+ICBdy_step7$alliancea = NULL
+ICBdy_step7$allianceb = NULL
+```
+
+Military Expenditure (Source of data: COW)
+
+```{r, echo = F}
+military_simple = data.frame(
+  ccode = military$ccode,
+  year = military$year,
+  milex = military$milex, # expenditure
+  milper = military$milper, # personnel
+  cinc = military$cinc # Composite Index of National Capabilities 
+)
+
+military_simple$gwncode = countrycode(military_simple$ccode, origin = "cown", destination = "gwn")
+
+military_simple$gwncode[military_simple$ccode == 260] = 260  # Germany
+military_simple$gwncode[military_simple$ccode == 271] = 260  # Wuerttemburg to Germany
+military_simple$gwncode[military_simple$ccode == 273] = 260  # Hesse-Kassel to Germany
+military_simple$gwncode[military_simple$ccode == 275] = 260  # Hesse-Darmstadt to Germany
+military_simple$gwncode[military_simple$ccode == 403] = 403  # Sao Tome and Principe 
+military_simple$gwncode[military_simple$ccode == 591] = 591  # Seychells
+military_simple$gwncode[military_simple$ccode == 679] = 678  # Yemen
+military_simple$gwncode[military_simple$ccode == 730] = 732  # South Korea
+military_simple$gwncode[military_simple$ccode == 817] = 816  # Republic Vietnam to Vietnam
+military_simple$gwncode[military_simple$ccode == 935] = 935  # Vanuatu
+
+military_simple$ccode = NULL
+
+ICBdy_step8 = left_join(ICBdy_step7, military_simple, by = c("trgyrdy" = "year", "statea" = "gwncode"))
+
+ICBdy_step8 = ICBdy_step8[!duplicated(ICBdy_step8[,1:(ncol(ICBdy_step8) - 3)]), ]
+
+colnames(ICBdy_step8)[colnames(ICBdy_step8) == "milex"] = "military_expenditure_a"
+colnames(ICBdy_step8)[colnames(ICBdy_step8) == "milper"] = "military_personnel_a"
+colnames(ICBdy_step8)[colnames(ICBdy_step8) == "cinc"] = "state_capacity_a"
+
+ICBdy_step8$military_expenditure_a = ifelse(ICBdy_step8$military_expenditure_a == -9, NA, ICBdy_step8$military_expenditure_a)
+ICBdy_step8$military_personnel_a = ifelse(ICBdy_step8$military_personnel_a == -9, NA, ICBdy_step8$military_personnel_a)
+
+ICBdy_step9 = left_join(ICBdy_step8, military_simple, by = c("trgyrdy" = "year", "stateb" = "gwncode"))
+
+colnames(ICBdy_step9)[colnames(ICBdy_step9) == "milex"] = "military_expenditure_b"
+colnames(ICBdy_step9)[colnames(ICBdy_step9) == "milper"] = "military_personnel_b"
+colnames(ICBdy_step9)[colnames(ICBdy_step9) == "cinc"] = "state_capacity_b"
+
+ICBdy_step9$military_expenditure_b = ifelse(ICBdy_step9$military_expenditure_b == -9, NA, ICBdy_step9$military_expenditure_b)
+ICBdy_step9$military_personnel_b = ifelse(ICBdy_step9$military_personnel_b == -9, NA, ICBdy_step9$military_personnel_b)
+
+ICBdy_step10 = left_join(ICBdy_step9, military_simple, by = c("trgyrdy" = "year", "gwncode"))
+
+ICBdy_step10 = ICBdy_step10[!duplicated(ICBdy_step10), ]
+
+cols_to_check = names(ICBdy_step10)[1:(ncol(ICBdy_step8) - 3)]
+
+ICBdy_step10 = ICBdy_step10[!duplicated(ICBdy_step10[, cols_to_check]), ]
+
+ICBdy_step10$milex = ifelse(ICBdy_step10$milex == -9, NA, ICBdy_step10$milex)
+ICBdy_step10$milper = ifelse(ICBdy_step10$milper == -9, NA, ICBdy_step10$milper)
+
+colnames(ICBdy_step10)[colnames(ICBdy_step10) == "milex"] = "military_expenditure_int" 
+colnames(ICBdy_step10)[colnames(ICBdy_step10) == "milper"] = "military_personnel_int"
+colnames(ICBdy_step10)[colnames(ICBdy_step10) == "cinc"] = "state_capacity_int"
+```
+
+Including geographical information (the distance between capitals)
+
+```{r, echo = F}
+contdird$dyad = NULL
+contdird$version = NULL
+contdird$state1ab = NULL
+contdird$state2ab = NULL
+
+contdird$gwncode1 = countrycode(contdird$state1no, origin = "cown", destination = "gwn")
+
+contdird$gwncode1[contdird$state1no == 260] = 260  # Germany
+contdird$gwncode1[contdird$state1no == 271] = 260  # Wuerttemburg to Germany
+contdird$gwncode1[contdird$state1no == 273] = 260  # Hesse-Kassel to Germany
+contdird$gwncode1[contdird$state1no == 275] = 260  # Hesse-Darmstadt to Germany
+contdird$gwncode1[contdird$state1no == 403] = 403  # Sao Tome and Principe 
+contdird$gwncode1[contdird$state1no == 591] = 591  # Seychells
+contdird$gwncode1[contdird$state1no == 679] = 678  # Yemen
+contdird$gwncode1[contdird$state1no == 730] = 732  # South Korea
+contdird$gwncode1[contdird$state1no == 817] = 816  # Republic Vietnam to Vietnam
+contdird$gwncode1[contdird$state1no == 935] = 935  # Vanuatu
+
+contdird$gwncode2 = countrycode(contdird$state2no, origin = "cown", destination = "gwn")
+
+contdird$gwncode2[contdird$state2no == 260] = 260  # Germany
+contdird$gwncode2[contdird$state2no == 271] = 260  # Wuerttemburg to Germany
+contdird$gwncode2[contdird$state2no == 273] = 260  # Hesse-Kassel to Germany
+contdird$gwncode2[contdird$state2no == 275] = 260  # Hesse-Darmstadt to Germany
+contdird$gwncode2[contdird$state2no == 403] = 403  # Sao Tome and Principe 
+contdird$gwncode2[contdird$state2no == 591] = 591  # Seychells
+contdird$gwncode2[contdird$state2no == 679] = 678  # Yemen
+contdird$gwncode2[contdird$state2no == 730] = 732  # South Korea
+contdird$gwncode2[contdird$state2no == 817] = 816  # Republic Vietnam to Vietnam
+contdird$gwncode2[contdird$state2no == 935] = 935  # Vanuatu
+
+contdird$state1no = NULL
+contdird$state2no = NULL
+contdird$conttype = 1
+
+ICBdy_step11 = left_join(ICBdy_step10, contdird, by = c("statea" = "gwncode1","gwncode" = "gwncode2", "trgyrdy" = "year"))
+
+ICBdy_step11 = ICBdy_step11[!duplicated(ICBdy_step11), ]
+
+ICBdy_step12 = left_join(ICBdy_step11, contdird, by = c("stateb" = "gwncode1","gwncode" = "gwncode2", "trgyrdy" = "year"))
+
+ICBdy_step12 = ICBdy_step12[!duplicated(ICBdy_step12), ]
+
+ICBdy_step13 = left_join(ICBdy_step12, contdird, by = c("gwncode" = "gwncode1","statea" = "gwncode2", "trgyrdy" = "year"))
+
+ICBdy_step13 = ICBdy_step13[!duplicated(ICBdy_step13), ]
+
+ICBdy_step14 = left_join(ICBdy_step13, contdird, by = c("gwncode" = "gwncode1","stateb" = "gwncode2", "trgyrdy" = "year"))
+
+ICBdy_step14 = ICBdy_step14[!duplicated(ICBdy_step14), ]
+
+ICBdy_step14$contiguous_intervener = ifelse(ICBdy_step14$conttype.x == 1|ICBdy_step14$conttype.y == 1|ICBdy_step14$conttype.x.x == 1|ICBdy_step14$conttype.y.y == 1, 1, 0)
+
+ICBdy_step14$contiguous_intervener = ifelse(is.na(ICBdy_step14$contiguous_intervener) == 1, 0, ICBdy_step14$contiguous_intervener)
+# In this regard, the contiguous_intervener variable implies whether the intervening state and at least one of the crisis actors are geographically contiguous_countryiguous (including both land neighbor and maritime neighbor).
+ICBdy_step14[,c("conttype.x","conttype.y","conttype.x.x","conttype.y.y")] = NULL
+
+ICBdy_step15 = left_join(ICBdy_step14, contdird, by = c("statea" = "gwncode1","stateb" = "gwncode2", "trgyrdy" = "year"))
+
+ICBdy_step15 = ICBdy_step15[!duplicated(ICBdy_step15), ]
+
+names(ICBdy_step15)[names(ICBdy_step15) == "conttype"] = "contiguous_actors"
+```
+
+rule out all military interventions
+
+```{r, echo = F}
+ICBdy_step16 = ICBdy_step15[ICBdy_step15$intervener_category_id != 5,]
+
+ICBdy_step15_simple = ICBdy_step15 %>% 
+  group_by(crdynum) %>%
+  summarise(milint = if_else(any(intervener_category_id == 5), 1 , 0))
+```
+
+```{r, echo = F}
+ICB_one_observation = ICBdy_step16 %>%
+  group_by(crdynum) %>%
+  summarise(
+    crisno = first(crisno),
+    crisname = first(crisname),
+    statea = first(statea),
+    namea = first(namea),
+    stateb = first(stateb),
+    nameb = first(nameb),
+    trgyrdy = first(trgyrdy),
+    regime_type_int = ifelse(any(regime_type_int > 0), 1, 0),
+    electoral_demo  = mean(electoral_demo, na.rm = TRUE),
+    presidentialism = mean(presidentialism, na.rm = TRUE),
+    human_rights = mean(human_rights, na.rm = TRUE),
+    transparency = mean(transparency, na.rm = TRUE),
+    judicial_constraints = mean(judicial_constraints, na.rm = TRUE),
+    civil_society_participation = mean(civil_society_participation, na.rm = TRUE),
+    forout = if_else(any(forout == 1, na.rm = TRUE), 1, 0),
+    outesr = if_else(any(outesr == 1, na.rm = TRUE), 1, 0),
+    crismg = if_else(any(crismg == 1, na.rm = TRUE), 1, 0),
+    protrac = if_else(any(protrac == 1, na.rm = TRUE), 1, 0),
+    gravcr = if_else(any(gravcr == 1, na.rm = TRUE), 1, 0),
+    regime_type_a = first(regime_type_a),
+    regime_type_b = first(regime_type_b),
+    regime_type_difference = first(regime_type_difference),
+    coldwar = first(coldwar),
+    alliance = if_else(any(alliance == 1, na.rm = TRUE), 1, 0),
+    ties_to_both_sides = if_else(any(ties_to_both_sides == 1, na.rm = TRUE), 1, 0),
+    military_expenditure_a = first(military_expenditure_a),
+    military_personnel_a = first(military_personnel_a),
+    state_capacity_a = first(state_capacity_a),
+    military_expenditure_b = first(military_expenditure_b),
+    military_personnel_b = first(military_personnel_b),
+    state_capacity_b = first(state_capacity_b),
+    military_expenditure_int = mean(military_expenditure_int),
+    military_personnel_int = mean(military_personnel_int),
+    state_capacity_int = mean(state_capacity_int),
+    contiguous_intervener = if_else(any(contiguous_intervener == 1, na.rm = TRUE), 1, 0),
+    contiguous_actors = if_else(any(contiguous_actors == 1, na.rm = TRUE), 1, 0),
+    human_rights = mean(human_rights),
+    US_involvement = mean(US_involvement)
+  )
+
+ICB_one_observation2 = left_join(ICB_one_observation, ICBdy_step15_simple, by = "crdynum")
+```
+
+Relative Strength
+```{r, echo = F}
+ICB_one_observation2$relative_power = 2*abs((ICB_one_observation2$military_expenditure_a/(ICB_one_observation2$military_expenditure_a+ICB_one_observation2$military_expenditure_b))-0.5)
+```
+
+```{r, echo = F}
+write_csv(
+  ICB_one_observation2,
+  here("Cleaned Data", "ICB_oob.csv")
+)
+```
+
+
+
+
+
+
+
