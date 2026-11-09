@@ -1,0 +1,38 @@
+"type","crdynum","crisno","crisname","namea","nameb","trgyrdy","genuine_match","matching_interveners"
+"Type1_democratic_ties_longterm_success",52,34,"HEGEMONY OVER ALBANIA","ITA","YUG",1926,TRUE,"Czechoslovakia"
+"Type1_democratic_ties_longterm_success",81,53,"ALEXANDRETTA","FRN","TUR",1936,FALSE,NA
+"Type1_democratic_ties_longterm_success",87,58,"DOM. REP./HAITI I","HAI","DOM",1937,TRUE,"United States"
+"Type1_democratic_ties_longterm_success",90,61,"POLISH ULTIMATUM","POL","LIT",1938,FALSE,NA
+"Type1_democratic_ties_longterm_success",192,86,"ECUADOR/PERU BDR II","ECU","PER",1941,TRUE,"United States"
+"Type1_democratic_ties_longterm_success",283,105,"FRENCH FORCES/SYRIA","UNK","FRN",1945,FALSE,NA
+"Type1_democratic_ties_longterm_success",420,153,"QALQILYA","IRQ","ISR",1956,TRUE,"United Kingdom"
+"Type1_democratic_ties_longterm_success",421,153,"QALQILYA","JOR","ISR",1956,TRUE,"United Kingdom"
+"Type1_democratic_ties_longterm_success",449,172,"SHATT-AL-ARAB I","IRN","IRQ",1959,TRUE,"U.K.; U.S."
+"Type1_democratic_ties_longterm_success",460,183,"KUWAIT INDEPENDENCE","IRQ","KUW",1961,FALSE,NA
+"Type1_democratic_ties_longterm_success",476,194,"CHINA/INDIA BDR II","CHN","IND",1962,FALSE,NA
+"Type1_democratic_ties_longterm_success",477,194,"CHINA/INDIA BDR II","CHN","IND",1962,FALSE,NA
+"Type1_democratic_ties_longterm_success",515,219,"YEMEN WAR IV","EGY","SAU",1966,FALSE,NA
+"Type1_democratic_ties_longterm_success",523,223,"CYPRUS II","GRC","TUR",1967,TRUE,"United States"
+"Type1_democratic_ties_longterm_success",533,227,"PRAGUE SPRING","CZE","BUL",1968,FALSE,NA
+"Type1_democratic_ties_longterm_success",534,227,"PRAGUE SPRING","CZE","USR",1968,FALSE,NA
+"Type1_democratic_ties_longterm_success",545,235,"FOOTBALL WAR","HON","ELS",1969,TRUE,"Costa Rica; United States"
+"Type1_democratic_ties_longterm_success",566,243,"CHAD/LIBYA I","CHA","IBY",1971,TRUE,"France"
+"Type1_democratic_ties_longterm_success",584,252,"IRAQ INVASION/KUWAIT","IRQ","KUW",1973,FALSE,NA
+"Type1_democratic_ties_longterm_success",597,257,"CYPRUS III","GRC","TUR",1974,TRUE,"United Kingdom; United States"
+"Type1_democratic_ties_longterm_success",623,272,"AEGEAN SEA I","GRC","TUR",1976,TRUE,"United States"
+"Type1_democratic_ties_longterm_success",673,310,"COLOMBIA/NICARAGUA","NIC","COL",1979,TRUE,"United States"
+"Type1_democratic_ties_longterm_success",687,322,"ECUADOR/PERU BDR III","ECU","PER",1981,TRUE,"United States; Venezuela"
+"Type1_democratic_ties_longterm_success",746,363,"GULF OF SYRTE II","USA","IBY",1986,TRUE,"France"
+"Type1_democratic_ties_longterm_success",759,376,"AEGEAN SEA III","GRC","TUR",1987,TRUE,"United States"
+"Type1_democratic_ties_longterm_success",771,386,"LIBYAN JETS","USA","IBY",1988,TRUE,"France"
+"Type1_democratic_ties_longterm_success",834,413,"ECUADOR/PERU BORDER V","ECU","PER",1995,TRUE,"Argentina; Brazil; Chile; United States"
+"Type2_weak_democratic_shortterm_failure",413,152,"SUEZ NATN.-WAR","USA","USR",1956,TRUE,"Australia"
+"Type2_weak_democratic_shortterm_failure",414,152,"SUEZ NATN.-WAR","UNK","USR",1956,TRUE,"Australia"
+"Type2_weak_democratic_shortterm_failure",416,152,"SUEZ NATN.-WAR","FRN","USR",1956,TRUE,"Australia"
+"Type2_weak_democratic_shortterm_failure",417,152,"SUEZ NATN.-WAR","FRN","EGY",1956,TRUE,"Australia"
+"Type2_weak_democratic_shortterm_failure",419,152,"SUEZ NATN.-WAR","EGY","ISR",1956,TRUE,"Australia"
+"Type2_weak_democratic_shortterm_failure",621,269,"IRAQI THREAT","IRQ","SYR",1976,TRUE,"Israel"
+"Type2_weak_democratic_shortterm_failure",622,270,"ENTEBBE RAID","UGA","ISR",1976,FALSE,NA
+"Type2_weak_democratic_shortterm_failure",699,335,"KHORRAMSHAHR","IRN","IRQ",1982,TRUE,"Sweden"
+"Type2_weak_democratic_shortterm_failure",831,412,"IRAQ DEPLOY/KUWAIT","USA","IRQ",1994,FALSE,NA
+"Type2_weak_democratic_shortterm_failure",833,412,"IRAQ DEPLOY/KUWAIT","IRQ","KUW",1994,FALSE,NA

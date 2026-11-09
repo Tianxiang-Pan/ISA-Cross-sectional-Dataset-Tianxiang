@@ -1,0 +1,234 @@
+---
+title: "ICB Case Finder"
+output: html_document
+---
+
+Purpose: find illustrative ICB crisis cases that fit specific hypothesis
+profiles (e.g. "a democratic intervener with ties to both sides that
+succeeded"), and verify that the match is genuine -- i.e. that the SAME
+intervener satisfies all the conditions, rather than different conditions
+being satisfied by different interveners within the same crisis (which the
+crisis-dyad-level aggregated variables in `matched_caliper` cannot
+distinguish, since `regime_type_int`, `ties_to_both_sides`, etc. are each
+built with `any()` across all interveners independently).
+
+```{r, echo = F, message = F}
+library(dplyr)
+library(here)
+library(knitr)
+```
+
+## Step 1: load the crisis-dyad level matched sample
+
+```{r}
+load(here("models", "ICB_models.RData"))
+# brings in matched_caliper and all h1.x_*/h2.x_* model objects
+```
+
+## Step 2: build (or load cached) intervener-row-level data
+
+`matched_caliper` is aggregated to one row per crisis-dyad, with
+intervener characteristics (`regime_type_int`, `ties_to_both_sides`,
+`military_expenditure_int`, `state_capacity_int`, ...) collapsed across
+potentially several interveners via `any()`/`mean()`. To check whether a
+single intervener actually satisfies a combination of conditions, we need
+the pre-aggregation table with one row per (crisis-dyad x intervener).
+
+That table is `ICBdy_step16` inside `ICB Cleaning.Rmd` (built right before
+the final `group_by(crdynum) %>% summarise(...)` step, and after military
+interveners -- `intervener_category_id == 5` -- are excluded, matching how
+`regime_type_int`/`ties_to_both_sides`/etc. in `matched_caliper` are
+constructed). Rebuilding it means re-running most of the cleaning
+pipeline (it needs the large V-Dem file), so we cache the result and only
+rebuild when the cache is missing.
+
+```{r}
+step16_cache_path <- here("Cleaned Data", "ICBdy_step16.rds")
+
+if (!file.exists(step16_cache_path)) {
+
+  purled_path <- tempfile(fileext = ".R")
+  knitr::purl(
+    here("R Code", "ICB Cleaning.Rmd"),
+    output = purled_path,
+    quiet = TRUE
+  )
+
+  lines <- readLines(purled_path)
+  stop_line <- grep("ICBdy_step16\\s*=", lines)[1]
+
+  if (is.na(stop_line)) {
+    stop(
+      "Could not find the line that builds ICBdy_step16 in ",
+      "'ICB Cleaning.Rmd' -- the cleaning script structure may have ",
+      "changed. Update the search pattern above."
+    )
+  }
+
+  writeLines(lines[1:stop_line], purled_path)
+  source(purled_path)
+
+  saveRDS(ICBdy_step16, step16_cache_path)
+
+} else {
+
+  ICBdy_step16 <- readRDS(step16_cache_path)
+
+}
+
+cat("ICBdy_step16: one row per (crisis-dyad x non-military intervener)\n")
+cat("nrow =", nrow(ICBdy_step16), "\n")
+```
+
+If you edit `ICB Cleaning.Rmd` (e.g. add/change variables upstream of
+`ICBdy_step16`), delete `Cleaned Data/ICBdy_step16.rds` so this rebuilds.
+
+## Step 3: generic case-finding function
+
+`find_cases()` takes:
+
+- `agg_filter`: a filter expression evaluated on `matched_caliper`
+  (crisis-dyad level) -- this is the "does the aggregate story look right"
+  pass.
+- `intervener_filter`: a filter expression evaluated on `ICBdy_step16`
+  (intervener level) -- this is the "is there a single intervener that
+  actually satisfies all the conditions" pass.
+
+It returns one row per crisis-dyad matched by `agg_filter`, flagged
+`genuine_match = TRUE` only if at least one individual intervener in that
+crisis-dyad also satisfies `intervener_filter`, with that intervener's
+name(s) attached. Rows with `genuine_match = FALSE` are crisis-dyads where
+the aggregated variables in `matched_caliper` look like they fit the
+story, but no single intervener actually does -- these should be treated
+as false positives, not cited as examples.
+
+```{r}
+find_cases <- function(agg_filter, intervener_filter, extra_cols = character(0)) {
+
+  agg_filter <- rlang::enquo(agg_filter)
+  intervener_filter <- rlang::enquo(intervener_filter)
+
+  cases <- matched_caliper %>%
+    filter(!!agg_filter) %>%
+    select(
+      crdynum, crisno, crisname, namea, nameb, trgyrdy,
+      regime_type_int, ties_to_both_sides, forout, outesr,
+      military_expenditure_int, state_capacity_int,
+      all_of(extra_cols)
+    )
+
+  matching_interveners <- ICBdy_step16 %>%
+    filter(crdynum %in% cases$crdynum, !!intervener_filter) %>%
+    group_by(crdynum) %>%
+    summarise(
+      matching_interveners = paste(unique(actor), collapse = "; "),
+      .groups = "drop"
+    )
+
+  cases %>%
+    left_join(matching_interveners, by = "crdynum") %>%
+    mutate(genuine_match = !is.na(matching_interveners))
+}
+
+
+# for diagnosing a FALSE case: show every intervener in that crisis-dyad
+# and which of the two conditions (if any) each one individually satisfies
+show_roster <- function(cd) {
+  ICBdy_step16 %>%
+    filter(crdynum == cd) %>%
+    select(
+      actor, intervener_category, regime_type_int,
+      ties_to_both_sides, state_capacity_int, military_expenditure_int
+    ) %>%
+    as.data.frame()
+}
+```
+
+## Step 4: the two requested case types
+
+Type 1: a democratic intervener with ties to both sides, that succeeded
+at making peace (long-term tension reduction).
+
+Type 2: a weak democratic intervener that struggled to make peace
+(short-term failure to reach agreement). "Weak" is defined on
+`state_capacity_int` (CINC, a share of world capability normalized every
+year) rather than `military_expenditure_int` (raw nominal $, trends up
+over the 20th century and isn't comparable across eras -- see the bottom
+of this file for the check).
+
+```{r}
+cap_q25 <- quantile(
+  matched_caliper$state_capacity_int,
+  probs = 0.25,
+  na.rm = TRUE
+)
+
+case_type1 <- find_cases(
+  agg_filter = regime_type_int == 1 & ties_to_both_sides == 1 & outesr == 1,
+  intervener_filter = regime_type_int == 1 & ties_to_both_sides == 1
+)
+
+case_type2 <- find_cases(
+  agg_filter = regime_type_int == 1 &
+    state_capacity_int <= cap_q25 & forout == 0,
+  intervener_filter = regime_type_int == 1 & state_capacity_int <= cap_q25
+)
+
+cat("Type 1: genuine matches =", sum(case_type1$genuine_match),
+    "/", nrow(case_type1), "\n")
+cat("Type 2: genuine matches =", sum(case_type2$genuine_match),
+    "/", nrow(case_type2), "\n")
+
+case_type1 %>%
+  select(crdynum, crisno, crisname, namea, nameb, trgyrdy,
+         genuine_match, matching_interveners) %>%
+  as.data.frame()
+
+case_type2 %>%
+  select(crdynum, crisno, crisname, namea, nameb, trgyrdy,
+         genuine_match, matching_interveners) %>%
+  as.data.frame()
+```
+
+To inspect why a specific crisis-dyad is NOT a genuine match, pull its
+`crdynum` from the tables above and run e.g. `show_roster(476)`.
+
+## Step 5: save results
+
+```{r}
+dir.create(here("Case Examples"), showWarnings = FALSE)
+
+final <- bind_rows(
+  case_type1 %>%
+    mutate(type = "Type1_democratic_ties_longterm_success") %>%
+    select(type, crdynum, crisno, crisname, namea, nameb, trgyrdy,
+           genuine_match, matching_interveners),
+  case_type2 %>%
+    mutate(type = "Type2_weak_democratic_shortterm_failure") %>%
+    select(type, crdynum, crisno, crisname, namea, nameb, trgyrdy,
+           genuine_match, matching_interveners)
+)
+
+write.csv(
+  final,
+  here("Case Examples", "case_summary_with_interveners.csv"),
+  row.names = FALSE
+)
+```
+
+## Appendix: why `state_capacity_int` (CINC) instead of `military_expenditure_int`
+
+`military_expenditure_int` is nominal (not inflation- or era-adjusted),
+so pooling it across ~1920-2000 and taking a flat quantile mostly just
+picks out early-20th-century cases (global nominal military budgets were
+far smaller back then). `state_capacity_int` (the NMC CINC score) is a
+share of that year's world total, so it's comparable across eras.
+
+```{r}
+cat("correlation with year, military_expenditure_int:",
+    cor(matched_caliper$military_expenditure_int, matched_caliper$trgyrdy,
+        use = "complete.obs"), "\n")
+cat("correlation with year, state_capacity_int (CINC):",
+    cor(matched_caliper$state_capacity_int, matched_caliper$trgyrdy,
+        use = "complete.obs"), "\n")
+```

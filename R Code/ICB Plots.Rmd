@@ -248,9 +248,7 @@ figure_1.1 <- ggplot(
   ) +
   labs(
     x = "Intervener Regime Type",
-    y = "Predicted Probability of Tension Reduction",
-    title = "Regime Type (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    y = "Predicted Probability of Tension Reduction"
   ) +
   common_theme
 
@@ -319,9 +317,7 @@ figure_1.2 <- ggplot(
   ) +
   labs(
     x = "Personalism",
-    y = "Predicted Probability of Tension Reduction",
-    title = "Personalism (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    y = "Predicted Probability of Tension Reduction"
   ) +
   common_theme
 
@@ -412,9 +408,7 @@ figure_1.3 <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Regime Type",
-    fill = "Regime Type",
-    title = "Regime Type \u00D7 Military Expenditure (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    fill = "Regime Type"
   ) +
   common_theme
 
@@ -510,9 +504,7 @@ figure_1.4 <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Personalism",
-    fill = "Personalism",
-    title = "Personalism \u00D7 Military Expenditure (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    fill = "Personalism"
   ) +
   common_theme
 
@@ -603,9 +595,7 @@ figure_1.5 <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Regime Type",
-    title = "Regime Type \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    color = "Regime Type"
   ) +
   common_theme
 
@@ -701,9 +691,7 @@ figure_1.6 <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Personalism",
-    title = "Personalism \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    color = "Personalism"
   ) +
   common_theme
 
@@ -799,9 +787,7 @@ figure_1.7 <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Human Rights",
-    title = "Human Rights \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    color = "Human Rights"
   ) +
   common_theme
 
@@ -897,9 +883,7 @@ figure_1.8 <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Human Rights",
-    fill = "Human Rights",
-    title = "Human Rights \u00D7 Military Expenditure (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    fill = "Human Rights"
   ) +
   common_theme
 
@@ -995,9 +979,7 @@ figure_1.9 <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Electoral Democracy",
-    fill = "Electoral Democracy",
-    title = "Electoral Democracy \u00D7 Military Expenditure (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    fill = "Electoral Democracy"
   ) +
   common_theme
 
@@ -1093,9 +1075,7 @@ figure_1.10 <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Transparency",
-    fill = "Transparency",
-    title = "Transparency \u00D7 Military Expenditure (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    fill = "Transparency"
   ) +
   common_theme
 
@@ -1191,9 +1171,7 @@ figure_1.11 <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Electoral Democracy",
-    title = "Electoral Democracy \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    color = "Electoral Democracy"
   ) +
   common_theme
 
@@ -1289,9 +1267,7 @@ figure_1.12 <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Transparency",
-    title = "Transparency \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "95% crisis-clustered HC3 confidence intervals"
+    color = "Transparency"
   ) +
   common_theme
 
@@ -1366,9 +1342,7 @@ make_main_effect_plot <- function(
     ) +
     labs(
       x = x_label,
-      y = "Predicted Probability of Agreement",
-      title = figure_title,
-      subtitle = "95% crisis-clustered HC3 confidence intervals"
+      y = "Predicted Probability of Agreement"
     ) +
     common_theme
 }
@@ -1463,9 +1437,7 @@ make_military_interaction_plot <- function(
       x = "Intervener Military Expenditure (log scale)",
       y = "Predicted Probability of Agreement",
       color = legend_title,
-      fill = legend_title,
-      title = figure_title,
-      subtitle = "95% crisis-clustered HC3 confidence intervals"
+      fill = legend_title
     ) +
     common_theme
 }
@@ -1560,9 +1532,7 @@ make_ties_interaction_plot <- function(
     labs(
       x = "Ties to Both Sides",
       y = "Predicted Probability of Agreement",
-      color = legend_title,
-      title = figure_title,
-      subtitle = "95% crisis-clustered HC3 confidence intervals"
+      color = legend_title
     ) +
     common_theme
 }
@@ -1913,9 +1883,7 @@ figure_1.1_with_US <- ggplot(
   ) +
   labs(
     x = "Intervener Regime Type",
-    y = "Predicted Probability of Tension Reduction",
-    title = "Regime Type (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    y = "Predicted Probability of Tension Reduction"
   ) +
   common_theme
 
@@ -1984,9 +1952,7 @@ figure_1.2_with_US <- ggplot(
   ) +
   labs(
     x = "Personalism",
-    y = "Predicted Probability of Tension Reduction",
-    title = "Personalism (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    y = "Predicted Probability of Tension Reduction"
   ) +
   common_theme
 
@@ -2077,9 +2043,7 @@ figure_1.3_with_US <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Regime Type",
-    fill = "Regime Type",
-    title = "Regime Type \u00D7 Military Expenditure (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    fill = "Regime Type"
   ) +
   common_theme
 
@@ -2175,9 +2139,7 @@ figure_1.4_with_US <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Personalism",
-    fill = "Personalism",
-    title = "Personalism \u00D7 Military Expenditure (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    fill = "Personalism"
   ) +
   common_theme
 
@@ -2268,9 +2230,7 @@ figure_1.5_with_US <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Regime Type",
-    title = "Regime Type \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    color = "Regime Type"
   ) +
   common_theme
 
@@ -2366,9 +2326,7 @@ figure_1.6_with_US <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Personalism",
-    title = "Personalism \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    color = "Personalism"
   ) +
   common_theme
 
@@ -2464,9 +2422,7 @@ figure_1.7_with_US <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Human Rights",
-    title = "Human Rights \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    color = "Human Rights"
   ) +
   common_theme
 
@@ -2562,9 +2518,7 @@ figure_1.8_with_US <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Human Rights",
-    fill = "Human Rights",
-    title = "Human Rights \u00D7 Military Expenditure (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    fill = "Human Rights"
   ) +
   common_theme
 
@@ -2660,9 +2614,7 @@ figure_1.9_with_US <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Electoral Democracy",
-    fill = "Electoral Democracy",
-    title = "Electoral Democracy \u00D7 Military Expenditure (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    fill = "Electoral Democracy"
   ) +
   common_theme
 
@@ -2758,9 +2710,7 @@ figure_1.10_with_US <- ggplot(
     x = "Intervener Military Expenditure (log scale)",
     y = "Predicted Probability of Tension Reduction",
     color = "Transparency",
-    fill = "Transparency",
-    title = "Transparency \u00D7 Military Expenditure (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    fill = "Transparency"
   ) +
   common_theme
 
@@ -2856,9 +2806,7 @@ figure_1.11_with_US <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Electoral Democracy",
-    title = "Electoral Democracy \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    color = "Electoral Democracy"
   ) +
   common_theme
 
@@ -2954,9 +2902,7 @@ figure_1.12_with_US <- ggplot(
   labs(
     x = "Ties to Both Sides",
     y = "Predicted Probability of Tension Reduction",
-    color = "Transparency",
-    title = "Transparency \u00D7 Ties to Both Sides (Long-term)",
-    subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+    color = "Transparency"
   ) +
   common_theme
 
@@ -3033,9 +2979,7 @@ make_main_effect_plot_with_US <- function(
     ) +
     labs(
       x = x_label,
-      y = "Predicted Probability of Agreement",
-      title = figure_title,
-      subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+      y = "Predicted Probability of Agreement"
     ) +
     common_theme
 }
@@ -3129,9 +3073,7 @@ make_military_interaction_plot_with_US <- function(
       x = "Intervener Military Expenditure (log scale)",
       y = "Predicted Probability of Agreement",
       color = legend_title,
-      fill = legend_title,
-      title = figure_title,
-      subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+      fill = legend_title
     ) +
     common_theme
 }
@@ -3225,9 +3167,7 @@ make_ties_interaction_plot_with_US <- function(
     labs(
       x = "Ties to Both Sides",
       y = "Predicted Probability of Agreement",
-      color = legend_title,
-      title = figure_title,
-      subtitle = "Robustness check (US Involvement = 1); 95% crisis-clustered HC3 confidence intervals"
+      color = legend_title
     ) +
     common_theme
 }
@@ -3519,22 +3459,98 @@ figure_2.12_with_US
 ```
 
 
-# Export: Core Finding Plots
+# Figure naming/classification map
+
+Figures no longer carry an in-image title (per Kyle's request), so the
+file name is the only thing identifying a figure now. Main-model figures
+(this is the only set we re-classify/re-name -- the robustness,
+US-involvement figures below keep their previous naming/folder) are named
+`<primary variable>[_<secondary variable>_interaction]_<longterm|shortterm>.png`,
+with no hypothesis numbering.
+
+"Core Finding" = every interaction model (long- and short-term) whose
+primary variable is regime type, personalism, or transparency. Everything
+else (the two main-effect-only models, and every human-rights/electoral-
+democracy model) goes to "Other Plots/Main Models".
+
 ```{r, echo = F}
-# Figures 2-7 in the paper (main models, without US involvement)
-core_plots <- list(
-  "Figure 2 - Regime Type x Military Expenditure (Agreement)" = figure_2.3,
-  "Figure 3 - Personalism x Military Expenditure (Agreement)" = figure_2.4,
-  "Figure 4 - Regime Type x Ties to Both Sides (Tension Reduction)" = figure_1.5,
-  "Figure 5 - Human Rights x Ties to Both Sides (Tension Reduction)" = figure_1.7,
-  "Figure 6 - Personalism x Ties to Both Sides (Tension Reduction)" = figure_1.6,
-  "Figure 7 - Personalism x Ties to Both Sides (Agreement)" = figure_2.6
+figure_spec <- data.frame(
+  hypothesis       = c("H1.1","H1.2","H1.3","H1.4","H1.5","H1.6","H1.7","H1.8",
+                        "H1.9","H1.10","H1.11","H1.12",
+                        "H2.1","H2.2","H2.3","H2.4","H2.5","H2.6","H2.7","H2.8",
+                        "H2.9","H2.10","H2.11","H2.12"),
+  primary_var      = c("regime_type","personalism","regime_type","personalism",
+                        "regime_type","personalism","human_rights","human_rights",
+                        "electoral_demo","transparency","electoral_demo","transparency",
+                        "regime_type","personalism","regime_type","personalism",
+                        "regime_type","personalism","human_rights","human_rights",
+                        "electoral_demo","transparency","electoral_demo","transparency"),
+  primary_label    = c("Regime Type","Personalism","Regime Type","Personalism",
+                        "Regime Type","Personalism","Human Rights","Human Rights",
+                        "Electoral Democracy","Transparency","Electoral Democracy","Transparency",
+                        "Regime Type","Personalism","Regime Type","Personalism",
+                        "Regime Type","Personalism","Human Rights","Human Rights",
+                        "Electoral Democracy","Transparency","Electoral Democracy","Transparency"),
+  secondary_var    = c(NA,NA,"military_expenditure","military_expenditure",
+                        "ties","ties","ties","military_expenditure",
+                        "military_expenditure","military_expenditure","ties","ties",
+                        NA,NA,"military_expenditure","military_expenditure",
+                        "ties","ties","ties","military_expenditure",
+                        "military_expenditure","military_expenditure","ties","ties"),
+  secondary_label  = c(NA,NA,"Military Expenditure","Military Expenditure",
+                        "Ties to Both Sides","Ties to Both Sides","Ties to Both Sides","Military Expenditure",
+                        "Military Expenditure","Military Expenditure","Ties to Both Sides","Ties to Both Sides",
+                        NA,NA,"Military Expenditure","Military Expenditure",
+                        "Ties to Both Sides","Ties to Both Sides","Ties to Both Sides","Military Expenditure",
+                        "Military Expenditure","Military Expenditure","Ties to Both Sides","Ties to Both Sides"),
+  term             = c(rep("longterm", 12), rep("shortterm", 12)),
+  outcome_label    = c(rep("Tension Reduction", 12), rep("Agreement", 12)),
+  stringsAsFactors = FALSE
 )
 
-for (plot_name in names(core_plots)) {
+core_vars <- c("regime_type", "personalism", "transparency")
+figure_spec$is_core <- figure_spec$primary_var %in% core_vars &
+  !is.na(figure_spec$secondary_var)
+
+figure_spec$new_filename <- ifelse(
+  is.na(figure_spec$secondary_var),
+  paste0(figure_spec$primary_var, "_", figure_spec$term, ".png"),
+  paste0(
+    figure_spec$primary_var, "_", figure_spec$secondary_var,
+    "_interaction_", figure_spec$term, ".png"
+  )
+)
+
+figure_spec$robustness_filename <- ifelse(
+  is.na(figure_spec$secondary_label),
+  paste0(figure_spec$hypothesis, " - ", figure_spec$primary_label,
+         " (", figure_spec$outcome_label, ").png"),
+  paste0(figure_spec$hypothesis, " - ", figure_spec$primary_label, " x ",
+         figure_spec$secondary_label, " (", figure_spec$outcome_label, ").png")
+)
+```
+
+# Export: Core Finding Plots
+
+```{r, echo = F}
+core_dir <- here("Plots", "Core Finding Plots")
+unlink(list.files(core_dir, full.names = TRUE))
+
+main_dir <- here("Plots", "Other Plots", "Main Models")
+dir.create(main_dir, recursive = TRUE, showWarnings = FALSE)
+unlink(list.files(main_dir, full.names = TRUE))
+
+for (i in seq_len(nrow(figure_spec))) {
+
+  spec <- figure_spec[i, ]
+  object_name <- sub("^H", "figure_", spec$hypothesis)
+  plot_object <- get(object_name)
+
+  target_dir <- if (spec$is_core) core_dir else main_dir
+
   ggsave(
-    here("Plots", "Core Finding Plots", paste0(plot_name, ".png")),
-    core_plots[[plot_name]],
+    file.path(target_dir, spec$new_filename),
+    plot_object,
     width = 8,
     height = 6,
     dpi = 300,
@@ -3543,54 +3559,23 @@ for (plot_name in names(core_plots)) {
 }
 ```
 
-# Export: Other Plots
+# Export: Other Plots (robustness, US involvement)
+
 ```{r, echo = F}
-# All remaining figures: main models not used in the paper body,
-# and all robustness models (with US involvement)
-core_plot_objects <- c(
-  "figure_2.3", "figure_2.4", "figure_1.5",
-  "figure_1.7", "figure_1.6", "figure_2.6"
-)
+# Unchanged folder/naming for the robustness (US-involvement) figures --
+# only the in-image titles were removed above, so these regenerate with
+# their previous file names.
+robustness_dir <- here("Plots", "Other Plots", "Robustness - US Involvement")
+dir.create(robustness_dir, recursive = TRUE, showWarnings = FALSE)
 
-other_plot_objects <- setdiff(
-  ls(pattern = "^figure_[12]\\.[0-9]+(_with_US)?$"),
-  core_plot_objects
-)
+for (i in seq_len(nrow(figure_spec))) {
 
-for (object_name in other_plot_objects) {
-
+  spec <- figure_spec[i, ]
+  object_name <- paste0(sub("^H", "figure_", spec$hypothesis), "_with_US")
   plot_object <- get(object_name)
 
-  hypothesis <- sub("^figure_([12]\\.[0-9]+).*$", "H\\1", object_name)
-
-  outcome <- if (startsWith(hypothesis, "H1")) {
-    "Tension Reduction"
-  } else {
-    "Agreement"
-  }
-
-  plot_title <- sub(" \\(.*\\)$", "", plot_object$labels$title)
-  plot_title <- gsub(" × ", " x ", plot_title)
-
-  sub_folder <- if (grepl("_with_US$", object_name)) {
-    "Robustness - US Involvement"
-  } else {
-    "Main Models"
-  }
-
-  dir.create(
-    here("Plots", "Other Plots", sub_folder),
-    recursive = TRUE,
-    showWarnings = FALSE
-  )
-
   ggsave(
-    here(
-      "Plots",
-      "Other Plots",
-      sub_folder,
-      paste0(hypothesis, " - ", plot_title, " (", outcome, ").png")
-    ),
+    file.path(robustness_dir, spec$robustness_filename),
     plot_object,
     width = 8,
     height = 6,
